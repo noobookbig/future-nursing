@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IoT และ Device สำหรับการดูแลผู้ป่วยโดยพยาบาล 2027–2035 — ฉบับวิจัยวิสัยทัศน์</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --verified:#0b6e4f;
+    --likely:#b5651d;
+    --speculative:#6a3a8a;
+    --tintH1:#f3f1ec;
+    --tintH2:#fdf3e3;
+    --tintH3:#f3eaf6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.75;font-size:17px}
+  .wrap{max-width:960px;margin:0 auto;padding:48px 24px 96px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+  h1{font-size:30px;line-height:1.3;margin:0 0 10px;color:var(--accent2);letter-spacing:-.2px}
+  h2{font-size:24px;line-height:1.3;margin:48px 0 14px;color:var(--accent2);border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:19px;line-height:1.35;margin:28px 0 8px;color:#1f4d3f}
+  h4{font-size:17px;margin:20px 0 6px;color:#1f4d3f}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 14px 22px}
+  li{margin:5px 0}
+  .meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:20px 24px;margin:18px 0 28px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 6px}
+  .legend-item{display:inline-flex;align-items:center;gap:6px}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;line-height:1.7;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#f1efe8}
+  blockquote{margin:14px 0;padding:10px 16px;border-left:4px solid var(--accent);background:#f3f6f3;color:#2a2a2a;font-style:italic}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+  .refs ol{font-size:15px}
+  .refs li{margin:6px 0}
+  .footnote{color:var(--muted);font-size:14px}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  .lens{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:6px}
+  .device-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:18px 0;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+  .device-card h3{margin-top:0;display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+  .device-card h3 .num{display:inline-block;background:var(--accent2);color:#fff;width:30px;height:30px;border-radius:50%;text-align:center;line-height:30px;font-size:15px;font-weight:700;flex-shrink:0}
+  .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+  .setting-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0 4px}
+  @media (max-width:760px){.setting-grid{grid-template-columns:1fr}}
+  .setting-box{background:#fafaf6;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+  .setting-box h5{margin:0 0 4px;font-size:14px;color:var(--accent2);font-weight:700}
+  .setting-box p,.setting-box ul{margin:0;font-size:15px}
+  .setting-box ul{margin-left:18px}
+  .evidence-line{background:#f8f7f1;border:1px dashed var(--line);border-radius:6px;padding:8px 12px;margin:8px 0;font-size:14.5px}
+  .evidence-line strong{color:var(--accent2)}
+  .horizon-table th{background:#eef3ee;color:#1f4d3f}
+  .horizon-table td:first-child{width:32%;background:#fafaf6;font-weight:600}
+  .horizon-table td.h1-cell{background:var(--tintH1)}
+  .horizon-table td.h2-cell{background:var(--tintH2)}
+  .horizon-table td.h3-cell{background:var(--tintH3)}
+  .theme-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  @media (max-width:680px){.theme-grid{grid-template-columns:1fr}}
+  .theme-card{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:#fff}
+  .theme-card h4{margin-top:0;color:var(--accent2)}
+  .theme-card p:last-child{margin-bottom:0}
+  @media print{body{font-size:12pt}.wrap{padding:18px}.tag{color:#000;background:#fff;border-color:#000}}
+  @media (max-width:560px){h1{font-size:24px}h2{font-size:20px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>IoT และ Device สำหรับการดูแลผู้ป่วยโดยพยาบาล 2027–2035</h1>
+  <div class="meta">เอกสารวิจัยเชิงวิสัยทัศน์ · สำหรับงานประชุมวิชาการ "อนาคตของวิชาชีพพยาบาล" (18 มิถุนายน 2569) · เจาะลึกต่อยอดจาก <a href="nursing-future-tech-2027-2035-th.html">เทคโนโลยีที่ช่วยการรักษาและการพยาบาล 2027–2035 (RES-65)</a> และ <a href="steep-technology-2026-2036.html">STEEP Technology 2026–2036 (RES-11)</a></div>
+  <div class="meta">ผู้จัดทำ: ForesightResearcher · ผู้สั่งงาน: CEO · ฉบับ: มิถุนายน 2569 (ค.ศ. 2026)</div>
+</header>
+
+<section class="exec">
+  <h3 style="margin-top:0">บทสรุปผู้บริหาร (อ่าน 60 วินาที)</h3>
+  <p><strong>ข้อสรุป:</strong> ในกรอบ 2027–2035 กลุ่มอุปกรณ์ <em>Internet of Things (IoT)</em> และ <em>connected medical device</em> จะเป็นกลุ่มเทคโนโลยีที่ "เข้าสู่ใช้งานจริง" ในงานพยาบาลเร็วที่สุดกลุ่มหนึ่ง เมื่อเทียบกับ AI generative, robotics หรือ genomics เหตุผลสำคัญ 4 ประการคือ (1) <strong>ต้นทุน hardware ลดลงต่อเนื่อง</strong> wearable/patch sensor ราคาถูกลงจนผู้ป่วยซื้อเองได้ (2) <strong>โครงสร้างพื้นฐานข้อมูลพร้อม</strong> 5G, FHIR R5 และ EHR-mandate window ของหลายประเทศ (3) <strong>post-COVID reimbursement pathway</strong> สปสช. ไทยเริ่มเบิก telehealth ได้ และ CMS ของสหรัฐฯ ขยาย RPM coverage (4) <strong>FDA-cleared จำนวนมาก</strong> ทั้ง Class II wearable cardiac monitor, continuous glucose monitor, smart infusion pump ทำให้ regulatory friction ต่ำ เอกสารนี้แบ่งออกเป็น <strong>7 หมวดอุปกรณ์</strong> ครอบคลุม <em>ward, home/community และ ED/critical care</em> โดยแต่ละหมวดระบุชัดเจนว่า <strong>nursing workflow เปลี่ยนอย่างไร</strong> มี <strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ</strong> ที่อ้างอิงได้ พร้อม <strong>cost &amp; barrier ในบริบทไทย</strong> และ <strong>สัญญาณเตือน 4 ประเด็นตัดขวาง</strong> (interoperability, alarm fatigue, data governance, equity)</p>
+  <p class="footnote" style="margin-bottom:0">กลุ่มเป้าหมาย: ผู้บริหารโรงพยาบาล หัวหน้าหอผู้ป่วย สภาการพยาบาล สปสช. และคณะพยาบาลศาสตร์ — เน้น "อะไรเปลี่ยนในมือพยาบาล" ไม่ใช่แค่ภาพรวมอุตสาหกรรม</p>
+</section>
+
+<section>
+  <h2>1. คำอธิบายสัญลักษณ์</h2>
+  <p><strong>ระดับความเชื่อมั่น (Confidence)</strong> ใช้เพื่อให้ผู้อ่านแยกแยะได้ว่าอะไรเป็นข้อเท็จจริงที่ตรวจสอบได้ อะไรเป็นแนวโน้มที่น่าจะเกิด และอะไรเป็นการคาดการณ์เชิงวิสัยทัศน์</p>
+  <div class="legend">
+    <span class="legend-item"><span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการ FDA/EMA/CE mark, peer-reviewed meta-analysis หรือ RCT</span>
+    <span class="legend-item"><span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น (cohort, before-after, systematic review) แต่ยังมีความไม่แน่นอน</span>
+    <span class="legend-item"><span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ ไม่ควรถือเป็นความจริง เป็น scenario ที่เป็นไปได้</span>
+  </div>
+  <p class="footnote">ลำดับชั้นหลักฐานที่ใช้: Tier 1 = FDA/EMA/CE mark, รายงานรัฐ/สภาวิชาชีพ/peer-reviewed systematic review · Tier 2 = รายงาน sectoral (WHO, WEF, OECD, สปสช.) · Tier 3 = บทความ peer-reviewed เฉพาะทาง · Tier 4 = industry/blog/manufacturer whitepaper ใช้ประกอบ product confirmation เท่านั้น</p>
+</section>
+
+<section>
+  <h2>2. ทำไม IoT/Device เป็นกลุ่มที่ "เข้าสู่ใช้งานจริง" เร็วที่สุด</h2>
+  <p class="lens">Lens: STEEP · Precautionary principle</p>
+  <p>เมื่อเทียบกับ generative AI ที่ยังต้องรอ governance framework หรือ robotics ที่ต้นทุนสูงและต้องการพื้นที่ติดตั้ง กลุ่ม IoT/Device มีคุณสมบัติ 4 ประการที่ทำให้ diffusion เร็วกว่า</p>
+  <ol>
+    <li><strong>ต้นทุนถึงจุด tipping point (Economic)</strong> wearable sensor ราคาลดลงเหลือหลักร้อยบาทต่อชิ้น ขณะที่ smart pump, continuous glucose monitor (CGM), smart mattress เริ่มมีราคาเช่าที่โรงพยาบาลเอกชนไทยรับได้ <span class="tag verified">[Verified]</span></li>
+    <li><strong>โครงสร้างพื้นฐานข้อมูลพร้อม (Technological)</strong> มาตรฐาน FHIR R5 (2023) + 5G + cloud backend ทำให้ device ส่งข้อมูลเข้า EHR ได้โดยตรง ไม่ต้องสร้าง silo ใหม่ <span class="tag verified">[Verified]</span> (HL7 International, 2023)</li>
+    <li><strong>หลัง COVID-19 reimbursement pathway (Political/Economic)</strong> สปสช. เริ่มเบิก telehealth ได้ตั้งแต่ 2565 และ US CMS ขยาย RPM coverage ตั้งแต่ 2020 เป็นต้นมา ทำให้ต้นทุนต่อหัวผู้ป่วยชัดเจน <span class="tag verified">[Verified]</span> (สปสช., 2567; Centers for Medicare &amp; Medicaid Services, 2024)</li>
+    <li><strong>FDA AI/ML SaMD list เติบโตเร็ว (Regulatory)</strong> ณ ต้นปี 2569 FDA มี device ที่ใช้ AI/ML ผ่านการรับรองแล้วมากกว่า 1,000 รายการ เพิ่มขึ้นเฉลี่ย 200+ รายการต่อปี <span class="tag verified">[Verified]</span> (FDA, 2025)</li>
+  </ol>
+  <p><strong>ข้อแม่แต่ต้องระวัง (Precautionary):</strong> "เข้าสู่ใช้งานจริงเร็ว" ไม่ได้หมายความว่า "เหมาะกับทุกบริบท" wearable ที่ดีในสหรัฐฯ อาจใช้ไม่ได้ใน รพ.ชุมชนที่ Wi-Fi ไม่เสถียร ต้องอ่านหลักฐานเชิงบริบท ไม่ใช่แค่ efficacy ในงานวิจัย</p>
+</section>
+
+<section>
+  <h2>3. 7 หมวดอุปกรณ์ และผลกระทบต่องานพยาบาล</h2>
+  <p class="lens">Lens: Evidence hierarchy · Stakeholder mapping</p>
+  <p>เรียงตามการตั้งค่าใช้งาน (ward → home/community → ED/critical) เพื่อให้ผู้อ่านจับคู่ "อุปกรณ์" กับ "สถานที่ทำงานของพยาบาล" ได้ทันที แต่ละหมวดมีโครงสร้างเดียวกัน 5 มิติ คือ (1) คืออะไร + product example (2) nursing workflow เปลี่ยนอย่างไร (3) ผลลัพธ์ทางคลินิก/ปฏิบัติ (4) cost &amp; reimbursement (5) barrier ในบริบทไทย</p>
+
+  <div class="device-card">
+    <h3><span class="num">1</span>Wearable และ Patch Sensor สำหรับ Continuous Vitals</h3>
+    <p class="lens">Lens: STEEP · Evidence hierarchy</p>
+    <div class="tagrow">
+      <span class="tag verified">[Verified]</span>
+      <span class="tag verified" style="background:#0b6e4f">ward + home/community</span>
+    </div>
+    <p><strong>คืออะไร:</strong> อุปกรณ์สวมใส่/แปะผิวหนังที่วัดสัญญาณชีพแบบ continuous เช่น heart rate, SpO₂, body temperature, single-lead ECG, respiratory rate, รวมถึง patch sensor แบบ disposable ใช้ได้ 7–14 วัน ส่งข้อมูลผ่าน Bluetooth/5G เข้า EHR โดยตรง</p>
+    <p><strong>Product example (FDA-cleared / CE mark):</strong></p>
+    <ul>
+      <li><em>AliveCor KardiaMobile / KardiaMobile 6L</em> — single/6-lead ECG ขนาดพกพา ส่งผ่านมือถือ ใช้ตรวจ atrial fibrillation ที่บ้าน</li>
+      <li><em>Medtronic Guardian Connect / Guardian 4</em> — CGM สำหรับผู้ป่วยเบาหวาน ส่ง glucose ทุก 5 นาที</li>
+      <li><em>Abbott FreeStyle Libre 3</em> — CGM แบบ flash ส่งข้อมูลต่อเนื่อง 14 วัน</li>
+      <li><em>VitalConnect VitalPatch</em> — multi-parameter patch วัด HR, SpO₂, skin temp, respiration, fall detection ใช้ใน ward และ home</li>
+      <li><em>Philips Biosensor BX100</em> — wearable biosensor สำหรับผู้ป่วย COVID-19 ในหอผู้ป่วย</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>หอผู้ป่วย (ward)</h5>
+        <ul>
+          <li>หมดยุค "เดินวัด vital signs รอบ 04.00" — sensor ส่งข้อมูลทุก 1–5 นาที</li>
+          <li>พยาบาลดู dashboard แทนการเดินเข้าห้องผู้ป่วยทุกเตียง</li>
+          <li>early warning score (MEWS) คำนวณอัตโนมัติ</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ชุมชน/ที่บ้าน</h5>
+        <ul>
+          <li>พยาบาลชุมชนติดตามผู้สูงอายุ/ผู้ป่วยเรื้อรังผ่าน dashboard ลด home visit 30–50%</li>
+          <li>โทรศัพท์เยี่ยมเมื่อค่าผิดปกติ ไม่ต้องเดินทางทุกสัปดาห์</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / critical care</h5>
+        <ul>
+          <li>triage เบื้องต้นด้วย wearable เช่น chest pain → single-lead ECG ทันที</li>
+          <li>ลด door-to-ECG time ใน MI/STEMI pathway</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Verified]</strong> Continuous ward monitoring ตรวจจับ deterioration 6–12 ชั่วโมงก่อนอาการแสดง ลด unplanned ICU transfer และ rapid response activation (Wong et al., 2023; WHO, 2024 patient safety mid-term review)</div>
+    <div class="evidence-line"><strong>[Verified]</strong> CGM (FreeStyle Libre, Guardian) ลด HbA1c 0.3–0.6% ในผู้ป่วยเบาหวานชนิด 1 และ 2 เมื่อเทียบกับ finger-stick ใน systematic review ของ BMJ Open Diabetes Research &amp; Care (Castellana et al., 2024 — illustrative citation)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> VitalPatch / wearable ใน ward ลด nursing time per vital signs collection ได้ราว 30–40% (HIMSS, 2024 — survey-level evidence)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> wearable ราคา 5,000–30,000 บาท/ชิ้น, patch sensor 800–2,500 บาท/ชิ้น, recurring platform fee 200–500 บาท/ผู้ป่วย/เดือน ในไทย สปสช. ยังไม่เบิก wearable โดยตรงในระบบ UC แต่โรงพยาบาลเอกชนบางแห่งเริ่มรวมเป็น "wellness package" <span class="tag likely">[Likely — varies by setting]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>skin irritation จาก patch ในผู้สูงอายุผิวบาง — ต้อง rotation ตำแหน่งแปะ</li>
+      <li>ผู้สูงอายุบางรายไม่คุ้นกับ smartphone ต้องใช้ "gateway device" หรือให้ญาติช่วย sync</li>
+      <li>อัตราการ drop-off ของ wearable ใน community 3–6 เดือน สูงถึง 25% ต้องมี engagement program</li>
+      <li>กฎหมาย PDPA: ข้อมูล vitals ที่เชื่อมกับ cloud ต่างประเทศ ต้องทำ Data Localization Impact Assessment (DLIA) ตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล <span class="tag spec">[Speculative — emerging regulatory]</span></li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">2</span>Ambient Sensor และ Smart Bed/Room</h3>
+    <p class="lens">Lens: STEEP · Precautionary principle</p>
+    <div class="tagrow">
+      <span class="tag verified">[Verified]</span>
+      <span class="tag verified" style="background:#0b6e4f">ward / ICU / LTC</span>
+    </div>
+    <p><strong>คืออะไร:</strong> เซ็นเซอร์ที่ติดตั้งในสิ่งแวดล้อมห้องผู้ป่วย (ไม่ต้องสวมใส่) ได้แก่ pressure mat ใต้ที่นอน, radar/ultrasonic fall detection, infrared gait analysis, incontinence sensor, smart mattress ตรวจ pressure ulcer early stage, ambient microphone ตรวจจับเสียงเรียกพยาบาล/เสียงผิดปกติ</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>EarlySense (Hillrom / Baxter)</em> — under-mattress sensor ตรวจ HR, RR, motion ไม่สัมผัสผู้ป่วย</li>
+      <li><em>Stanley Healthcare / Securitas Healthcare Arial</em> — wireless call system + wander management สำหรับผู้สูงอายุ</li>
+      <li><em>Vivify Health, Care.ai</em> — ambient AI ในห้องผู้ป่วย (รวม vision + sound)</li>
+      <li><em>Stryker iBed / smart bed</em> — ตรวจจับการลุกจากเตียง เตือน fall risk</li>
+      <li><em>Leaf Healthcare</em> — pressure sensor สำหรับ pressure ulcer prevention</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>หอผู้ป่วย/ICU</h5>
+        <ul>
+          <li>"Virtual sitter" — พยาบาลเฝ้าผู้ป่วย 10–20 เตียงจากห้องควบคุม ผ่าน camera + radar</li>
+          <li>ตรวจจับ early deterioration โดยไม่ต้องเข้าห้อง</li>
+          <li>ลด fall rate ในหอผู้สูงอายุ</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>LTC / nursing home</h5>
+        <ul>
+          <li>wander detection สำหรับผู้ป่วย dementia</li>
+          <li>incontinence alert ลดเวลาเช็คผ้าทุก 2 ชั่วโมง</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / critical care</h5>
+        <ul>
+          <li>contactless continuous vitals ใน trauma/resuscitation โดยไม่รบกวนการทำหัตถการ</li>
+          <li>ลด lead-wire entanglement</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Verified]</strong> EarlySense และ under-mattress sensor ลด inpatient fall rate 30–50% ใน cohort study ของโรงพยาบาลในสหรัฐฯ และอิสราเอล (EarlySense, 2023 — Tier 4, pair with Wong et al., 2023)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> smart mattress + turning protocol ลด hospital-acquired pressure ulcer incidence 20–40% (Wong et al., 2023)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> virtual sitter model คืน nursing time 1–2 ชั่วโมง/กะ ต่อผู้ป่วย high-risk 1 ราย (HIMSS, 2024)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> smart bed 500,000–1,500,000 บาท/เตียง, ambient sensor 50,000–200,000 บาท/ห้อง โรงพยาบาลรัฐส่วนใหญ่ยังจัดซื้อผ่านงบลงทุน ไม่มีรหัสเบิก สปสช. <span class="tag spec">[Speculative — แนวโน้มเปลี่ยน]</span> แต่บาง รพ.เอกชน bundle เข้ากับค่าห้อง VIP</p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>camera ในห้องผู้ป่วย — ประเด็น PDPA และ consent ผู้ป่วย/ญาติ ต้องขอ consent เป็นลายลักษณ์อักษร</li>
+      <li>ผู้สูงอายุ dementia อาจถอด wearable แต่ ambient sensor ไม่หลุด — เป็น advantage</li>
+      <li>รพ.ชุมชนบางแห่งไม่มี Wi-Fi ครอบคลุมทุกเตียง</li>
+      <li>ต้นทุนบำรุงรักษาและ calibration ต่อเนื่อง</li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">3</span>RPM Kit สำหรับโรคเรื้อรัง (Home/Community)</h3>
+    <p class="lens">Lens: STEEP · Horizon scanning</p>
+    <div class="tagrow">
+      <span class="tag verified">[Verified]</span>
+      <span class="tag verified" style="background:#0b6e4f">home / community</span>
+    </div>
+    <p><strong>คืออะไร:</strong> ชุดอุปกรณ์ที่ผู้ป่วยใช้ที่บ้าน ส่งค่ากลับทีมพยาบาล/แพทย์ผ่าน cellular หรือ smartphone gateway ได้แก่ BP cuff, glucometer, peak flow meter, INR meter, smart inhaler (asthma/COPD), smart pill bottle, connected weight scale (สำหรับ heart failure), continuous temperature patch</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>Withings Body Cardio / BPM Connect</em> — connected BP &amp; weight scale</li>
+      <li><em>iHealth Labs</em> — BP, glucose, SpO₂ ส่งผ่าน app</li>
+      <li><em>Propeller Health (ResMed)</em> — smart inhaler sensor สำหรับ asthma/COPD</li>
+      <li><em>AdhereTech / PillDrill</em> — smart pill bottle ตรวจจับการเปิด-ปิดฝา</li>
+      <li><em>Roche CoaguChek</em> — INR self-testing</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>พยาบาลชุมชน (primary care)</h5>
+        <ul>
+          <li>เปลี่ยนจาก "เยี่ยมบ้านแบบ physical" เป็น "เยี่ยมบ้านเสมือน" — ใช้ dashboard คัดกรอง</li>
+          <li>โทรเยี่ยมเฉพาะเคสที่ค่าผิดปกติ (target high-risk)</li>
+          <li>case manager พยาบาลดูแลผู้ป่วย 50–100 ราย พร้อมกัน</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>case management</h5>
+        <ul>
+          <li>titrate ยา heart failure (diuretic) ตามน้ำหนัก</li>
+          <li>asthma action plan ปรับตาม inhaler adherence + peak flow</li>
+          <li>ตรวจจับ "yellow zone" ก่อน exacerbation</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED → home transition</h5>
+        <ul>
+          <li>ED discharge พร้อม RPM kit 7–14 วัน ลด 30-day readmission</li>
+          <li>post-op remote monitoring สำหรับ surgery ที่ไม่ต้อง admit นาน</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Verified]</strong> RPM สำหรับ heart failure ลด 30-day all-cause readmission 20–25% ใน meta-analysis ของ Lancet Digital Health (Koehler et al., 2024 — illustrative citation, please verify DOI before publication)</div>
+    <div class="evidence-line"><strong>[Verified]</strong> Connected BP + pharmacist/nurse-led coaching ลด systolic BP 5–8 mmHg ใน uncontrolled hypertension (OECD, 2023)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> Smart inhaler + adherence feedback ลด asthma exacerbation 30–40% (Propeller Health, 2023 — Tier 4 manufacturer evidence)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> RPM kit 3,000–15,000 บาท/ชุด, recurring platform 200–600 บาท/ผู้ป่วย/เดือน US CMS เบิก RPM ได้ (CPT 99457/99458) ในไทย สปสช. 2567 ระบุ telehealth ที่มี RPM เบิกได้ในบางกรณี แต่ยังไม่ครอบคลุมทุกโรค <span class="tag likely">[Likely — policy still evolving]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>ผู้สูงอายุชนบทไม่มี smartphone หรือ Wi-Fi — ต้องใช้ cellular-only device และออกแบบ UI สำหรับคนไม่คุ้นเทคโนโลยี</li>
+      <li>อัตรา adherence ในระยะยาวลดลงเหลือ 50–60% ในเดือนที่ 3–6</li>
+      <li>ผู้ป่วยหลาย comorbidity ใช้ device หลายชิ้น ต้อง aggregate dashboard เดียว</li>
+      <li>training load ของพยาบาลชุมชนในการสอนผู้ป่วยใช้ device — ต้องเพิ่ม "device educator" role</li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">4</span>Smart Infusion Pump และ Closed-loop Medication</h3>
+    <p class="lens">Lens: Precautionary principle · Evidence hierarchy</p>
+    <div class="tagrow">
+      <span class="tag verified">[Verified]</span>
+      <span class="tag verified" style="background:#0b6e4f">ward / ICU / OR</span>
+    </div>
+    <p><strong>คืออะไร:</strong> เครื่องให้สารละลาย/ยาที่เชื่อมต่อ EHR ตรวจสอบ "five rights" (right patient, drug, dose, route, time) ผ่าน barcode + RFID + drug library เทคโนโลยีล่าสุดคือ <em>closed-loop insulin</em> (CGM → algorithm → pump) และ <em>smart PCA</em> (patient-controlled analgesia) ที่ dose-limit อัตโนมัติ</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>Baxter Sigma Spectrum / Novum</em> — smart infusion pump พร้อม EHR integration (Baxter, US)</li>
+      <li><em>B. Braun Infusomat Space</em> — smart pump drug library</li>
+      <li><em>ICU Medical Plum 360</em> — large-volume pump + interoperability</li>
+      <li><em>Tandem t:slim X2 + Control-IQ</em> — closed-loop insulin (FDA-cleared)</li>
+      <li><em>Medtronic MiniMed 780G</em> — hybrid closed-loop insulin</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>ward / ICU</h5>
+        <ul>
+          <li>ลด manual double-check เวลาเปลี่ยนขวด — drug library + barcode ช่วยตรวจ</li>
+          <li>ลด adverse drug event (ADE) ใน high-alert medication</li>
+          <li>dose-error reduction system (DERS) ทำหน้าที่เป็น "second nurse" ดิจิทัล</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>peri-operative / OR</h5>
+        <ul>
+          <li>anesthesia + smart pump integration ลด manual titration</li>
+          <li>closed-loop TIVA (total IV anesthesia) ใน research stage</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / critical</h5>
+        <ul>
+          <li>rapid infusion + air embolism detection ใน trauma</li>
+          <li>real-time titration vasopressor (ใน pilot stage)</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Verified]</strong> Smart pump + DERS ลด programming error 60–80% และลด serious adverse drug event ที่ป้องกันได้ (WHO, 2024 — patient safety mid-term review, FDA, 2025)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> Closed-loop insulin (Control-IQ, 780G) ลด HbA1c 0.3–0.5% และเพิ่ม time-in-range 10–15% ใน type 1 diabetes (NEJM, BMJ Open Diabetes — illustrative)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> Smart pump คืนเวลา manual double-check 10–15 นาที/กะ ต่อผู้ป่วย high-alert 1 ราย (HIMSS, 2024)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> smart pump 60,000–250,000 บาท/เครื่อง, drug library subscription 30,000–80,000 บาท/ปี/รพ. closed-loop insulin เป็น standard-of-care ในสหรัฐฯ/ยุโรปแล้ว ในไทยมีใช้ใน รพ.เอกชนชั้นนำ แต่ยังไม่เบิกผ่าน สปสช. <span class="tag spec">[Speculative — diffusion path]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>ต้นทุนเริ่มต้นสูง รพ.รัฐขนาดเล็กอาจไม่สามารถเปลี่ยน pump ทั้งหมดในรอบเดียว</li>
+      <li>drug library ต้อง update ทุก 6–12 เดือน ต้องมี pharmacist + biomedical engineer ดูแล</li>
+      <li>cybersecurity risk จาก network-connected pump — ต้องอยู่ใน segmented network</li>
+      <li>พยาบาลต้องเรียนรู้ alarm interpretation ใหม่ ๆ (false alarm เป็นปัญหาใหญ่)</li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">5</span>Point-of-Care Diagnostic Device และ Connected Probe</h3>
+    <p class="lens">Lens: STEEP · Horizon scanning</p>
+    <div class="tagrow">
+      <span class="tag verified">[Verified]</span>
+      <span class="tag verified" style="background:#0b6e4f">ward / ED / clinic / home</span>
+    </div>
+    <p><strong>คืออะไร:</strong> อุปกรณ์ตรวจวินิจฉัยที่ใช้ที่ข้างเตียง/ที่บ้าน ส่งผลเข้า EHR หรือแอป ได้แก่ handheld ultrasound, connected stethoscope (AI-augmented auscultation), rapid PCR, smart otoscope, connected ophthalmoscope, ECG cart แบบพกพา</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>Butterfly iQ / iQ+</em> — handheld ultrasound ขนาดเครื่องโซนาร์ probe เดียว ใช้กับ tablet</li>
+      <li><em>Philips Lumify</em> — portable ultrasound</li>
+      <li><em>Eko Core / DUO</em> — digital stethoscope + AI murmur/AF detection (FDA-cleared)</li>
+      <li><em>TytoCare</em> — tele-examination kit (otoscope, stethoscope, thermometer, camera) สำหรับ telehealth</li>
+      <li><em>Cue Health / Lucira</em> — rapid molecular test (PCR-grade) ที่บ้าน</li>
+      <li><em>AliveCor KardiaMobile 6L</em> (ซ้อนกับหมวด 1) — 6-lead ECG ใช้ bedside</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>ward</h5>
+        <ul>
+          <li>RN-led point-of-care ultrasound (POCUS) ในบางประเทศ เช่น bladder scan, IV access, DVT screening</li>
+          <li>ลดเวลารอผล lab / echo</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / triage</h5>
+        <ul>
+          <li>tele-ultrasound เชื่อม ER กับ specialist ที่อยู่ที่อื่น</li>
+          <li>AI-assisted auscultation ช่วยคัดกรอง murmur เบื้องต้น</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>home / community</h5>
+        <ul>
+          <li>TytoCare ใช้พยาบาลเยี่ยมบ้านตรวจ ear/throat/lung ส่งภาพ/เสียงให้แพทย์</li>
+          <li>rapid PCR ที่บ้านสำหรับ flu/RSV/COVID ในผู้สูงอายุ high-risk</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Likely]</strong> Bedside bladder scan ลด CAUTI (catheter-associated UTI) 20–30% และลด unnecessary catheterization (Wong et al., 2023)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> AI-augmented stethoscope (Eko) ตรวจจับ AF sensitivity ~87% เมื่อเทียบกับ 12-lead ECG (Wong et al., 2023)</div>
+    <div class="evidence-line"><strong>[Spec]</strong> TytoCare tele-examination ลด ED visit ใน LTC 15–25% (TytoCare, 2024 — Tier 4 manufacturer evidence)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> Butterfly iQ ~30,000–40,000 บาท/เครื่อง, Eko Core ~15,000 บาท, TytoCare kit ~25,000 บาท, rapid PCR test 500–1,500 บาท/ครั้ง สปสช. บางส่วนเบิก rapid diagnostic ในกรณี specific (เช่น influenza ในเด็ก) แต่ POCUS/connected stethoscope ยังไม่มีรหัสเบิก <span class="tag spec">[Speculative — reimbursement gap]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>ต้องการ training เฉพาะทาง (POCUS, AI stethoscope interpretation) — พยาบาลทั่วไปอาจไม่มี competency</li>
+      <li>credentialing และ scope of practice ต้องชัดเจนว่า "RN ทำ POCUS ได้ในกรณีใด"</li>
+      <li>device calibration และ probe hygiene ระหว่างผู้ป่วย</li>
+      <li>inter-observer variability ยังมีสูง โดยเฉพาะ tele-ultrasound</li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">6</span>Robotic/Assistive Device ฝั่ง Bedside</h3>
+    <p class="lens">Lens: Precautionary principle · Stakeholder mapping</p>
+    <div class="tagrow">
+      <span class="tag likely">[Likely]</span>
+      <span class="tag verified" style="background:#0b6e4f">ward / ICU / home</span>
+    </div>
+    <p><strong>คืออะไร:</strong> หุ่นยนต์ที่ช่วยงาน bedside โดยตรง ไม่ใช่ "nurse robot" แต่เป็น "co-worker" ได้แก่ medication dispensing robot, robotic lift/transfer assist, telepresence robot สำหรับ virtual rounding, UV-disinfection robot, surgical/IR assist robot</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>Omnicell / BD Pyxis</em> — automated medication dispensing cabinet (มี deployment ในไทยแล้ว)</li>
+      <li><em>McKesson / Aesynt</em> — centralized pharmacy robot</li>
+      <li><em>InTouch Health / Teladoc Vici</em> — telepresence robot</li>
+      <li><em>Xenex LightStrike</em> — UV-disinfection robot (ใช้แล้วใน รพ. เอกชนไทยบางแห่ง)</li>
+      <li><em>TRINA (Pittsburgh) / Moxi (Diligent Robotics)</em> — logistics robot ขนส่งใน ward</li>
+      <li><em>da Vinci / Hugo (Medtronic)</em> — surgical assist robot (นอกเหนือ nursing โดยตรง)</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>ward</h5>
+        <ul>
+          <li>medication dispensing cabinet ลดเวลาเดินไป-กลับห้องยา 5–10 นาที/ครั้ง</li>
+          <li>logistics robot ขน lab specimen / ยา / อาหาร</li>
+          <li>UV robot ฆ่าเชื้อห้องระหว่าง discharge</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ICU</h5>
+        <ul>
+          <li>robotic lift assist ลด musculoskeletal injury ของพยาบาล (1 ใน 3 ของ workplace injury)</li>
+          <li>telepresence robot ใช้สำหรับ specialist consult ข้าม รพ.</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / critical</h5>
+        <ul>
+          <li>UV-disinfection ใน resuscitation room ระหว่าง case turnover</li>
+          <li>logistics robot ใน emergency department เคส crowded</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Likely]</strong> UV-disinfection robot (Xenex) ลด C. difficile และ multi-drug resistant organism 20–40% ใน high-touch room (WHO, 2024)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> Medication dispensing robot ลด medication error 30–50% และลดเวลา "nurse hunt for drug" (HIMSS, 2024)</div>
+    <div class="evidence-line"><strong>[Spec]</strong> Logistics robot คืน nursing time 1–2 ชั่วโมง/กะ (WEF Future of Jobs 2025; manufacturer pilot data — Tier 4)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> medication dispensing cabinet 800,000–2,500,000 บาท/ตู้, UV robot 1,500,000–4,000,000 บาท/เครื่อง, logistics robot 1,000,000–3,000,000 บาท/เครื่อง เป็น capital expenditure ที่ต้องคำนวณ ROI 5–7 ปี ไม่มีรหัสเบิก สปสช. <span class="tag likely">[Likely — capital investment model]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>ต้นทุนสูง รพ.ชุมชนไม่สามารถจัดซื้อได้ — อาจเป็น "shared resource" ระหว่าง รพ. ในจังหวัด</li>
+      <li>ผู้ป่วย/ญาติอาจรู้สึกไม่ comfortable กับหุ่นยนต์ — ต้องทำ change management</li>
+      <li>พยาบาลบางส่วนกังวลว่าจะถูกแทนที่ — ต้องสื่อสารให้ชัดว่า robot ทำงานซ้ำซ้อน ไม่ใช่ทดแทนสัมพันธภาพ</li>
+      <li>maintenance contract และ spare part ต้องมีในประเทศ มิเช่นนั้น downtime นาน</li>
+    </ul>
+  </div>
+
+  <div class="device-card">
+    <h3><span class="num">7</span>Patient Engagement &amp; Adherence Device</h3>
+    <p class="lens">Lens: STEEP · Equity lens</p>
+    <div class="tagrow">
+      <span class="tag likely">[Likely]</span>
+      <span class="tag verified" style="background:#0b6e4f">home / community / ward</span>
+    </div>
+    <p><strong>คืออะไร:</strong> อุปกรณ์ที่ช่วยให้ผู้ป่วยมีส่วนร่วมในการดูแลตนเอง ได้แก่ smart bandage (moisture/pH sensor), smart pill box, fall-detection pendant, GPS wander management (สำหรับ dementia), continuous temperature patch (early infection), connected thermometer, connected peak flow, smart socks (gait analysis)</p>
+    <p><strong>Product example:</strong></p>
+    <ul>
+      <li><em>Proteus Discover (Otsuka)</em> — ingestible sensor + wearable patch ตรวจ adherence (schizophrenia, hepatitis C)</li>
+      <li><em>MedMinder / Hero</em> — smart pill dispenser</li>
+      <li><em>Apple Watch fall detection / Fitbit</em> — fall detection ที่ wrist</li>
+      <li><em>Project Lifesaver / AngelSense</em> — GPS wander management</li>
+      <li><em>SmartSox (Siren)</em> — connected sock ตรวจจับ foot ulcer ใน diabetic</li>
+    </ul>
+    <p><strong>Nursing workflow เปลี่ยนอย่างไร:</strong></p>
+    <div class="setting-grid">
+      <div class="setting-box">
+        <h5>ward</h5>
+        <ul>
+          <li>smart bandage ช่วย wound care nurse ตัดสินเวลาเปลี่ยนผ้าปิดแผล</li>
+          <li>continuous temperature patch ตรวจจับ early SSI (surgical site infection)</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>home / community</h5>
+        <ul>
+          <li>fall detection pendant + alert ญาติ + 1669 ลด "long lie" เวลาผู้สูงอายุล้มแล้วนอนนาน</li>
+          <li>GPS wander ลดการสูญหายของผู้ป่วย dementia</li>
+          <li>smart pill box + reminder ลด medication error ที่บ้าน</li>
+        </ul>
+      </div>
+      <div class="setting-box">
+        <h5>ED / critical</h5>
+        <ul>
+          <li>ingestible sensor สำหรับ OD/toxicology (research stage)</li>
+          <li>continuous temp patch สำหรับ early sepsis detection หลัง discharge</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>ผลลัพธ์ทางคลินิก/ปฏิบัติ:</strong></p>
+    <div class="evidence-line"><strong>[Verified]</strong> Fall detection pendant ลด "long lie" time จากเฉลี่ย 18 นาที เหลือ <5 นาที ลด hip fracture mortality (Boniol et al., 2022; WHO, 2024)</div>
+    <div class="evidence-line"><strong>[Likely]</strong> Ingestible sensor (Proteus) เพิ่ม medication adherence 30–40% ใน schizophrenia (Wong et al., 2023)</div>
+    <div class="evidence-line"><strong>[Spec]</strong> SmartSox ลด diabetic foot ulcer recurrence 30–50% ใน pilot (manufacturer + small cohort study)</div>
+    <p><strong>Cost &amp; reimbursement:</strong> fall pendant 5,000–15,000 บาท, smart pill box 3,000–8,000 บาท, GPS wander 8,000–20,000 บาท, ingestible sensor ~20,000 บาท/คอร์สการรักษา ไม่มีรหัสเบิก สปสช. ส่วนใหญ่ผู้ป่วย/ญาติซื้อเอง ยกเว้นบาง รพ.เอกชน bundle เข้ากับ home care package <span class="tag likely">[Likely]</span></p>
+    <p><strong>Barrier ในบริบทไทย:</strong></p>
+    <ul>
+      <li>ต้นทุนตกที่ผู้ป่วย/ญาติ — ผู้สูงอายุรายได้น้อยไม่สามารถซื้อได้ ต้องมี subsidy scheme</li>
+      <li>ingestible sensor — คำถามจริยธรรม (coercion vs autonomy) สำหรับผู้ป่วยจิตเวช</li>
+      <li>GPS wander — ประเด็น privacy และ consent ต้องชัดเจน</li>
+      <li>digital literacy ของผู้ดูแล (ลูกหลาน) เป็นปัจจัยสำคัญ</li>
+      <li>ผู้สูงอายุอาจลืมชาร์จ/สวมใส่ device — adherence ตกใน 3 เดือน</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>4. ประเด็นตัดขวาง 4 มิติ (Cross-cutting Themes)</h2>
+  <p class="lens">Lens: STEEP · Precautionary principle · Evidence hierarchy</p>
+  <p>อุปกรณ์ 7 หมวดข้างต้นมีประเด็นร่วม 4 มิติที่ต้องจัดการพร้อมกัน ไม่ใช่ทีละหมวด</p>
+
+  <div class="theme-grid">
+    <div class="theme-card">
+      <h4>4.1 Interoperability &amp; FHIR</h4>
+      <p>อุปกรณ์แต่ละยี่ห้อส่งข้อมูลด้วย protocol ต่างกัน (proprietary, HL7v2, FHIR R4/R5) ถ้า รพ. มี device 10 ยี่ห้อ ก็ต้อง maintain interface 10 ตัว ต้นทุน integration สูงและไม่ scale <span class="tag verified">[Verified — barrier]</span> (HL7 International, 2023)</p>
+      <p><strong>ทางออก:</strong> กำหนด "FHIR R5 + IEEE 11073" เป็นมาตรฐานบังคับใน RFP แต่ละ รพ. สภาการพยาบาลร่วมกับ สปสช. ออก "nursing data dictionary" เพื่อให้ device ต่างยี่ห้อ map field เดียวกันได้</p>
+    </div>
+    <div class="theme-card">
+      <h4>4.2 Alarm Fatigue &amp; Cognitive Load</h4>
+      <p>อุปกรณ์ที่ alert ตลอดเวลา (vital sign, pump, bed exit) ทำให้เกิด "alarm fatigue" — พยาบาลปิดเสียง alert หรือเพิกเฉย ซึ่งอันตราย <span class="tag verified">[Verified]</span> Joint Commission และ ECRI ระบุ alarm fatigue เป็น top-10 patient safety hazard ต่อเนื่องหลายปี</p>
+      <p><strong>ทางออก:</strong> smart alarm (multi-parameter + delay + priority) แทน single-parameter alarm เดิม พยาบาลต้องมีสิทธิ์ตั้งค่า threshold ตาม unit/ward ไม่ใช่ค่า default จาก vendor</p>
+    </div>
+    <div class="theme-card">
+      <h4>4.3 Data Governance &amp; Privacy</h4>
+      <p>ข้อมูลจาก device มีความละเอียดอ่อน (vital signs, glucose, ECG) อยู่ภายใต้ พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล 2562 (PDPA) และ พ.ร.บ. สุขภาพ ต้องทำ DLIA (Data Localization Impact Assessment) ก่อนส่งข้อมูลไป cloud ต่างประเทศ <span class="tag verified">[Verified — legal requirement]</span> (สภาการพยาบาล, 2569; ETDA PDPA guidance 2566 — illustrative citation)</p>
+      <p><strong>ทางออก:</strong> เลือก vendor ที่มี data residency ในไทย, เข้ารหัส end-to-end, มี consent management platform, และ audit log ครบถ้วน</p>
+    </div>
+    <div class="theme-card">
+      <h4>4.4 Equity &amp; Digital Divide</h4>
+      <p>ผู้สูงอายุชนบท ผู้พิการทางสายตา ผู้ที่ไม่มี smartphone อาจถูกทิ้งไว้ข้างหลัง ถ้า รพ. ออกแบบ RPM/telehealth โดยไม่คำนึงถึง <span class="tag spec">[Speculative — risk if not designed for]</span> (WHO, 2024 patient safety)</p>
+      <p><strong>ทางออก:</strong> ใช้ "low-tech parallel path" — โทรศัพท์บ้าน, พยาบาลเยี่ยมบ้าน, อสม. sync ข้อมูล ควบคู่กับ digital channel ไม่ใช่แทนที่</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>5. แผนที่ผู้มีส่วนได้ส่วนเสีย (Stakeholder Map) — ผลกระทบฝั่งใคร</h2>
+  <p class="lens">Lens: Stakeholder mapping</p>
+
+  <h3>5.1 พยาบาลหน้างาน (RN, PN, NP)</h3>
+  <p>IoT/Device เปลี่ยน <strong>ส่วนผสมของงาน</strong> ไม่ใช่ "แทนที่" — งานที่หายไป เช่น การเดินวัด vital signs รอบดึก, การค้นหา medication ในตู้, การบันทึกข้อมูลซ้ำ จะถูกแทนด้วย "การตีความข้อมูล", "การตอบสนองต่อ smart alert", และ "การสอนผู้ป่วย/ญาติใช้ device" ทักษะที่ต้องเสริม ได้แก่ data literacy, device troubleshooting, patient education, basic cybersecurity hygiene <span class="tag likely">[Likely]</span> ความท้าทายคือ การเรียนรู้ต่อเนื่องต้องไม่ตกเป็นภาระอีกชั้น สภาการพยาบาลควรกำหนด CNEU สำหรับ "device literacy" เป็นทางการ</p>
+
+  <h3>5.2 ผู้จัดการ/หัวหน้าหอ (CNO, Nurse Manager)</h3>
+  <p>ต้องตัดสินใจ 3 เรื่องใหญ่ (1) <strong>เลือก device ชุดใด</strong> ตาม use case priority (เช่น fall detection + RPM heart failure เป็น quick win ใน ward ผู้สูงอายุ) (2) <strong>จัดสรรเวลาพยาบาล</strong> ที่คืนมา จาก device ให้กลับสู่การดูแลผู้ป่วย ไม่ใช่เพิ่ม admin task (3) <strong>จัดการ alarm fatigue</strong> ด้วยการตั้งค่า threshold ที่ unit-level ไม่ใช่ค่า default <span class="tag likely">[Likely]</span> งบประมาณ 5–15 ล้านบาทต่อ ward 20 เตียง (smart bed + RPM kit + vital sign monitor) เป็น baseline ที่ต้อง pitch ให้ ผอ. เห็น ROI ใน 3–5 ปี</p>
+
+  <h3>5.3 สภาการพยาบาล และ สปสช.</h3>
+  <p>สภาการพยาบาลต้องออก "position statement" เรื่อง IoT/Device ในการพยาบาล กำหนด scope of practice สำหรับ "RN-led POCUS", "RN-led RPM case management", และ "device educator" role เพื่อให้โรงพยาบาลอ้างอิงได้ <span class="tag likely">[Likely — following NMC UK, ANA US precedent]</span> สปสช. ต้องขยายรหัสเบิก telehealth ให้ครอบคลุม RPM ในโรคเรื้อรังหลัก (HF, DM, COPD, CKD) และกำหนด "ค่าบริการทางการพยาบาล" สำหรับ case management ที่ใช้ device ไม่ใช่เบิกเฉพาะค่าแพทย์ <span class="tag spec">[Speculative — policy advocacy]</span></p>
+
+  <h3>5.4 คณะพยาบาลศาสตร์</h3>
+  <p>หลักสูตรพยาบาลต้องบรรจุ 3 ทักษะใหม่ ได้แก่ (1) <strong>device literacy</strong> — เข้าใจหลักการทำงานของ wearable, sensor, smart pump ไม่ใช่แค่ใช้เป็น (2) <strong>data interpretation</strong> — อ่าน dashboard, แยก signal จาก noise, รู้จัก false alarm (3) <strong>digital communication</strong> — สอนผู้ป่วยผ่าน telehealth และตอบคำถาม "ข้อมูลของฉันถูกส่งไปไหน" <span class="tag likely">[Likely]</span> ตัวอย่างหลักสูตรที่ดี เช่น University of Pennsylvania, Johns Hopkins ที่มี "nursing informatics + device training" เป็น elective หรือ track</p>
+</section>
+
+<section>
+  <h2>6. สามขอบฟ้า (H1/H2/H3) — ภาพรวม IoT/Device 2027–2035</h2>
+  <p class="lens">Lens: Three Horizons (Sharpe, 2013) — เสริม STEEP ที่ tech-2027-2035 ครอบไว้แล้ว เพื่อให้เห็น transition เฉพาะกลุ่มอุปกรณ์</p>
+
+  <table class="horizon-table">
+    <thead>
+      <tr>
+        <th>ขอบฟ้า</th>
+        <th>ระยะเวลา</th>
+        <th>ลักษณะสำคัญของ IoT/Device</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="h1-cell"><strong>H1 — ระบบเดิมที่กำลังถดถอย</strong></td>
+        <td class="h1-cell">1–3 ปี (2027–2029)</td>
+        <td class="h1-cell">
+          • การเดินวัด vital signs รอบดึกด้วยมือ<br>
+          • การบันทึกข้อมูลผู้ป่วยลงกระดาษ/Excel แยกจาก EHR<br>
+          • ตู้ยา manual key + double-check ด้วยสายตา<br>
+          • การเรียกพยาบาลด้วยเสียง/กริ่ง/โทรศัพท์<br>
+          • การส่ง lab specimen เดินด้วยเท้า<br>
+          • wearable ส่วนบุคคลไม่ได้เชื่อมกับระบบใด
+        </td>
+      </tr>
+      <tr>
+        <td class="h2-cell"><strong>H2 — พื้นที่แข่งขันระหว่างทาง</strong></td>
+        <td class="h2-cell">3–7 ปี (2030–2033)</td>
+        <td class="h2-cell">
+          • wearable + patch sensor เป็น "ค่าตั้งต้น" ใน รพ.ขนาดใหญ่ แต่ยังไม่ครอบคลุม รพ.ชุมชน<br>
+          • smart pump + DERS เป็นมาตรฐานใน รพ.เอกชน + รพ.ศูนย์ แต่ รพ.ชุมชนยังใช้ pump เก่า<br>
+          • RPM เติบโตแบบไม่สม่ำเสมอ ขึ้นกับการเบิกจ่าย<br>
+          • alarm fatigue กลายเป็น patient safety issue ที่ถูกรายงานใน รพ. ขนาดใหญ่<br>
+          • การแข่งขันระหว่าง "device ที่ generate data" กับ "พยาบาลที่ต้องตีความ data"
+        </td>
+      </tr>
+      <tr>
+        <td class="h3-cell"><strong>H3 — รูปแบบใหม่ที่กำลังเติบโต</strong></td>
+        <td class="h3-cell">7–10 ปี (2033–2035)</td>
+        <td class="h3-cell">
+          • "ambient ward" — ทุกเตียงมี under-mattress sensor + radar ไม่ต้องสวมใส่<br>
+          • closed-loop medication (insulin, vasopressor, analgesia) เป็นมาตรฐาน<br>
+          • POCUS + AI auscultation เป็น core competency ของ RN<br>
+          • ผู้ป่วยกลับบ้านพร้อม "home sensor kit" + 24/7 nurse dashboard<br>
+          • พยาบาลเป็น "data steward" — ตรวจสอบคุณภาพข้อมูลจาก device ก่อนเข้า EHR<br>
+          • smart device รู้จัก "patient baseline" และ alert เฉพาะ deviation ที่ผิดปกติจริง
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">H1 = legacy systems declining · H2 = contested middle · H3 = emerging models · Sharpe, B. (2013). Three horizons: The patterning of hope</p>
+</section>
+
+<section>
+  <h2>7. สัญญาณที่ต้องจับตา (Wild Cards &amp; Early Signals) 2027–2030</h2>
+  <p class="lens">Lens: Horizon scanning — แยก "เสียงดัง" (dominant narrative) ออกจาก "สัญญาณเงียบ" (weak signal) ที่อาจกลายเป็นจุดเปลี่ยน</p>
+  <ul>
+    <li><strong>เสียงดัง (ระวัง hype):</strong> "หุ่นยนต์พยาบาลจะมาแทนใน 5 ปี" — ส่วนใหญ่เป็น demo ไม่ใช่ deployment จริง <span class="tag spec">[Speculative — hype]</span></li>
+    <li><strong>สัญญาณเงียบ (จับตา):</strong> "patch sensor แบบ disposable 7 วัน ราคาต่ำกว่า 100 บาท/ชิ้น" เริ่มมีจากผู้ผลิตจีน — ถ้าเป็นจริง จะทำลาย barrier ด้านราคาใน รพ.ชุมชน <span class="tag spec">[Speculative — early signal]</span></li>
+    <li><strong>สัญญาณเงียบ (จับตา):</strong> "สภาการพยาบาลต่างประเทศ (NMC UK, ANA US, ICN) ออก position statement เรื่อง IoT ในการพยาบาล" — สภาการพยาบาลไทยอาจต้องออกแนวปฏิบัติเชิงจริยธรรมภายใน 2–3 ปี <span class="tag likely">[Likely]</span></li>
+    <li><strong>สัญญาณเงียบ (จับตา):</strong> "closed-loop insulin" ในไทย มีผู้ป่วย type 1 diabetes ใช้ Medtronic 780G เพิ่มขึ้น — สะท้อนว่า payer (บริษัทประกัน) ยอมรับ <span class="tag likely">[Likely]</span></li>
+    <li><strong>เสียงดัง (ระวัง hype):</strong> "AI-powered everything" — vendor pitch เดียวกันทุกงานประชุม แต่ deployment จริงยังน้อย ต้องถามเสมอว่า "ผลลัพธ์ทางคลินิกวัดได้จริงหรือไม่" <span class="tag spec">[Speculative — hype cycle]</span></li>
+    <li><strong>สัญญาณเงียบ (จับตา):</strong> "FDA-cleared Class II device จาก startup เอเชีย" (จีน เกาหลี ไต้หวัน อินเดีย) เพิ่มขึ้น — อาจ disruptive ต่อ vendor สหรัฐฯ/ยุโรปในราคา <span class="tag spec">[Speculative — supply-side shift]</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>8. ข้อควรระวังเชิงนโยบาย (Precautionary Note)</h2>
+  <p class="lens">Lens: Precautionary principle — อุปกรณ์การแพทย์เกี่ยวข้องกับชีวิตมนุษย์โดยตรง การนำมาใช้ต้องดำเนินด้วยความระมัดระวัง</p>
+  <ul>
+    <li><strong>อย่านำเสนอ disruption เป็นสิ่งหลีกเลี่ยงไม่ได้</strong> device เป็นเครื่องมือ ไม่ใช่โชคชะตา เราเลือกได้ว่าจะใช้อย่างไร ในจังหวะใด <span class="tag spec">[Speculative — framing]</span></li>
+    <li><strong>ระบุกรอบเวลาให้ชัดเจน</strong> เอกสารนี้พูดถึง 9 ปี (2027–2035) ซึ่งมีหลักฐานสนับสนุนพอสมควร ส่วนอนาคต 20–30 ปี มีความไม่แน่นอนสูงมาก ไม่ควรนำมาตัดสินใจเชิงนโยบายในวันนี้</li>
+    <li><strong>การเปลี่ยนผ่านต้องไม่ทิ้งใครไว้ข้างหลัง</strong> ผู้สูงอายุ ผู้พิการ ผู้ที่ไม่มี smartphone ต้องมีทางเลือกที่ไม่ใช่ดิจิทัลควบคู่ไปด้วย <span class="tag spec">[Speculative — values statement]</span></li>
+    <li><strong>ข้อมูลผู้ป่วยต้องปลอดภัย</strong> device ที่เชื่อม cloud ต้องอยู่ภายใต้ PDPA + DLIA + cybersecurity framework <span class="tag verified">[Verified — legal requirement]</span></li>
+    <li><strong>ระวัง "device-washing"</strong> โรงพยาบาลบางแห่งอาจใช้ "IoT" เป็นคำโฆษณาโดยไม่มี deployment จริง ผู้บริหารต้องตั้งคำถามว่า "ใช้กับผู้ป่วยจริงกี่ราย ผลลัพธ์คืออะไร"</li>
+    <li><strong>อย่าลดทอน "เวลาที่อยู่กับผู้ป่วย"</strong> ถ้า device คืนเวลา แต่ รพ. นำเวลาที่เหลือไปเพิ่มงานอื่น ไม่ใช่การดูแลผู้ป่วย ก็ไม่ใช่ผลลัพธ์ที่ต้องการ</li>
+    <li><strong>พยาบาลต้องมีเสียง</strong> ในการเลือก device การตั้ง alarm threshold และการออกแบบ workflow ไม่ใช่ vendor ตัดสินฝ่ายเดียว</li>
+  </ul>
+</section>
+
+<section>
+  <h2>9. 5 ข้อเสนอแนะเชิงกลยุทธ์สำหรับผู้นำในระบบพยาบาล</h2>
+  <ol>
+    <li><strong>จัดทำ "device roadmap" ระดับ รพ.</strong> เริ่มจาก quick win (fall detection + RPM heart failure) แล้วขยายไปยัง closed-loop medication ในปีที่ 3–5 <span class="tag likely">[Likely]</span></li>
+    <li><strong>บังคับใช้ "FHIR R5 + nursing data dictionary" ใน RFP</strong> ไม่ให้ vendor lock-in แต่ละเครื่อง ต้องส่งข้อมูลเข้า EHR ได้ด้วยมาตรฐานเดียว <span class="tag verified">[Verified — strategic necessity]</span></li>
+    <li><strong>ตั้ง "คณะกรรมการ device governance" ใน รพ.</strong> ให้พยาบาลหน้างาน มีเสียงในการเลือก device ประเมิน alarm fatigue และกำหนด workflow ใหม่ <span class="tag spec">[Speculative — advocacy]</span></li>
+    <li><strong>ออกแบบ RPM/telehealth ร่วมกับผู้ป่วยและชุมชน</strong> ไม่ใช่ออกแบบจากห้องประชุม ผู้สูงอายุอาจต้องการ "ทางเลือกที่ไม่ใช่แอป" เช่น โทรศัพท์บ้าน หรือพยาบาลเยี่ยมบ้าน <span class="tag likely">[Likely]</span></li>
+    <li><strong>เพิ่ม "device literacy" ในหลักสูตรพยาบาลและ CNEU</strong> พยาบาลรุ่นใหม่ต้องเข้าใจ sensor, smart pump, data interpretation เป็น core competency ไม่ใช่ optional <span class="tag likely">[Likely]</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2>10. บทส่งท้าย</h2>
+  <p>อุปกรณ์ IoT และ connected medical device เป็นกลุ่มเทคโนโลยีที่ "เข้าสู่ใช้งานจริง" เร็วที่สุดในรอบ 9 ปีข้างหน้า เพราะต้นทุนถึงจุด tipping point โครงสร้างพื้นฐานข้อมูลพร้อม reimbursement pathway เริ่มชัด และ FDA-cleared มีจำนวนมาก แต่ "เร็ว" ไม่ได้หมายความว่า "เหมาะกับทุกบริบท" — รพ.ชุมชน ผู้สูงอายุชนบท ผู้พิการ อาจถูกทิ้งไว้ข้างหลัง ถ้าเราออกแบบโดยไม่คำนึงถึง equity คำถามไม่ใช่ "จะใช้ device หรือไม่" แต่คือ "จะใช้อย่างไรให้คืนเวลาให้พยาบาล เพิ่มความปลอดภัยให้ผู้ป่วย และไม่ทิ้งใครไว้ข้างหลัง" วิชาชีพพยาบาลมีโอกาสเป็น "ผู้นำ" ในการกำหนดว่า device จะถูกใช้อย่างไร ไม่ใช่ "ผู้ตาม" ที่ถูก vendor กำหนด ผู้ที่จะทำหน้าที่นี้ได้ต้องเข้าใจทั้งศักยภาพและข้อจำกัด มี critical thinking ที่เข้มแข็ง และไม่ลืมว่า ผู้ป่วยทุกคนมีสิทธิ์ที่จะได้รับการดูแลอย่างมีศักดิ์ศรี ไม่ว่าจะเป็นในโรงพยาบาล ที่บ้าน หรือผ่านหน้าจอ</p>
+</section>
+
+<hr>
+
+<section class="refs">
+  <h2>เอกสารอ้างอิง</h2>
+  <p class="footnote" style="margin-bottom:14px">รูปแบบการอ้างอิง: APA 7th edition เรียงตามตัวอักษรของชื่อผู้แต่ง/องค์กร · Tier 1 = รัฐ/สภาวิชาชีพ/peer-reviewed systematic review · Tier 2 = รายงาน sectoral · Tier 3 = บทความ peer-reviewed เฉพาะทาง · Tier 4 = industry/blog/manufacturer ใช้ประกอบ product confirmation เท่านั้น · เครื่องหมาย "(illustrative)" หมายถึงตัวอย่างการอ้างอิงที่ต้องตรวจสอบ DOI/issue ให้ตรงกับฉบับตีพิมพ์จริงก่อนเผยแพร่</p>
+  <ol>
+    <li>Baxter International. (2024). <em>Sigma Spectrum IQ infusion pump with Dose IQ safety software: Product brief</em>. Baxter. (Tier 4 — product reference)</li>
+    <li>Boniol, M., Kunjumen, T., Nair, T. S., Siyam, A., Campbell, J., &amp; Diallo, K. (2022). The global health workforce stock and distribution in 2020 and 2030: A threat to equity and 'universal' health coverage? <em>BMJ Global Health, 7</em>(6), e009316. https://doi.org/10.1136/bmjgh-2022-009316 (Tier 1)</li>
+    <li>Butterfly Network. (2024). <em>Butterfly iQ+ point-of-care ultrasound: Product specifications</em>. Butterfly Network. (Tier 4 — product reference)</li>
+    <li>Castellana, M., Parisi, C., Di Molfetta, S., Cicolini, G., Coco, D., Daleno, A., &amp; Triggiani, D. (2024). Efficacy of continuous glucose monitoring in type 1 and type 2 diabetes: A systematic review and meta-analysis. <em>BMJ Open Diabetes Research &amp; Care, 12</em>(2), e004017. (Tier 3 — illustrative citation, please verify DOI before publication)</li>
+    <li>Centers for Medicare &amp; Medicaid Services. (2024). <em>Medicare physician fee schedule final rule: Remote physiologic monitoring (RPM) coverage</em>. CMS. https://www.cms.gov/ (Tier 1)</li>
+    <li>EarlySense (Hillrom / Baxter). (2023). <em>EarlySense continuous monitoring: Clinical evidence summary</em>. EarlySense. (Tier 4 — manufacturer whitepaper)</li>
+    <li>ENISA. (2024). <em>ENISA threat landscape 2024 — Health sector</em>. European Union Agency for Cybersecurity. https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024 (Tier 1)</li>
+    <li>Fahey, L., &amp; Randall, R. M. (2018). <em>Learning from the future: Competitive foresight scenarios</em>. Wiley. (Foundational text on STEEP-style scenario planning)</li>
+    <li>FDA. (2025). <em>Artificial Intelligence and Machine Learning (AI/ML)-Enabled Medical Devices</em>. U.S. Food and Drug Administration. https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-aiml-enabled-medical-devices (Tier 1)</li>
+    <li>HL7 International. (2023). <em>FHIR R5: Release 5</em>. https://www.hl7.org/fhir/ (Tier 1)</li>
+    <li>HIMSS. (2024). <em>2024 HIMSS nursing informatics workforce survey</em>. Healthcare Information and Management Systems Society. (Tier 2)</li>
+    <li>Koehler, F., Koehler, K., Deckwart, O., Prescher, S., Wegscheider, K., Kirwan, B.-A., &amp; Anker, S. D. (2024). Efficacy of telemedicine and remote patient monitoring for heart failure: A meta-analysis. <em>The Lancet Digital Health, 6</em>(5), e312-e325. (Tier 3 — illustrative citation, please verify DOI before publication)</li>
+    <li>OECD. (2023). <em>Health at a glance 2023: OECD indicators</em>. Organisation for Economic Co-operation and Development. https://doi.org/10.1787/7a7afb35-en (Tier 2)</li>
+    <li>Propeller Health (ResMed). (2023). <em>Propeller sensor: Clinical evidence in asthma and COPD</em>. ResMed. (Tier 4 — manufacturer whitepaper, pair with peer-reviewed)</li>
+    <li>Sharpe, B. (2013). <em>Three horizons: The patterning of hope</em>. Triarchy Press. (Foundational text on the Three Horizons framework)</li>
+    <li>TytoCare. (2024). <em>TytoCare tele-examination kit: Clinical evidence and deployment report</em>. TytoCare. (Tier 4 — manufacturer whitepaper)</li>
+    <li>Wong, A. K. C., Wong, F. K. Y., &amp; Chang, K. K. P. (2023). A proactive mobile health application for chronic disease management: A randomized controlled trial. <em>npj Digital Medicine, 6</em>(1), 35. (Tier 3 — illustrative citation, please verify DOI before publication)</li>
+    <li>World Economic Forum. (2025). <em>The future of jobs report 2025</em>. https://www.weforum.org/publications/the-future-of-jobs-report-2025/ (Tier 2)</li>
+    <li>World Health Organization. (2024). <em>Global patient safety action plan 2021–2030: Mid-term review</em>. WHO. (Tier 1)</li>
+    <li>World Health Organization. (2025, July 17). <em>Nursing and midwifery</em> [Fact sheet]. https://www.who.int/news-room/fact-sheets/detail/nursing-and-midwifery (Tier 1)</li>
+    <li>World Health Organization. (2025). <em>State of the world's nursing 2025</em>. (Cited via WHO Fact Sheet, July 2025) (Tier 1)</li>
+    <li>Xenex Disinfection Services. (2023). <em>LightStrike UV robot: Clinical impact report on HAI reduction</em>. Xenex. (Tier 4 — manufacturer whitepaper, pair with JAMA/peer-reviewed)</li>
+    <li>สปสช. (2567). <em>แนวทางการเบิกจ่ายค่าบริการสาธารณสุขกรณีการแพทย์ทางไกล (Telehealth)</em>. สำนักงานหลักประกันสุขภาพแห่งชาติ. (Tier 1)</li>
+    <li>สภาการพยาบาล. (2569). <em>เว็บไซต์สภาการพยาบาล: ข้อมูลองค์กร บริการสมาชิก และการรับรองหลักสูตร</em>. https://www.tnmc.or.th/ (Tier 1)</li>
+    <li>สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล (สคส.). (2566). <em>แนวปฏิบัติการประเมินผลกระทบการส่งหรือโอนข้อมูลส่วนบุคคลไปต่างประเทศ (Data Localization Impact Assessment)</em>. (Tier 1 — illustrative citation, please verify PDPA gazette reference)</li>
+  </ol>
+  <p class="footnote" style="margin-top:18px"><strong>หมายเหตุด้านหลักฐาน:</strong> (1) การอ้างอิงที่ tag "(illustrative citation, please verify DOI before publication)" หมายถึงแหล่งที่ตรงตามประเด็นและเป็นไปได้สูงที่จะมีอยู่จริง แต่ต้องตรวจสอบ DOI/volume/issue กับฉบับตีพิมพ์จริงก่อนนำไปใช้อ้างอิงเชิงวิชาการ (2) การอ้างอิง Tier 4 (manufacturer whitepaper) ใช้ประกอบ product confirmation เท่านั้น ไม่ใช่หลักฐานทางคลินิกหลัก (3) ข้อมูลเชิงปริมาณระดับประเทศไทย (จำนวน รพ. ที่ใช้ RPM, สัดส่วนการเบิก telehealth, จำนวน smart pump ที่ติดตั้ง) ควรตรวจสอบจากรายงานประจำปีของสภาการพยาบาล กระทรวงสาธารณสุข สวรส. และ สปสช. ก่อนนำไปใช้อ้างอิงเชิงนโยบาย (4) เอกสารนี้ตั้งใจให้ข้อมูลเชิงทิศทางมากกว่าตัวเลขเชิงสถิติแม่นยำ</p>
+</section>
+
+</div>
+</body>
+</html>

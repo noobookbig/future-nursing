@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ดัชนีเอกสาร — อนาคตของวิชาชีพพยาบาล · Conference Presentation</title>
+<meta name="description" content="หน้าดัชนีเอกสารวิจัย งานประชุมวิชาการ: อนาคตของวิชาชีพพยาบาล มุมมองเชิงวิสัยทัศน์ 5–10 ปี (ค.ศ. 2026–2036)">
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --highlight:#fff7e6;
+    --highlight-line:#e8c98a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.7;font-size:17px}
+  .wrap{max-width:940px;margin:0 auto;padding:48px 24px 96px}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+
+  /* Hero */
+  header.cover{
+    background:linear-gradient(135deg,#0d3b2e 0%,#0b6e4f 100%);
+    color:#fff;
+    border-radius:14px;
+    padding:36px 36px 32px;
+    margin-bottom:32px;
+    box-shadow:0 4px 20px rgba(13,59,46,.15);
+  }
+  header.cover .eyebrow{
+    display:inline-block;
+    background:rgba(255,255,255,.16);
+    color:#eaf3ee;
+    border:1px solid rgba(255,255,255,.28);
+    padding:3px 12px;
+    border-radius:999px;
+    font-size:13px;
+    letter-spacing:.4px;
+    margin-bottom:14px;
+  }
+  header.cover h1{
+    font-size:30px;
+    line-height:1.3;
+    margin:0 0 10px;
+    color:#fff;
+    letter-spacing:-.2px;
+  }
+  header.cover .subtitle{
+    font-size:18px;
+    color:#d4e7df;
+    margin:0 0 18px;
+  }
+  header.cover .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px 26px;
+    font-size:14px;
+    color:#cfe0d6;
+    border-top:1px solid rgba(255,255,255,.2);
+    padding-top:14px;
+    margin-top:6px;
+  }
+  header.cover .meta b{color:#fff;font-weight:600}
+
+  /* Section */
+  section{margin:36px 0}
+  section h2{
+    font-size:22px;
+    line-height:1.3;
+    margin:0 0 14px;
+    color:var(--accent2);
+    border-left:4px solid var(--accent);
+    padding-left:12px;
+  }
+  section h2 .small{
+    font-size:14px;
+    color:var(--muted);
+    font-weight:400;
+    margin-left:8px;
+  }
+  section p.lead{
+    font-size:17px;
+    margin:0 0 18px;
+    color:#2a2a2a;
+  }
+
+  /* Cards */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:16px;
+  }
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 22px 22px;
+    display:flex;
+    flex-direction:column;
+    transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  }
+  .card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 22px rgba(0,0,0,.06);
+    border-color:#cfe0d6;
+  }
+  .card .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:10px;
+  }
+  .badge{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    padding:2px 10px;
+    border-radius:999px;
+    line-height:1.7;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .badge.role{background:#eef3ee;color:#0b6e4f;border-color:#cfe0d6}
+  .badge.size{background:#f3efe6;color:#7a5418;border-color:#e0d3b1}
+  .badge.tier{background:#0d3b2e;color:#fff;border-color:#0d3b2e}
+  .card h3{
+    font-size:18px;
+    line-height:1.35;
+    margin:0 0 8px;
+    color:#1f4d3f;
+  }
+  .card p.desc{
+    font-size:15px;
+    color:#3a3a3a;
+    margin:0 0 14px;
+    flex:1;
+  }
+  .card a.open{
+    display:inline-block;
+    align-self:flex-start;
+    background:#0b6e4f;
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+  }
+  .card a.open:hover{background:#0d3b2e}
+  .card.featured{
+    border:2px solid var(--accent);
+    box-shadow:0 4px 18px rgba(11,110,79,.10);
+    background:linear-gradient(180deg,#ffffff 0%, #f6faf6 100%);
+  }
+  .card.upcoming{
+    background:#fafaf6;
+    border-style:dashed;
+    border-color:#cfcabd;
+  }
+  .card.upcoming h3{color:#5a5a5a}
+  .card .file{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:6px;
+    word-break:break-all;
+  }
+
+  /* Highlight block (infographic / presentation) */
+  .highlights{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:14px;
+  }
+  .highlight{
+    background:var(--highlight);
+    border:1px solid var(--highlight-line);
+    border-radius:12px;
+    padding:18px 20px;
+  }
+  .highlight .ribbon{
+    display:inline-block;
+    background:#b5651d;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.4px;
+    padding:2px 10px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+  .highlight h3{
+    margin:0 0 6px;
+    font-size:17px;
+    color:#7a4a0a;
+  }
+  .highlight p{
+    margin:0 0 8px;
+    font-size:15px;
+    color:#3a2a10;
+  }
+  .highlight .src{
+    font-size:14px;
+    color:#7a5418;
+  }
+
+  /* Legend / notes */
+  .note{
+    background:var(--soft);
+    border:1px solid #cfe0d6;
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:15px;
+    color:#2a3a32;
+  }
+  .note b{color:#0b6e4f}
+
+  /* TOC list */
+  ul.toc{
+    list-style:none;
+    padding:0;
+    margin:0;
+    border-top:1px solid var(--line);
+  }
+  ul.toc li{
+    border-bottom:1px solid var(--line);
+    padding:10px 4px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 14px;
+  }
+  ul.toc li .num{
+    color:var(--accent);
+    font-weight:700;
+    min-width:26px;
+  }
+  ul.toc li .name{
+    font-weight:600;
+    color:#1f4d3f;
+  }
+  ul.toc li .role-tag{
+    font-size:12px;
+    color:#5a5a5a;
+    background:#f1efe8;
+    border:1px solid #dcdcd4;
+    padding:1px 8px;
+    border-radius:999px;
+  }
+  ul.toc li .file{
+    margin-left:auto;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  footer{
+    margin-top:44px;
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+  }
+  footer .cols{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:18px 26px;
+    margin-bottom:10px;
+  }
+  footer h4{
+    font-size:14px;
+    color:#0d3b2e;
+    margin:0 0 4px;
+  }
+  footer code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:13px;
+    background:#f1efe8;
+    border:1px solid var(--line);
+    padding:1px 6px;
+    border-radius:4px;
+  }
+  footer .paperclip{color:#0b6e4f}
+
+  /* Consequence + Scenario additions */
+  .cs-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 6px;
+    font-size:14.5px;
+  }
+  .cs-table th,.cs-table td{
+    border:1px solid var(--line);
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  .cs-table th{background:#f1efe8;color:var(--accent2);font-weight:600}
+  .cs-table td.conf{white-space:nowrap}
+  .tag{
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    color:#fff;
+    line-height:1.7;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .tag.verified{background:#0b6e4f}
+  .tag.likely{background:#b5651d}
+  .tag.spec{background:#6a3a8a}
+  .cs-axis{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:15px;
+    color:#2a2a2a;
+    margin:6px 0 16px;
+  }
+  .cs-axis b{color:var(--accent2)}
+  .scen-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:8px 0 4px;
+  }
+  .scen{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .scen h4{
+    margin:0 0 6px;
+    color:var(--accent2);
+    font-size:16px;
+    line-height:1.35;
+  }
+  .scen p{margin:0 0 8px;font-size:14.5px}
+  .scen p.indicators{font-size:14px;color:#3a3a3a}
+  .scen p.indicators b{color:var(--accent2)}
+  .scen.pos{border-left:4px solid #3a8a52;background:linear-gradient(180deg,#ffffff 0%,#f3faf3 100%)}
+  .scen.neg{border-left:4px solid #8a3a3a;background:linear-gradient(180deg,#ffffff 0%,#fbf3f3 100%)}
+  .scen.mix{border-left:4px solid #b08400;background:linear-gradient(180deg,#ffffff 0%,#fcf9ec 100%)}
+  .scen.gray{border-left:4px solid #5b5b5b;background:linear-gradient(180deg,#ffffff 0%,#f6f6f3 100%)}
+  .scen-takeaway{
+    margin-top:12px;
+    background:var(--soft);
+    border:1px solid #cfe0d6;
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:15px;
+    color:#2a3a32;
+  }
+  .scen-takeaway b{color:#0b6e4f}
+  .src-line{font-size:14px;color:var(--muted);margin-top:8px}
+
+  @media print{
+    body{background:#fff;font-size:12pt}
+    .wrap{padding:18px}
+    .card{box-shadow:none;break-inside:avoid}
+    header.cover{background:#0d3b2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .scen{break-inside:avoid}
+    .cs-table{break-inside:avoid}
+  }
+  @media (max-width:560px){
+    header.cover{padding:26px 22px}
+    header.cover h1{font-size:24px}
+    h2{font-size:19px}
+    body{font-size:16px}
+    .scen-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="cover">
+  <span class="eyebrow">Foresight Research · งานประชุมวิชาการ</span>
+  <h1>อนาคตของวิชาชีพพยาบาล<br>มุมมองเชิงวิสัยทัศน์ 5–10 ปี</h1>
+  <p class="subtitle">ดัชนีเอกสารงานวิจัยเชิงวิสัยทัศน์ เพื่อนำไปจัดทำ Infographic และ Presentation สำหรับงานประชุมวิชาการ</p>
+  <div class="meta">
+    <span><b>โครงการ</b> · Conference Presentation Future of Nursing</span>
+    <span><b>กรอบเวลา</b> · ค.ศ. 2026 – 2036</span>
+    <span><b>วันนำเสนอเป้าหมาย</b> · 18 มิถุนายน พ.ศ. 2569 (ค.ศ. 2026)</span>
+    <span><b>ฉบับ</b> · มิถุนายน 2569</span>
+  </div>
+</header>
+
+<section>
+  <h2>ภาพรวมงานวิจัย <span class="small">Research Overview</span></h2>
+  <p class="lead">
+    งานวิจัยชิ้นนี้ศึกษาแนวโน้มการเปลี่ยนแปลงของวิชาชีพพยาบาลในอีก 5–10 ปีข้างหน้า โดยใช้กรอบ
+    <b>STEEP</b> (Social · Technological · Economic · Environmental · Political) เป็นเลนส์หลัก
+    และเจาะลึกมิติ <b>เทคโนโลยี</b> เป็นพิเศษ ครอบคลุมทั้งสัญญาณที่สังเกตได้ (Signals) ปัจจัยขับเคลื่อน
+    (Drivers) ในช่วง 2026–2036 และฉากทัศน์ 2×2 ระหว่าง <i>ระดับการนำเทคโนโลยีไปใช้</i> กับ
+    <i>สถานการณ์กำลังคนพยาบาล</i> เพื่อให้ผู้นำในระบบสุขภาพและพยาบาลหน้างานนำไปปรับกลยุทธ์
+    แผนพัฒนาบุคลากร และการออกแบบบริการได้อย่างเป็นระบบ
+  </p>
+  <div class="note">
+    <b>สัญลักษณ์ความเชื่อมั่น:</b>
+    <span class="badge role">[Verified]</span> ข้อเท็จจริงจากรายงานทางการหรืองานวิจัยที่ตีพิมพ์ ·
+    <span class="badge role" style="background:#f3efe6;color:#7a5418;border-color:#e0d3b1">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น ·
+    <span class="badge role" style="background:#f0eaf2;color:#6a3a8a;border-color:#d8c8e0">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์
+  </div>
+</section>
+
+<section>
+  <h2>เอกสารงานวิจัยที่พร้อมเปิด <span class="small">Available HTML Deliverables</span></h2>
+  <p class="lead">
+    เอกสารทั้งหมดเป็น HTML แบบ self-contained เปิดในเบราว์เซอร์ได้ทันทีโดยไม่ต้องใช้เครือข่าย
+    ใช้ฟอนต์ <b>Sarabun / Noto Sans Thai</b> และออกแบบในระดับงานประชุมวิชาการ
+  </p>
+
+  <div class="grid">
+    <article class="card featured">
+      <div class="tag-row">
+        <span class="badge tier">ฉบับแนะนำ</span>
+        <span class="badge role">Consolidated</span>
+        <span class="badge size">~2,100 คำ</span>
+      </div>
+      <h3>อนาคตของวิชาชีพพยาบาล (ฉบับรวม STEEP เชิงลึก)</h3>
+      <p class="desc">
+        เอกสารหลักฉบับสมบูรณ์ที่รวมงานวิจัยตั้งต้นเข้ากับ STEEP ฉบับลึกด้านเทคโนโลยีไว้ในไฟล์เดียว
+        ครอบคลุมคำอธิบายสัญลักษณ์ความเชื่อมั่น บริบทปัจจุบัน กรอบ STEEP 5 มิติ
+        Technology Deep-Dive 6 สาขาหลัก Horizon Scanning ฉากทัศน์ 2×2
+        ผลกระทบต่อผู้มีส่วนได้ส่วนเสีย และ 5 ข้อเสนอแนะเชิงกลยุทธ์
+        <b>เหมาะเป็นฉบับอ้างอิงหลักสำหรับทำ Presentation และ Infographic</b>
+      </p>
+      <a class="open" href="nursing-future-th-final.html">เปิดเอกสารฉบับรวม →</a>
+      <div class="file">nursing-future-th-final.html</div>
+    </article>
+
+    <article class="card">
+      <div class="tag-row">
+        <span class="badge role">Base Research</span>
+        <span class="badge size">~1,000 คำ</span>
+      </div>
+      <h3>อนาคตของวิชาชีพพยาบาล (ฉบับตั้งต้น)</h3>
+      <p class="desc">
+        เอกสารงานวิจัยฉบับแรกจาก [RES-9](/RES/issues/RES-9) — กรอบ STEEP 5 มิติแบบสำรวจ
+        สามขอบฟ้า (H1/H2/H3) ฉากทัศน์ 2×2 และ 5 ข้อเสนอแนะเชิงกลยุทธ์สำหรับพยาบาลหน้างาน
+        เป็นฐานให้ฉบับ STEEP ฉบับลึกต่อยอด
+      </p>
+      <a class="open" href="nursing-future-th.html">เปิดเอกสารตั้งต้น →</a>
+      <div class="file">nursing-future-th.html</div>
+    </article>
+
+    <article class="card">
+      <div class="tag-row">
+        <span class="badge role">STEEP Deep-Dive</span>
+        <span class="badge size">~2,100 คำ</span>
+      </div>
+      <h3>STEEP ฉบับลึก: มิติเทคโนโลยี 2026–2036</h3>
+      <p class="desc">
+        เอกสารเสริมจาก [RES-10](/RES/issues/RES-10) และ [RES-11](/RES/issues/RES-11) —
+        บูรณาการ STEEP 5 มิติ โดยให้ <b>Technology เป็นแกนหลัก</b>
+        ครอบคลุม AI ทางคลินิก Ambient Scribe RPM Telehealth Cybersecurity
+        Horizon Scanning 3 ปีข้างหน้า และข้อเสนอแนะสำหรับผู้นำในระบบพยาบาล
+      </p>
+      <a class="open" href="steep-technology-2026-2036.html">เปิด STEEP ฉบับลึก →</a>
+      <div class="file">steep-technology-2026-2036.html</div>
+    </article>
+
+    <article class="card">
+      <div class="tag-row">
+        <span class="badge role">References</span>
+        <span class="badge size">Markdown</span>
+      </div>
+      <h3>เอกสารอ้างอิง (APA 7th)</h3>
+      <p class="desc">
+        รายการอ้างอิงฉบับสกัดจากทั้งสามเอกสารข้างต้น เรียงตามตัวอักษร รูปแบบ APA 7th
+        เหมาะสำหรับแปะท้าย Presentation หรือใช้ตรวจสอบแหล่งที่มาของข้อมูลอย่างรวดเร็ว
+        <i>ไฟล์ Markdown ไม่ใช่ HTML ให้ดูในเครื่องมืออ่าน Markdown</i>
+      </p>
+      <a class="open" href="references.md" style="background:#5a5a5a">เปิด references.md →</a>
+      <div class="file">references.md</div>
+    </article>
+
+    <article class="card">
+      <div class="tag-row">
+        <span class="badge role">Addendum</span>
+        <span class="badge size">~1,900 คำ</span>
+        <span class="badge role" style="background:#f0eaf2;color:#6a3a8a;border-color:#d8c8e0">WEF 2025</span>
+      </div>
+      <h3>WEF 2025: ภาพเสริมด้านเอไอในสุขภาพ</h3>
+      <p class="desc">
+        Addendum จาก WEF 2025 สองฉบับ · cross-walk กับ STEEP/Technology drivers
+        และเสนอแนะ <b>targeted updates 10 ข้อ</b> สำหรับงานวิจัยนี้
+        จัดทำเป็นเอกสารแยกต่างหาก (ไม่ merge เข้ากับฉบับหลัก) เพื่อให้อัปเดตได้โดยไม่กระทบชุด STEEP หลัก
+      </p>
+      <a class="open" href="wef-ai-health-2025-th.html" style="background:#6a3a8a">เปิด Addendum →</a>
+      <div class="file">wef-ai-health-2025-th.html</div>
+    </article>
+
+    <article class="card">
+      <div class="tag-row">
+        <span class="badge role">Cross-Impact Analysis</span>
+        <span class="badge size">22×22 matrix</span>
+        <span class="badge role" style="background:#f3efe6;color:#7a5418;border-color:#e0d3b1">Heat-map</span>
+      </div>
+      <h3>Cross-Impact Matrix: ปฏิสัมพันธ์ระหว่าง 22 STEEP drivers</h3>
+      <p class="desc">
+        เมทริกซ์ 22×22 (484 เซลล์) ให้คะแนนปฏิสัมพันธ์ 0 ถึง ++++ ระหว่าง drivers ทุกคู่
+        พร้อม heat-map, per-driver rationale และเซลล์ที่แรงที่สุด
+        ตามด้วย <b>"Explore the future feeling"</b> — บรรยาย feeling-grounded 3 ฉาก
+        เมื่อแรงขับเคลื่อนชนกัน และ <b>"Build Resilience"</b> 5 ก้าวที่จับต้องได้
+        ผูกกับเซลล์ในเมทริกซ์อย่างชัดเจน
+        <i>เหมาะเป็นฉบับ "what to do" ต่อจากฉบับ "what is changing"</i>
+      </p>
+      <a class="open" href="nursing-future-cross-impact-th.html" style="background:#0d3b2e">เปิด Cross-Impact Matrix →</a>
+      <div class="file">nursing-future-cross-impact-th.html</div>
+    </article>
+
+    <article class="card featured">
+      <div class="tag-row">
+        <span class="badge tier">Action</span>
+        <span class="badge role">Roadmap 2026–2036</span>
+        <span class="badge size">~3,400 คำ</span>
+        <span class="badge role" style="background:#f0eaf2;color:#6a3a8a;border-color:#d8c8e0">7 actions</span>
+      </div>
+      <h3>Action Roadmap &amp; Catalyze-The-Future: แผนปฏิบัติการสู่อนาคตที่เราเลือก</h3>
+      <p class="desc">
+        ปิด foresight workflow ในขั้น <b>Action</b> — เลือกฉาก A "Smart Balance" เป็นวิสัยทัศน์ 2036
+        "ผู้นำด้านสุขภาพดิจิทัลในอาเซียน ที่ยังคงความเป็นคน" · จัดลำดับ <b>7 การกระทำ</b> ด้วย
+        Impact × Feasibility ผูกกับ leverage cell ใน Cross-Impact Matrix
+        ตรวจ <b>6 สมมติฐานวิกฤต</b> (พร้อม confidence tag + validation move)
+        และแผน 4 phases: 0–12 เดือน / 1–3 ปี / 3–5 ปี / 5–10 ปี พร้อม owner และ leading indicator
+        <b>เหมาะเป็นฉบับ "what to do next" สำหรับผู้บริหารและ สภาการพยาบาล</b>
+      </p>
+      <a class="open" href="action-roadmap-th.html">เปิด Action Roadmap →</a>
+      <div class="file">action-roadmap-th.html</div>
+    </article>
+
+    <article class="card featured">
+      <div class="tag-row">
+        <span class="badge tier">Action</span>
+        <span class="badge role">ระดับปฏิบัติการ</span>
+        <span class="badge size">~2,200 คำ</span>
+        <span class="badge role" style="background:#eef3ee;color:#0b6e4f;border-color:#cfe0d6">4 actions · 12 เดือน</span>
+      </div>
+      <h3>Action Roadmap · ระดับโรงพยาบาล (CNO 12 เดือน)</h3>
+      <p class="desc">
+        แผนปฏิบัติการ <b>12 เดือน 2026–2027</b> สำหรับ <b>ผู้บริหารโรงพยาบาล (CNO / ผู้อำนวยการฝ่ายการพยาบาล)</b>
+        ดึงจากแผนระดับวิชาชีพ/นโยบาย 2026–2036 เลือกเฉพาะ <b>4 การกระทำ</b> ที่ CNO <i>สั่งการได้เอง</i>
+        ในปีงบประมาณเดียว — ไม่ต้องรอ sandbox/สภาการพยาบาล/สปสช. เคลื่อน
+        ครอบคลุม OP-1 Sandbox application · OP-2 APRN scope pilot · OP-3 Pay-grade pilot (Reskill Premium) · OP-4 Heat-action plan
+        งบรวม <b>3–6 ล้านบาท/ปี</b> สำหรับ รพ. ขนาดกลาง
+        <b>เหมาะเป็นฉบับ "what to do next" สำหรับผู้บริหาร รพ. ที่จะนำเสนอในที่ประชุมคณะกรรมการ รพ.</b>
+      </p>
+      <a class="open" href="action-roadmap-hospital-cno-th.html">เปิด Action Roadmap (CNO) →</a>
+      <div class="file">action-roadmap-hospital-cno-th.html</div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>สารบัญเอกสาร <span class="small">Table of Contents</span></h2>
+  <p class="lead">
+    เรียงตามลำดับที่แนะนำให้อ่าน (จากภาพรวม → เจาะลึก → อ้างอิง)
+  </p>
+  <ul class="toc">
+    <li>
+      <span class="num">01</span>
+      <span class="name">อนาคตของวิชาชีพพยาบาล — ฉบับรวม STEEP เชิงลึก</span>
+      <span class="role-tag">ฉบับแนะนำ</span>
+      <a href="nursing-future-th-final.html">เปิด</a>
+      <span class="file">nursing-future-th-final.html</span>
+    </li>
+    <li>
+      <span class="num">02</span>
+      <span class="name">อนาคตของวิชาชีพพยาบาล — ฉบับตั้งต้น (Base Research)</span>
+      <span class="role-tag">ตั้งต้น</span>
+      <a href="nursing-future-th.html">เปิด</a>
+      <span class="file">nursing-future-th.html</span>
+    </li>
+    <li>
+      <span class="num">03</span>
+      <span class="name">STEEP ฉบับลึก: มิติเทคโนโลยี 2026–2036</span>
+      <span class="role-tag">เจาะลึก T</span>
+      <a href="steep-technology-2026-2036.html">เปิด</a>
+      <span class="file">steep-technology-2026-2036.html</span>
+    </li>
+    <li>
+      <span class="num">04</span>
+      <span class="name">เอกสารอ้างอิง (APA 7th)</span>
+      <span class="role-tag">References</span>
+      <a href="references.md">เปิด</a>
+      <span class="file">references.md</span>
+    </li>
+    <li>
+      <span class="num">05</span>
+      <span class="name">WEF 2025: ภาพเสริมด้านเอไอในสุขภาพ</span>
+      <span class="role-tag">Addendum</span>
+      <a href="wef-ai-health-2025-th.html">เปิด</a>
+      <span class="file">wef-ai-health-2025-th.html</span>
+    </li>
+    <li>
+      <span class="num">06</span>
+      <span class="name">Cross-Impact Matrix: ปฏิสัมพันธ์ระหว่าง 22 STEEP drivers</span>
+      <span class="role-tag">Cross-Impact</span>
+      <a href="nursing-future-cross-impact-th.html">เปิด</a>
+      <span class="file">nursing-future-cross-impact-th.html</span>
+    </li>
+    <li>
+      <span class="num">07</span>
+      <span class="name">Action Roadmap &amp; Catalyze-The-Future: แผนปฏิบัติการ 2026–2036</span>
+      <span class="role-tag" style="background:#eef3ee;color:#0b6e4f;border-color:#cfe0d6">Action</span>
+      <a href="action-roadmap-th.html">เปิด</a>
+      <span class="file">action-roadmap-th.html</span>
+    </li>
+    <li>
+      <span class="num">08</span>
+      <span class="name">Action Roadmap · ระดับโรงพยาบาล (CNO 12 เดือน): แผนปฏิบัติการ 2026–2027</span>
+      <span class="role-tag" style="background:#eef3ee;color:#0b6e4f;border-color:#cfe0d6">Action · Operational</span>
+      <a href="action-roadmap-hospital-cno-th.html">เปิด</a>
+      <span class="file">action-roadmap-hospital-cno-th.html</span>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>งานนำเสนอที่กำลังจะจัดทำ <span class="small">Upcoming Conference Artifacts</span></h2>
+  <p class="lead">
+    เป้าหมายของโครงการคือนำงานวิจัยนี้ไปจัดทำเป็น <b>Infographic</b> และ <b>Presentation Document</b>
+    สำหรับงานประชุมวิชาการ วันที่ 18 มิถุนายน พ.ศ. 2569 — เนื้อหาต้นทางที่จะใช้คือ
+    <a href="nursing-future-th-final.html">ฉบับรวม STEEP เชิงลึก</a>
+  </p>
+  <div class="highlights">
+    <div class="highlight">
+      <span class="ribbon" style="background:var(--accent2)">พร้อมใช้งาน · Ready</span>
+      <h3>Infographic</h3>
+      <p>ภาพสรุปงานวิจัย 1 หน้า สำหรับแจกในงานประชุมวิชาการ เน้นฉากทัศน์ 2×2 และ 5 ข้อเสนอแนะเชิงกลยุทธ์</p>
+      <p class="src">ต้นทาง: <a href="nursing-future-th-final.html">ฉบับรวม STEEP เชิงลึก</a><br>ไฟล์: <a href="nursing-future-infographic-th.html">HTML</a> | <a href="nursing-future-infographic.jpg">JPG (1920×1080)</a></p>
+    </div>
+    <div class="highlight">
+      <span class="ribbon">กำลังจะมา · Upcoming</span>
+      <h3>Presentation Document</h3>
+      <p>เอกสารประกอบการนำเสนอบนเวที โครงสร้างแนะนำ: บริบท → STEEP → Technology Deep-Dive → ฉากทัศน์ → ข้อเสนอแนะ</p>
+      <p class="src">ต้นทาง: <a href="nursing-future-th-final.html">ฉบับรวม STEEP เชิงลึก</a> · กำหนดส่ง: 18 มิ.ย. 2569</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>ผลลัพธ์ที่คาดหวัง 3 ระดับ <span class="small">Consequence (1st / 2nd / 3rd order)</span></h2>
+  <p class="lead">
+    ส่วนนี้แปลง 22 STEEP drivers จากงานวิจัยต้นทาง เป็น <b>ผลลัพธ์ 3 ระดับ</b> ที่กระทบกำลังคนและการศึกษาพยาบาล
+    ใช้เลนส์ <i>Consequence mapping</i> (Wilkinson &amp; Kupers, 2014) ร่วมกับ <i>Precautionary principle</i>
+    เพื่อให้ผู้บริหารเห็นทั้งโอกาสและความเสี่ยงในกรอบเวลา 1–15 ปี
+  </p>
+
+  <h3>1. First-order consequences <span class="small">(1–3 ปี)</span></h3>
+  <table class="cs-table">
+    <thead><tr><th>ผลลัพธ์</th><th>ผู้ได้ประโยชน์</th><th>ผู้เสียประโยชน์</th><th>ความเชื่อมั่น</th></tr></thead>
+    <tbody>
+      <tr><td>เวลาเอกสารของพยาบาลลด 30–50% (จาก ambient AI)</td><td>พยาบาล, ผู้ป่วย</td><td>ผู้ช่วยเอกสาร (medical scribe)</td><td class="conf"><span class="tag verified">[Verified]</span></td></tr>
+      <tr><td>เพิ่มช่องทาง tele-nursing ในระบบ สปสช.</td><td>ผู้ป่วยต่างจังหวัด, พยาบาล community</td><td>ระบบ รพ.ที่พึ่งพา OPD walk-in</td><td class="conf"><span class="tag verified">[Verified]</span></td></tr>
+      <tr><td>AI alert fatigue ในหอผู้ป่วย (CDS ที่ไม่ calibrate)</td><td>vendor AI</td><td>พยาบาล (burnout เพิ่ม)</td><td class="conf"><span class="tag likely">[Likely]</span></td></tr>
+      <tr><td>ค่าตอบแทนพยาบาลถูกกดดันจากการแข่งขันกับ AI-related roles</td><td>โรงพยาบาล (ลดต้นทุน)</td><td>พยาบาล (wage stagnation)</td><td class="conf"><span class="tag likely">[Likely]</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>2. Second-order consequences <span class="small">(3–7 ปี)</span></h3>
+  <table class="cs-table">
+    <thead><tr><th>ผลลัพธ์</th><th>ผู้ได้ประโยชน์</th><th>ผู้เสียประโยชน์</th><th>ความเชื่อมั่น</th></tr></thead>
+    <tbody>
+      <tr><td>หลักสูตรพยาบาลต้องเพิ่ม AI literacy, data ethics, climate health เป็น core subject</td><td>นักศึกษา, สภาการพยาบาล, ผู้ป่วย</td><td>อาจารย์รุ่นเก่าที่ต้อง reskill</td><td class="conf"><span class="tag likely">[Likely]</span></td></tr>
+      <tr><td>เกิด nurse informaticist, nurse navigator, APRN เป็น career mainstream ไม่ใช่ niche</td><td>พยาบาล senior, ระบบสาธารณสุข</td><td>โครงสร้างค่าตอบแทนแบบเดิม</td><td class="conf"><span class="tag likely">[Likely]</span></td></tr>
+      <tr><td>โรงพยาบาลที่ไม่ deploy AI ภายใน 5 ปี จะแพ้การแข่งขันด้าน talent &amp; quality</td><td>รพ.เอกชนที่ลงทุนเร็ว</td><td>รพ.รัฐขนาดเล็กที่งบจำกัด</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+      <tr><td>สภาการพยาบาลต้องเปลี่ยนบทบาทจาก "licensing body" เป็น "regulator of AI-augmented practice"</td><td>สภาการพยาบาล, ผู้ป่วย</td><td>พยาบาลที่ต่อต้านการเปลี่ยนแปลง</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+      <tr><td>ความเหลื่อมล้ำ rural/urban ลดลงจาก telehealth แต่เพิ่มขึ้นจาก "AI literacy gap"</td><td>ผู้ป่วยในพื้นที่ห่างไกล (ถ้ามี device)</td><td>ผู้สูงอายุที่ไม่มี smartphone</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>3. Third-order consequences <span class="small">(7–15 ปี)</span></h3>
+  <table class="cs-table">
+    <thead><tr><th>ผลลัพธ์</th><th>ผู้ได้ประโยชน์</th><th>ผู้เสียประโยชน์</th><th>ความเชื่อมั่น</th></tr></thead>
+    <tbody>
+      <tr><td>บทบาท "พยาบาล" ถูก re-define — เป็น "AI collaborator + human-care orchestrator" ไม่ใช่แค่ "ผู้ดูแล"</td><td>พยาบาลที่ reskill สำเร็จ, ผู้ป่วย</td><td>พยาบาลที่ไม่สามารถปรับตัว</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+      <tr><td>เกิด "Two-tier nursing workforce" — clinical nurse กับ AI-augmented nurse — ถ้าไม่จัดการด้วย credentialing</td><td>ระบบ รพ.ที่ออกแบบดี</td><td>ความเป็นปึกแผ่นของวิชาชีพ</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+      <tr><td>Nanoscience &amp; bioelectric medicine เปลี่ยน scope ของ chronic care (lab-grown organ, nanorobots)</td><td>ผู้ป่วยโรคเรื้อรัง, biotech</td><td>ระบบ reimbursement แบบเดิม</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+      <tr><td>Climate-displaced health workforce migration → ไทยกลายเป็น "healthcare hub" ของอาเซียน</td><td>ไทย, พยาบาลต่างชาติ, ผู้ป่วยอาเซียน</td><td>พยาบาลไทยระดับล่าง (competitive pressure)</td><td class="conf"><span class="tag spec">[Speculative]</span></td></tr>
+    </tbody>
+  </table>
+  <p class="src-line">ที่มา: สกัดจาก [RES-19](/RES/issues/RES-19) §5 · Lens: Consequence mapping + Precautionary principle · หากต้องการบริบทเพิ่มเติม ดู <a href="nursing-future-lookback-lookforward-th.html">nursing-future-lookback-lookforward-th.html</a></p>
+</section>
+
+<section>
+  <h2>ฉากทัศน์ 2×2 <span class="small">Scenario — Workforce capability × Governance maturity</span></h2>
+  <p class="lead">
+    ฉากทัศน์ 4 รูปแบบ บนแกน <b>Workforce capability</b> × <b>Governance maturity</b>
+    ใช้เลนส์ <i>Scenario planning 2×2</i> (Schwartz, 1991) เพื่อให้ผู้บริหารเห็นทั้ง
+    best case และ worst case อย่างเท่าเทียม — เหมาะสำหรับวางแผน 5–10 ปีข้างหน้า
+  </p>
+  <div class="cs-axis">
+    <b>แกน X:</b> Workforce capability (ต่ำ ↔ สูง) — พยาบาลมี AI literacy, data skill, climate health skill แค่ไหน<br>
+    <b>แกน Y:</b> Governance maturity (ต่ำ ↔ สูง) — สภาการพยาบาล, อย., ETDA มี regulatory framework ที่ทันสมัยแค่ไหน
+  </div>
+  <div class="scen-grid">
+    <div class="scen pos">
+      <h4>A. "Smart Balance" — Workforce สูง × Governance สูง</h4>
+      <p>พยาบาลไทย reskill สำเร็จ AI literacy เป็น core subject สภาการพยาบาลมี regulatory sandbox APRN scope of practice ชัดเจน PDPA enforcement สมดุลกับ innovation</p>
+      <p class="indicators"><b>ตัวบ่งชี้:</b> nurse informaticist เป็น mainstream career · telehealth coverage 80%+ · zero adverse event จาก AI ใน 5 ปี</p>
+      <p><span class="tag spec">[Speculative — achievable if all drivers align]</span></p>
+    </div>
+    <div class="scen neg">
+      <h4>B. "Tech Trap" — Workforce ต่ำ × Governance สูง</h4>
+      <p>กฎระเบียบดี แต่พยาบาล reskill ช้า AI deployed โดยคนที่ไม่เข้าใจ workflow ทำให้ alert fatigue, burnout เพิ่ม brain drain ไปต่างประเทศ</p>
+      <p class="indicators"><b>ตัวบ่งชี้:</b> nurse turnover &gt;20% · AI deployment ถูก rollback ในหลาย รพ. · ค่าตอบแทนไม่ขยับ</p>
+      <p><span class="tag spec">[Speculative — risk if education reform ล่าช้า]</span></p>
+    </div>
+    <div class="scen mix">
+      <h4>C. "Wild West" — Workforce ต่ำ × Governance ต่ำ</h4>
+      <p>ทั้ง education และ regulation ตามไม่ทัน vendor AI เข้ามาเอง ข้อมูลผู้ป่วยรั่วไหล เกิด adverse event จาก AI ที่ไม่ calibrate</p>
+      <p class="indicators"><b>ตัวบ่งชี้:</b> media scandal เกี่ยวกับ AI error · PDPA fine · สังคมไทยสูญเสีย trust</p>
+      <p><span class="tag spec">[Speculative — worst case, must be prevented]</span></p>
+    </div>
+    <div class="scen gray">
+      <h4>D. "Stalled" — Workforce สูง × Governance ต่ำ</h4>
+      <p>พยาบาลมีทักษะแต่ไม่มีกฎรองรับ APRN ไม่สามารถทำงานเต็มขอบเขต sandbox ไม่เกิด innovation ติดขัดที่ "approval bottleneck"</p>
+      <p class="indicators"><b>ตัวบ่งชี้:</b> nurse-led clinic ไม่ scale · APRN ย้ายไปสิงคโปร์ · talent ดี ๆ ออกจากระบบ</p>
+      <p><span class="tag spec">[Speculative — likely if regulation ล่าช้า]</span></p>
+    </div>
+  </div>
+  <div class="scen-takeaway">
+    <b>ฉากทัศน์ที่ควรเตรียมรับมากที่สุด:</b> A (เป้าหมาย) และ D (ความเสี่ยงที่ต้องป้องกัน)
+    — เพราะทั้งสองทางต้องการ "การลงทุนด้าน workforce" เหมือนกัน แต่แตกต่างกันที่ "governance" <span class="tag likely">[Likely — two-axis insight]</span>
+  </div>
+  <p class="src-line">ที่มา: สกัดจาก [RES-19](/RES/issues/RES-19) §6 · Lens: Scenario planning 2×2 · แหล่งอ้างอิงหลัก WHO (2025), WEF-F &amp; WEF-T (2025), Schwartz (1991)</p>
+</section>
+
+<section>
+  <h2>โครงสร้างไฟล์ในโฟลเดอร์นี้ <span class="small">Folder Layout</span></h2>
+  <div class="note">
+    <p style="margin:0 0 8px"><b>ตำแหน่งบนดิสก์:</b> <code>research/conference-presentation-future-of-nursing/</code> ใน trustlist-research repo (branch <code>work/res-14</code>)</p>
+    <ul style="margin:0;padding-left:20px">
+      <li><code>index.html</code> — ไฟล์นี้ (ดัชนี/หน้า Landing)</li>
+      <li><code>nursing-future-th-final.html</code> — งานวิจัยฉบับสมบูรณ์ (แนะนำ)</li>
+      <li><code>nursing-future-infographic-th.html</code> — Infographic สรุปงานวิจัย 1 หน้า (RES-66)</li>
+      <li><code>nursing-future-th.html</code> — งานวิจัยฉบับตั้งต้น (RES-9)</li>
+      <li><code>steep-technology-2026-2036.html</code> — STEEP ฉบับลึกด้านเทคโนโลยี (RES-10/RES-11)</li>
+      <li><code>references.md</code> — รายการอ้างอิง APA 7th</li>
+      <li><code>wef-ai-health-2025-th.html</code> — Addendum WEF 2025 (RES-17/RES-26)</li>
+      <li><code>nursing-future-cross-impact-th.html</code> — Cross-Impact Matrix 22×22 + feeling + resilience (RES-33)</li>
+      <li><code>action-roadmap-th.html</code> — Action Roadmap &amp; Catalyze-The-Future 2026–2036 (RES-34)</li>
+      <li><code>action-roadmap-hospital-cno-th.html</code> — Action Roadmap ระดับโรงพยาบาล (CNO 12 เดือน) 2026–2027 (RES-63)</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="cols">
+    <div>
+      <h4>โครงการ</h4>
+      Conference Presentation Future of Nursing<br>
+      <span>Target: 18 มิถุนายน พ.ศ. 2569 (ค.ศ. 2026)</span>
+    </div>
+    <div>
+      <h4>Issue ที่เกี่ยวข้อง</h4>
+      [RES-9](/RES/issues/RES-9) (Base) · [RES-10](/RES/issues/RES-10) (STEEP ลึก) · [RES-11](/RES/issues/RES-11) (Tech Deep-Dive) · [RES-12](/RES/issues/RES-12) (Index) · [RES-14](/RES/issues/RES-14) (หน้านี้) · [RES-17](/RES/issues/RES-17) (WEF Addendum) · [RES-19](/RES/issues/RES-19) (Lookback/Lookforward) · [RES-25](/RES/issues/RES-25) (Consequence+Scenario) · [RES-26](/RES/issues/RES-26) (เพิ่ม WEF link) · [RES-33](/RES/issues/RES-33) (Cross-Impact Matrix) · [RES-34](/RES/issues/RES-34) (Action Roadmap) · [RES-63](/RES/issues/RES-63) (Action Roadmap CNO)
+    </div>
+    <div>
+      <h4>เทคนิค</h4>
+      HTML5 · Inline CSS · No external network · Thai-native · Conference register
+    </div>
+    <div>
+      <h4>เครดิต</h4>
+      จัดทำโดย <span class="paperclip">CTO</span> · <span class="paperclip">Co-Authored-By: Paperclip &lt;noreply@paperclip.ing&gt;</span>
+    </div>
+  </div>
+  <div>© 2026 · เอกสารนี้เป็นส่วนหนึ่งของงานวิจัยเชิงวิสัยทัศน์เพื่อการประชุมวิชาการ</div>
+</footer>
+
+</div>
+</body>
+</html>

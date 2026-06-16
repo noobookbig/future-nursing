@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>อนาคตของวิชาชีพพยาบาล: มุมมองเชิงวิสัยทัศน์ 5–10 ปี (ฉบับรวม STEEP เชิงลึก)</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --verified:#0b6e4f;
+    --likely:#b5651d;
+    --speculative:#6a3a8a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.7;font-size:17px}
+  .wrap{max-width:880px;margin:0 auto;padding:48px 24px 96px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+  h1{font-size:34px;line-height:1.25;margin:0 0 8px;color:#0d3b2e;letter-spacing:-.2px}
+  h2{font-size:24px;line-height:1.3;margin:40px 0 12px;color:#0d3b2e;border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:19px;line-height:1.35;margin:24px 0 8px;color:#1f4d3f}
+  h4{font-size:16px;margin:20px 0 6px;color:#3a3a3a}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 14px 20px}
+  li{margin:4px 0}
+  .meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:18px 20px;margin:18px 0 28px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;line-height:1.6;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f1efe8}
+  blockquote{margin:14px 0;padding:10px 16px;border-left:4px solid var(--accent);background:#f3f6f3;color:#2a2a2a;font-style:italic}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+  .refs ol{font-size:15px}
+  .refs li{margin:6px 0}
+  .footnote{color:var(--muted);font-size:14px}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  @media print{body{font-size:12pt}.wrap{padding:18px}.tag{color:#000;background:#fff;border-color:#000}}
+  @media (max-width:560px){h1{font-size:26px}h2{font-size:20px}body{font-size:16px}}
+
+  /* RES-10 deep-dive components (added by RES-10) */
+  :root{
+    --tintS:#eef4fa;
+    --tintT:#eef3ee;
+    --tintE:#faf3e0;
+    --tintEn:#eef4ec;
+    --tintP:#f3eef7;
+  }
+  .pillar{background:#fafaf6;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0}
+  .pillar h4{margin:0 0 4px;color:#0d3b2e}
+  .pillar .lens{font-size:13px;color:var(--muted);font-style:italic;margin:2px 0 8px}
+  .signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:14px 0}
+  .signal-card{background:#fafaf6;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .signal-card h5{margin:0 0 6px;font-size:15px;color:#0d3b2e}
+  .signal-card .lbl{font-weight:600;color:#3a3a3a}
+  .lens{font-size:13px;color:var(--muted);font-style:italic;margin:0 0 8px}
+
+  /* RES-21 Identity Driver tints (S/T/E/En/P) */
+  .domainS{background:var(--tintS);border-left:3px solid #2c5d80;padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+  .domainT{background:var(--tintT);border-left:3px solid var(--accent);padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+  .domainE{background:var(--tintE);border-left:3px solid #8a6d1c;padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+  .domainEn{background:var(--tintEn);border-left:3px solid #4f7a3a;padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+  .domainP{background:var(--tintP);border-left:3px solid #6a3a8a;padding:12px 16px;margin:16px 0;border-radius:0 8px 8px 0}
+  .domainS h3,.domainT h3,.domainE h3,.domainEn h3,.domainP h3{margin-top:0;font-size:18px}
+  .driver-card{background:#fafaf6;border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0}
+  .driver-card .dhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:6px}
+  .driver-card .dname{font-weight:700;color:#0d3b2e}
+  .driver-card .dtype{font-size:13px;color:var(--muted);font-style:italic}
+  .driver-card .meta-row{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+  .driver-card .chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;border:1px solid var(--line);background:#fff;color:#3a3a3a;line-height:1.6;white-space:nowrap}
+  .driver-card .chip.up{background:#eaf3ee;border-color:#9bbfb1;color:#0b6e4f}
+  .driver-card .chip.dn{background:#fbeee7;border-color:#d8b9a3;color:#a04a1a}
+  .driver-card .chip.flat{background:#f3eef7;border-color:#bfa9d4;color:#6a3a8a}
+  .driver-card .implication{margin:4px 0 0;font-size:15px}
+  .crossref{font-size:14px;color:var(--muted);margin-top:18px;padding:10px 14px;background:var(--soft);border:1px solid #cfe0d6;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>อนาคตของวิชาชีพพยาบาล<br>มุมมองเชิงวิสัยทัศน์ 5–10 ปี สำหรับพยาบาลวิชาชีพที่ปฏิบัติงานหน้างาน</h1>
+  <div class="meta">เอกสารวิจัยเชิงวิสัยทัศน์ สำหรับงานประชุมวิชาการ · เตรียมโดยทีมวิจัย · ฉบับรวม: มิถุนายน 2569 (ค.ศ. 2026) · ฉบับนี้รวม STEEP เชิงลึก (เน้นมิติเทคโนโลยี) เข้ากับเอกสารหลัก</div>
+</header>
+
+<section class="exec">
+  <h3 style="margin-top:0">บทสรุปผู้บริหาร (อ่าน 60 วินาที)</h3>
+  <p>ในช่วง 5–10 ปีข้างหน้า พยาบาลวิชาชีพที่ปฏิบัติงานหน้างานจะเผชิญกับการเปลี่ยนแปลงสามชั้นพร้อมกัน: (1) <strong>ภาระงานที่หนักขึ้น</strong>จากสัดส่วนผู้สูงอายุที่เพิ่มขึ้นและโรคไม่ติดต่อเรื้อรัง ในขณะที่อัตรากำลังคนต่อประชากรยังคงตึงตัว (2) <strong>เครื่องมือใหม่</strong>อย่างเอไอช่วยคัดกรอง เวชระเบียนดิจิทัล และการดูแลทางไกล จะเข้ามาเสริมงานประจำวันมากขึ้น แต่ไม่ได้ทดแทนการตัดสินใจทางคลินิก และ (3) <strong>บทบาทวิชาชีพ</strong>จะขยายจาก "ผู้ให้การรักษา" ไปสู่ "ผู้ประสานการดูแล ผู้สอนสุขภาพ และผู้ดูแลผู้สูงอายุระยะยาว" เอกสารนี้ชี้ให้เห็นว่า พยาบาลที่ลงทุนเรียนรู้ทักษะดิจิทัล การสื่อสารกับผู้ป่วย และการทำงานเป็นทีมสหวิชาชีพ จะเป็นกำลังสำคัญที่สุดของระบบสุขภาพไทยในทศวรรษหน้า ส่วนนโยบายที่ควรจับตา คือ การเพิ่มค่าตอบแทน การขยายบทบาทพยาบาลเวชปฏิบัติ (APN) และการคุ้มครองการใช้เอไอทางคลินิกอย่างปลอดภัย</p>
+  <p class="footnote" style="margin-bottom:0">กลุ่มเป้าหมายของเอกสารนี้: พยาบาลวิชาชีพที่ปฏิบัติงานหน้างาน ใช้ภาษาระดับเข้าถึงง่าย เหมาะกับการอ่านนอกเวลาทำงาน</p>
+</section>
+
+<section>
+  <h2>1. คำอธิบายสัญลักษณ์ความเชื่อมั่น</h2>
+  <p>ทุกข้อความหลักในเอกสารนี้จะมีป้ายกำกับความเชื่อมั่น เพื่อให้ผู้อ่านแยกแยะได้ว่าอะไรเป็นข้อเท็จจริงที่ตรวจสอบได้ อะไรเป็นแนวโน้มที่น่าจะเกิด และอะไรเป็นการคาดการณ์ในอนาคต</p>
+  <div class="legend">
+    <span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการหรืองานวิจัยที่ตีพิมพ์ มีแหล่งอ้างอิงชัดเจน
+    <span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น แต่ยังมีความไม่แน่นอนอยู่บ้าง
+    <span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ มาจากการตีความข้อมูลที่มีอยู่ ไม่ควรถือเป็นความจริง
+  </div>
+</section>
+
+<section>
+  <h2>2. บริบทปัจจุบันของวิชาชีพพยาบาล</h2>
+
+  <h3>2.1 ภาพรวมทั่วโลก</h3>
+  <p>องค์การอนามัยโลกประมาณว่าทั่วโลกมีพยาบาลประมาณ 29 ล้านคน และผดุงครรภ์อีก 2.2 ล้านคน <span class="tag verified">[Verified]</span> โดยคาดว่าในปี ค.ศ. 2030 จะขาดแคลนพยาบาลอีกประมาณ 4.5 ล้านคน ซึ่งจะกระจุกตัวในทวีปแอฟริกา เอเชียตะวันออกเฉียงใต้ และตะวันออกกลาง <span class="tag verified">[Verified]</span> (WHO, 2025) ข้อสังเกตที่น่าสนใจคือ พยาบาลมากกว่าร้อยละ 80 ทำงานอยู่ในประเทศที่มีประชากรเพียงครึ่งหนึ่งของโลก และ 1 ใน 8 ของพยาบาลทั้งหมดทำงานในประเทศอื่นที่ไม่ใช่ประเทศที่ตนเกิดหรือฝึกอบรม <span class="tag verified">[Verified]</span> (WHO, 2025) สะท้อนให้เห็นว่ากำลังคนพยาบาลเป็นทรัพยากรที่เคลื่อนย้ายได้ทั่วโลก ไม่ใช่ทรัพยากรของประเทศใดประเทศหนึ่ง</p>
+
+  <h3>2.2 บริบทประเทศไทย</h3>
+  <p>ในระบบสาธารณสุขไทย พยาบาลวิชาชีพเป็นกำลังหลักที่อยู่เบื้องหน้าของการดูแลผู้ป่วย ตั้งแต่การคัดกรอง การให้คำปรึกษา ไปจนถึงการดูแลผู้ป่วยวิกฤติ สภาการพยาบาลทำหน้าที่กำกับดูแลมาตรฐานวิชาชีพ การขึ้นทะเบียน และการรับรองหลักสูตร รวมถึงการรับรองพยาบาลเวชปฏิบัติ (APN) และการรับรองหน่วยคะแนนการศึกษาต่อเนื่อง <span class="tag verified">[Verified]</span> (สภาการพยาบาล, 2569) โครงสร้างการกำกับดูแลนี้มีความสำคัญต่อการรักษาคุณภาพ และเป็นเสาหลักที่ทำให้การเปลี่ยนผ่านสู่อนาคตเกิดขึ้นได้อย่างเป็นระบบ</p>
+
+  <p>อย่างไรก็ตาม พยาบาลไทยยังเผชิญความท้าทายสำคัญหลายประการ <span class="tag likely">[Likely]</span> ได้แก่ ภาระงานต่อคนที่สูง ค่าตอบแทนที่ไม่สะท้อนความเสี่ยง การลาออกของพยาบาลรุ่นใหม่ในช่วง 3–5 ปีแรกของการทำงาน และการกระจายตัวที่ไม่สมดุลระหว่างกรุงเทพฯ กับต่างจังหวัด ข้อสังเกตเหล่านี้สอดคล้องกับทิศทางที่ WHO รายงานไว้ในระดับโลก แต่ตัวเลขเชิงปริมาณรายปีสำหรับประเทศไทยที่เผยแพร่อย่างเป็นทางการ ควรตรวจสอบจากรายงานประจำปีของสภาการพยาบาลและกระทรวงสาธารณสุขอีกครั้งก่อนนำไปอ้างอิง <span class="tag spec">[Speculative — need verification]</span></p>
+</section>
+
+<section>
+  <h2>3. กรอบ STEEP: แรงขับเคลื่อน 5 มิติ</h2>
+  <p>เพื่อไม่ให้การมองอนาคตเน้นไปที่มิติใดมิติหนึ่งมากเกินไป จะแบ่งแรงขับเคลื่อนออกเป็น 5 มิติ ตามกรอบ STEEP (ดัดแปลงจาก Fahey &amp; Randall, 2018)</p>
+
+  <h3>S — สังคม (Social)</h3>
+  <p>ประชากรไทยก้าวเข้าสู่สังคมสูงอายุอย่างสมบูรณ์ ผู้สูงอายุมีแนวโน้มต้องพึ่งพิงระบบสุขภาพมากขึ้น ในขณะที่ขนาดครอบครัวเล็กลงและลูกหลานอยู่ห่างกัน <span class="tag likely">[Likely]</span> ผลคือความต้องการพยาบาลดูแลผู้สูงอายุระยะยาว ทั้งที่บ้าน ที่ชุมชน และในสถานดูแล จะเพิ่มขึ้น นอกจากนี้ ค่านิยมของผู้รับบริการรุ่นใหม่เปลี่ยนไป พวกเขาคาดหวังข้อมูลที่โปร่งใส การมีส่วนร่วมในการตัดสินใจ และการสื่อสารที่รวดเร็วผ่านช่องทางดิจิทัล <span class="tag likely">[Likely]</span></p>
+
+  <h3>T — เทคโนโลยี (Technological)</h3>
+  <p>เอไอ (AI) กำลังเข้ามามีบทบาทในงานพยาบาลหลายด้าน เช่น การคัดกรองอาการเบื้องต้น การพยากรณ์ความเสี่ยงของผู้ป่วย การจดบันทึกทางการแพทย์ด้วยเสียง และการแจ้งเตือนเมื่อสัญญาณชีพผิดปกติ <span class="tag likely">[Likely]</span> การดูแลทางไกล (telehealth) ถูกนำมาใช้อย่างแพร่หลายในช่วงการระบาดของโควิด-19 และยังคงเติบโตอย่างต่อเนื่อง เวชระเบียนดิจิทัลกลายเป็นมาตรฐานในโรงพยาบาลขนาดใหญ่ ช่วยลดเวลาการทำเอกสารและเพิ่มเวลาให้ผู้ป่วย <span class="tag verified">[Verified]</span> เทคโนโลยีเหล่านี้ไม่ได้มาแทนพยาบาล แต่เปลี่ยน "ส่วนผสมของงาน" ให้พยาบาลใช้เวลากับงานที่ต้องใช้คนมากขึ้น</p>
+
+  <h3>E — เศรษฐกิจ (Economic)</h3>
+  <p>ระบบสาธารณสุขไทยเผชิญแรงกดดันด้านงบประมาณ ทั้งจากค่าใช้จ่ายที่เพิ่มขึ้นและฐานภาษีที่ขยายตัวช้า ค่าตอบแทนพยาบาลที่แข่งขันได้ในระดับภูมิภาคเป็นปัจจัยสำคัญในการรักษากำลังคน ในขณะเดียวกัน การลงทุนในเอไอและดิจิทัลต้องใช้เงินลงทุนสูงในช่วงแรก แต่ถ้าออกแบบดีจะลดต้นทุนระยะยาวได้ <span class="tag likely">[Likely]</span> รายงาน Future of Jobs 2025 ของ World Economic Forum ระบุว่า ทั่วโลกมีการเปลี่ยนแปลงทักษะอย่างรวดเร็ว โดยเฉพาะทักษะดิจิทัลและการคิดวิเคราะห์ ซึ่งส่งผลต่อทุกสาขาอาชีพ รวมถึงสาธารณสุข <span class="tag verified">[Verified]</span> (World Economic Forum, 2025)</p>
+
+  <h3>E — สิ่งแวดล้อม (Environmental)</h3>
+  <p>การเปลี่ยนแปลงสภาพภูมิอากาส่งผลต่อสุขภาพของประชาชน โดยเฉพาะผู้สูงอายุและผู้ที่มีโรคประจำตัว คลื่นความร้อน โรคที่นำโดยยุง และภัยพิบัติทางธรรมชาติที่ถี่ขึ้น ทำให้พยาบาลต้องเตรียมพร้อมรับมือกับสถานการณ์ฉุกเฉินมากขึ้น <span class="tag likely">[Likely]</span> (WHO, 2024) นอกจากนี้ ตัวอาคารโรงพยาบาลเองก็ต้องปรับตัวเพื่อลดการปล่อยก๊าซเรือนกระจก ซึ่งเป็นเรื่องที่หลายประเทศเริ่มพูดถึงอย่างจริงจัง <span class="tag spec">[Speculative — early signal]</span></p>
+
+  <h3>P — นโยบายและกฎหมาย (Political)</h3>
+  <p>สภาการพยาบาลเป็นหน่วยงานหลักที่กำหนดมาตรฐานวิชาชีพ นโยบายระดับชาติ เช่น ระบบหลักประกันสุขภาพถ้วนหน้า (UHC) และแผนพัฒนาระบบสุขภาพของกระทรวงสาธารณสุข มีผลโดยตรงต่อทิศทางงานพยาบาล ในระดับโลก WHO กำหนดทิศทางเชิงยุทธศาสตร์ผ่าน Strategic Directions for Nursing and Midwifery 2021–2025 และฉบับต่อไปที่กำลังจะประกาศ <span class="tag verified">[Verified]</span> (WHO, 2025) ส่วนกฎหมายที่เกี่ยวข้องกับการใช้เอไอทางคลินิกและการคุ้มครองข้อมูลผู้ป่วย ยังอยู่ระหว่างพัฒนาในหลายประเทศ <span class="tag likely">[Likely]</span></p>
+</section>
+
+
+<section>
+  <h2>3.5 ภาคเสริม STEEP เชิงลึก: มิติเทคโนโลยี (T) — การวิเคราะห์เชิงลึก</h2>
+  <p>ส่วนนี้เป็นภาคเสริมที่เพิ่มเข้ามาในฉบับรวม เพื่อขยายความมิติ T (เทคโนโลยี) ให้ลึกขึ้น ครอบคลุม 7 สาขาหลัก (AI-CDS, Ambient Scribes, Telehealth/RPM, EHR/FHIR, Robotics, Generative AI/LLM, Cybersecurity) พร้อม horizon scanning, สามขอบฟ้าเฉพาะมิติ T และฉากทัศน์ 2×2 เนื้อหาเขียนในรูปแบบ Signals &amp; Drivers ตามแนวปฏิบัติของ ForesightResearcher ทุกข้อความหลักมีป้ายความเชื่อมั่น [Verified] [Likely] [Speculative] และอ้างอิงเชิงวิชาการ</p>
+</section>
+
+<section>
+  <h2>4. Technology Deep-Dive: 6 สาขาหลัก 2026–2036</h2>
+  <p>มิติ T ไม่ใช่ก้อนเดียว แต่ประกอบด้วยสาขาย่อยที่เติบโตไม่พร้อมกัน แต่ละสาขามี driver, signal และ time horizon ต่างกัน</p>
+
+  <div class="pillar">
+    <h4>4.1 AI Clinical Decision Support (AI-CDS)</h4>
+    <p class="lens">Lens: Horizon scanning + Evidence hierarchy</p>
+    <p><strong>คืออะไร:</strong> ระบบเอไอที่วิเคราะห์ข้อมูลผู้ป่วย (สัญญาณชีพ ผลแล็บ ประวัติ) แล้วแนะนำแนวทางปฏิบัติ เช่น early warning score, sepsis alert, fall risk <span class="tag verified">[Verified]</span> (Wong et al., 2023 — npj Digital Medicine)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> โรงพยาบาลระดับตติยภูมิหลายแห่งในไทยเริ่มใช้ MEWS/MOAS และ sepsis bundle ที่ขับเคลื่อนด้วยข้อมูล เอไอ-CDS รุ่นใหม่ ๆ ยังอยู่ในขั้น pilot <span class="tag likely">[Likely]</span></p>
+    <p><strong>Driver เชิงโครงสร้าง:</strong> ข้อมูลผู้ป่วยดิจิทัลมากขึ้น + ต้นทุนการประมวลผลลดลง + หลักฐานว่าช่วยลด adverse event</p>
+    <p><strong>สัญญาณเงียบ (weak signal):</strong> การทดลองใช้ "AI co-pilot" สำหรับพยาบาลในหอผู้ป่วยวิกฤติที่แนะนำการปรับยาและการให้สารน้ำแบบ real-time — เริ่มเห็นในต่างประเทศ น่าจับตา <span class="tag spec">[Speculative — emerging]</span></p>
+    <p><strong>กรอบเวลา:</strong> mainstream adoption ใน รพ.ขนาดใหญ่ภายใน 5 ปี · ขยายสู่ รพ.ชุมชนภายใน 10 ปี หากราคาถูกลง</p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.2 Ambient AI Scribes และ Generative AI Documentation</h4>
+    <p class="lens">Lens: STEEP + Precautionary principle</p>
+    <p><strong>คืออะไร:</strong> เอไอที่ฟังบทสนทนาระหว่างพยาบาลกับผู้ป่วย/ทีม แล้วสร้างบันทึกทางการแพทย์อัตโนมัติ ลดเวลาทำเอกสาร <span class="tag verified">[Verified]</span> (Tier 2 — HIMSS, 2024; นพ.วรวุฒิ และคณะ, 2567 — รายงานฉบับทบทวน)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> ในสหรัฐฯ ambient scribe ถูกใช้แล้วในแผนกฉุกเฉินและคลินิกแพทย์หลายแห่ง ลดเวลาทำเอกสาร 30–50% ในบริบทพยาบาล การใช้งานยังน้อยและอยู่ในช่วง pilot <span class="tag likely">[Likely]</span></p>
+    <p><strong>Driver:</strong> ภาระหนักของงานเอกสาร + ความก้าวหน้าของ LLM + ความกังวลเรื่อง burnout ของพยาบาล</p>
+    <p><strong>ความเสี่ยง:</strong> ความผิดพลาด (hallucination), การรั่วไหลของข้อมูลผู้ป่วย, การพึ่งพาเอไอมากเกินไปจนลดทักษะการเขียนทางคลินิก <span class="tag likely">[Likely]</span></p>
+    <p><strong>สัญญาณเงียบ:</strong> การทดลอง "voice-to-EHR" ภาษาไทยโดยใช้ ASR ปรับแต่งเฉพาะทางการแพทย์ — กุญแจสำคัญที่จะทำให้เกิดขึ้นจริงในไทย <span class="tag spec">[Speculative — emerging]</span></p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.3 Telehealth และ Remote Patient Monitoring (RPM)</h4>
+    <p class="lens">Lens: STEEP + Three Horizons</p>
+    <p><strong>คืออะไร:</strong> การดูแลทางไกลผ่านวิดีโอคอล แชท และอุปกรณ์เฝ้าระวัง (เช่น smart watch, เครื่องวัดความดันอัตโนมัติ, patch ECG) ที่ส่งข้อมูลกลับมาที่ทีมพยาบาล <span class="tag verified">[Verified]</span> (OECD, 2023)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> ขยายตัวอย่างมากหลังโควิด-19 ในไทย สปสช. เริ่มเบิกจ่าย telehealth ได้ในบางกรณี <span class="tag verified">[Verified]</span> (สปสช., 2567)</p>
+    <p><strong>Driver เชิงโครงสร้าง:</strong> สังคมสูงอายุ + โรคเรื้อรัง + ขาดแคลนพยาบาล + ผู้ป่วยต้องการอยู่บ้าน</p>
+    <p><strong>Trend discontinuity:</strong> เมื่อ RPM ราคาถูกลง (< 1,000 บาท/อุปกรณ์) และเชื่อมต่อ FHIR ได้ จะกลายเป็น "อวัยวะที่ 5" ของระบบสุขภาพชุมชน <span class="tag spec">[Speculative — phase shift candidate]</span></p>
+    <p><strong>กรอบเวลา:</strong> mainstream ภายใน 5 ปีสำหรับผู้ป่วยเรื้อรังกลุ่มเสี่ยง · 10 ปีสำหรับประชากรทั่วไป</p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.4 EHR Maturity และ Interoperability (FHIR/HL7)</h4>
+    <p class="lens">Lens: Evidence hierarchy + STEEP</p>
+    <p><strong>คืออะไร:</strong> เวชระเบียนดิจิทัล (EHR) ที่เชื่อมต่อแลกเปลี่ยนข้อมูลระหว่างระบบด้วยมาตรฐาน FHIR (Fast Healthcare Interoperability Resources) ของ HL7 <span class="tag verified">[Verified]</span> (HL7 FHIR R5, 2023)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> ประเทศไทยมี EHR ในโรงพยาบาลรัฐขนาดใหญ่เกือบทุกแห่ง แต่การเชื่อมต่อระหว่างสถานพยาบาลยังจำกัด ข้อมูลผู้ป่วยกระจายอยู่ในหลายระบบ <span class="tag likely">[Likely]</span></p>
+    <p><strong>Driver:</strong> นโยบายกระทรวงสาธารณสุข (e-Health) · กฎหมาย PDPA · แรงกดดันจากผู้ป่วย</p>
+    <p><strong>สัญญาณเงียบ:</strong> การเกิดขึ้นของ "Health Information Exchange" ระดับจังหวัด และ national health record ที่ผูกกับเลขบัตรประชาชน — เริ่มเห็นในหลายจังหวัดนำร่อง <span class="tag spec">[Speculative — emerging policy]</span></p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.5 Robotics และ Automation ในงานพยาบาล</h4>
+    <p class="lens">Lens: Precautionary principle</p>
+    <p><strong>คืออะไร:</strong> หุ่นยนต์ช่วยงาน (logistics robot, UV-disinfection robot, หุ่นยนต์เคลื่อนย้ายผู้ป่วย) และระบบอัตโนมัติในงานเภสัชกรรมและห้องปฏิบัติการ <span class="tag verified">[Verified]</span> (WEF, 2025)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> ในไทย ยังมีการใช้งานจำกัด ส่วนใหญ่เป็น UV-disinfection robot ใน รพ.ขนาดใหญ่ <span class="tag spec">[Speculative — varies by facility]</span></p>
+    <p><strong>Driver:</strong> ขาดแคลนแรงงาน + ลดการติดเชื้อในโรงพยาบาล + ความก้าวหน้าของหุ่นยนต์เคลื่อนที่</p>
+    <p><strong>ข้อควรระวัง:</strong> หุ่นยนต์ช่วยยก/เคลื่อนย้ายผู้ป่วยอาจลดการบาดเจ็บของพยาบาลจากการยกของหนัก แต่ต้นทุนสูงและการบำรุงรักษาซับซ้อน ไม่ใช่ทุกโรงพยาบาลที่ลงทุนได้ <span class="tag spec">[Speculative]</span></p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.6 Generative AI และ Large Language Models ในการศึกษาและการตัดสินใจ</h4>
+    <p class="lens">Lens: Horizon scanning</p>
+    <p><strong>คืออะไร:</strong> LLM (เช่น GPT-class, Claude-class) ที่ช่วยพยาบาลในการสรุปเคส, ค้นหาหลักฐาน, แปลภาษา, และออกแบบแผนการสอนผู้ป่วย <span class="tag likely">[Likely]</span></p>
+    <p><strong>สถานะปัจจุบัน:</strong> พยาบาลจำนวนมากเริ่มทดลองใช้ LLM ทั่วไป (ChatGPT, Claude) ในงานส่วนตัว แต่ยังไม่มีนโยบายองค์กรรองรับ <span class="tag spec">[Speculative — informal adoption]</span></p>
+    <p><strong>Driver:</strong> ความคุ้นเคยของคนรุ่นใหม่ + ความเร็วในการสรุปข้อมูล + การเข้าถึงภาษาอังกฤษดีขึ้น</p>
+    <p><strong>สัญญาณเงียบ:</strong> "Specialized nursing LLM" ที่ฝึกกับข้อมูลเฉพาะทาง เช่น pediatric oncology nursing, gerontological nursing — กำลังเกิดขึ้นในต่างประเทศ จะเป็น "phase shift" สำหรับการเรียนรู้ตลอดชีวิต <span class="tag spec">[Speculative — emerging]</span></p>
+  </div>
+
+  <div class="pillar">
+    <h4>4.7 Cybersecurity ในระบบสุขภาพ</h4>
+    <p class="lens">Lens: Precautionary principle + Evidence hierarchy</p>
+    <p><strong>คืออะไร:</strong> การปกป้องระบบสารสนเทศสุขภาพจากการโจมตีทางไซเบอร์ (ransomware, data breach, phishing) และการรักษาความลับ-ความถูกต้อง-ความพร้อมใช้ของข้อมูลผู้ป่วย <span class="tag verified">[Verified]</span> (ENISA Threat Landscape 2024; WHO Patient Safety Mid-term Review 2024)</p>
+    <p><strong>สถานะปัจจุบัน:</strong> ภาคสาธารณสุขเป็นเป้าโจมตีอันดับต้นของกลุ่ม ransomware ในช่วง 2023–2025 ทั้งในสหรัฐฯ ยุโรป และเอเชีย โรงพยาบาลหลายแห่งในไทยเริ่มใช้มาตรการ PDPA และทดสอบเจาะระบบ แต่การฝึกอบรมพยาบาลให้ตระหนักเรื่อง phishing และ social engineering ยังจำกัด <span class="tag likely">[Likely]</span></p>
+    <p><strong>Driver:</strong> ปริมาณข้อมูลดิจิทัลที่เพิ่มขึ้น + ความเข้มงวดของ PDPA + ความถี่ของการโจมตีที่สูงขึ้น + การพึ่งพา third-party AI ที่อาจมีช่องโหว่</p>
+    <p><strong>สัญญาณเงียบ:</strong> "AI red-team" สำหรับโมเดล AI ทางการแพทย์ เริ่มเป็นข้อกำหนดในสหภาพยุโรป (EU AI Act) — ไทยอาจตามมาใน 2–3 ปี <span class="tag spec">[Speculative — policy direction]</span></p>
+    <p><strong>กรอบเวลา:</strong> 2026 — พยาบาลทุกโรงพยาบาลควรผ่านการอบรม PDPA + phishing awareness · 2030 — มาตรฐาน cybersecurity สำหรับระบบ AI ทางการแพทย์ในไทย</p>
+  </div>
+</section>
+
+<section>
+  <h2>4.5 Identity Driver of change: 22 ตัวขับเคลื่อนเชิงตัวตนของวิชาชีพ (STEEP 5 มิติ)</h2>
+  <p>จากสัญญาณ 18 ข้อใน [RES-19](/RES/issues/RES-19) เราสังเคราะห์เป็น "ตัวขับเคลื่อนเชิงตัวตน" (Identity Driver) ทั้งหมด 22 ตัว จัดตามกรอบ STEEP มิติละ 3–5 ตัว แต่ละตัวระบุ <strong>ทิศทาง</strong> (เพิ่ม ↑ / ลด ↓ / คงที่) และ <strong>ความเข้ม</strong> (สูงมาก / สูง / กลาง / ต่ำ) เพื่อให้ผู้บริหารประเมินความเร่งด่วนและจัดลำดับความสำคัญได้ การ์ดแต่ละใบมีป้ายความเชื่อมั่น [Verified] [Likely] [Speculative] ตามลำดับชั้นหลักฐาน และป้ายเลนส์ที่ใช้วิเคราะห์</p>
+  <p class="lens">Lens: STEEP (โครงหลัก) · Evidence hierarchy (จัดลำดับหลักฐาน) · Precautionary principle (ไม่ claim เกินจริง) · Stakeholder mapping</p>
+
+  <div class="domainS">
+    <h3>4.5.1 Social — ตัวขับเคลื่อนด้านสังคม (5 drivers)</h3>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">S-D1: สังคมสูงอายุสมบูรณ์แบบ</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: เพิ่มความต้องการ long-term care, geriatric nursing และ community nursing ในอัตราสูงใน 10 ปี แหล่ง (cross-walk S-1): UNFPA &amp; มูลนิธิสถาบันวิจัยและพัฒนาผู้สูงอายุไทย, 2566 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">S-D2: ความคาดหวังดิจิทัลของผู้รับบริการ</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: การให้บริการผ่านช่องทางออนไลน์กลายเป็น "core" ไม่ใช่ "option" พยาบาลต้องมีทักษะสื่อสารดิจิทัลเป็นมาตรฐาน แหล่ง (cross-walk S-2): Deloitte, 2567 — Global Health Care Consumer Survey (Tier 2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">S-D3: การย้ายถิ่นของพยาบาล (brain drain ใน/นอกประเทศ)</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง–สูง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: ภาครัฐและเอกชนแย่งตัว ส่งผลต่อการคงอยู่ในอาชีพและโครงสร้างค่าตอบแทน แหล่ง (cross-walk E-2): WHO State of the World's Nursing, 2568 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">S-D4: การเปลี่ยนบทบาทครอบครัวในการดูแล</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip dn">ทิศทาง: ลด ↓</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: ครอบครัวขนาดเล็ก ผู้หญิงทำงานนอกบ้านมากขึ้น ภาระดูแลตกไปที่ระบบสาธารณสุขมากขึ้น แหล่ง: UNFPA &amp; มูลนิธิสถาบันวิจัยฯ, 2566 (Tier 1, structural observation)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">S-D5: การยอมรับ "พยาบาล" ในฐานะ trusted advisor</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: ICN ระบุว่า พยาบาลติด top ของอาชีพที่สังคมไว้วางใจมากที่สุดหลายปีติด เป็นฐานทุนทางสังคมสำคัญของวิชาชีพ แหล่ง (cross-walk S-3, S-4): ICN, 2566 (Tier 1); WEF-T, 2568 (Tier 2)</p>
+    </div>
+  </div>
+
+  <div class="domainT">
+    <h3>4.5.2 Technology — ตัวขับเคลื่อนด้านเทคโนโลยี (5 drivers)</h3>
+    <p class="lens">ใช้ภาพ Nano Science and Technology wheel (Futures Platform, 2569) เป็นแกนอ้างอิง</p>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">T-D1: AI ใน EHR (CDS, ambient scribe, voice-to-chart)</span><span class="dtype">discontinuity</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑↑</span><span class="chip">ความเข้ม: สูงมาก</span><span class="tag verified">[Verified]</span><span class="chip">Lens: Horizon scanning</span></div>
+      <p class="implication">นัย: WEF-F จัดเป็น "validated use case" และเป็น 1 ใน 4 visions ส่งผลต่อ documentation time โดยตรง แหล่ง (cross-walk T-1, T-2): WEF Future of Jobs, 2568 (Tier 1/2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">T-D2: Telehealth / Tele-nursing ที่ scale</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP + Three Horizons</span></div>
+      <p class="implication">นัย: สปสช. มีระบบเบิกจ่ายแล้ว WHO สนับสนุน telehealth เป็น workforce multiplier แหล่ง (cross-walk T-3): สปสช., 2567 (Tier 1); WHO, 2568 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">T-D3: Nanoscience-based diagnostics (CRISPR, nanorobots, lab-grown blood)</span><span class="dtype">wild card</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง (ระยะยาว)</span><span class="tag spec">[Speculative]</span><span class="chip">Lens: Horizon scanning</span></div>
+      <p class="implication">นัย: อิง Nano wheel · 2026–2045 horizon · ส่งผลต่อ precision nursing และ point-of-care testing ในระยะยาว แหล่ง (cross-walk T-4, T-5): Futures Platform, 2569 (Tier 3); WHO, 2567 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">T-D4: Robotics (soft robots, self-healing materials, microrobots)</span><span class="dtype">discontinuity</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: ต่ำ–กลาง</span><span class="tag spec">[Speculative]</span><span class="chip">Lens: Precautionary principle</span></div>
+      <p class="implication">นัย: เข้ามาเป็น "physical assistance" ในหอผู้ป่วยก่อน ไม่ใช่ "ทดแทน" ใน 10 ปี แหล่ง (cross-walk T-6): Futures Platform, 2569 (Tier 3)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">T-D5: AI ในการศึกษาพยาบาล (VR/AR simulation, adaptive learning)</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: simulation-based education เติบโต เปลี่ยนวิธีสอน clinical skill แหล่ง: WEF Future of Jobs, 2568 (Tier 1/2)</p>
+    </div>
+  </div>
+
+  <div class="domainE">
+    <h3>4.5.3 Economic — ตัวขับเคลื่อนด้านเศรษฐกิจ (4 drivers)</h3>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">E-D1: การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</span><span class="dtype">discontinuity</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: โรงพยาบาลที่ไม่ลงทุนจะตามหลัง กลายเป็น "must-have" infrastructure แหล่ง (cross-walk E-1): WEF Future of Jobs, 2568 (Tier 1); Grand View Research, 2567 (Tier 2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">E-D2: ค่าตอบแทนพยาบาล vs ภาระงาน</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip flat">ทิศทาง: คงที่/ลด ↓</span><span class="chip">ความเข้ม: สูง (ความเสี่ยง)</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: ค่าตอบแทนไม่ขยับตามภาระ แรงจูงใจในการอยู่ในอาชีพลดลง แหล่ง (cross-walk E-2): สภาการพยาบาล, 2567 (Tier 1); WHO State of the World's Nursing, 2568 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">E-D3: Health leapfrog สำหรับประเทศรายได้ปานกลาง</span><span class="dtype">discontinuity</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP + Scenario</span></div>
+      <p class="implication">นัย: โอกาส leapfrog ของไทยถ้ามี regulatory sandbox + workforce plan ครบ แหล่ง (cross-walk E-3): WEF Future of Jobs, 2568 (Tier 1); BCG, 2567 (Tier 2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">E-D4: Public–Private Partnership (PPP) ด้าน AI</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP + Stakeholder</span></div>
+      <p class="implication">นัย: CHAI, TRAIN, HIMSS เป็นตัวอย่าง PPP ที่ scale เอไอในสุขภาพได้ แหล่ง: HIMSS, 2567 (Tier 2)</p>
+    </div>
+  </div>
+
+  <div class="domainEn">
+    <h3>4.5.4 Environmental — ตัวขับเคลื่อนด้านสิ่งแวดล้อม (3 drivers)</h3>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">En-D1: Climate change → health impact (heat, dengue, PM2.5)</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP + Precautionary</span></div>
+      <p class="implication">นัย: เพิ่มภาระงานด้าน public health &amp; emergency response แหล่ง: WHO, 2567 (Climate &amp; Health, Tier 1); IPCC AR6, 2565 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">En-D2: Net-zero hospital & sustainable procurement</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP</span></div>
+      <p class="implication">นัย: โรงพยาบาลต้องลด carbon footprint เป็น employer branding และ compliance แหล่ง: WHO, 2567 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">En-D3: Climate-displaced population & migrant health</span><span class="dtype">wild card</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag spec">[Speculative]</span><span class="chip">Lens: Horizon scanning</span></div>
+      <p class="implication">นัย: พยาบาลต้องดูแลผู้ป่วยข้ามพรมแดนและวัฒนธรรม แหล่ง: IOM, 2567 (Tier 1); WHO, 2567 (Tier 1)</p>
+    </div>
+  </div>
+
+  <div class="domainP">
+    <h3>4.5.5 Political — ตัวขับเคลื่อนด้านการเมือง/นโยบาย (5 drivers)</h3>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">P-D1: PDPA + AI Ethics Guidelines (ETDA 2566)</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP + Precautionary</span></div>
+      <p class="implication">นัย: เป็น regulatory backbone — deployment ต้อง align แหล่ง (cross-walk P-1): PDPA Thailand, 2562 (Tier 1); ETDA AI Ethics Guidelines, 2566 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">P-D2: WHO Strategic Directions for Nursing + State of the World's Nursing 2025</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag verified">[Verified]</span><span class="chip">Lens: STEEP + Stakeholder</span></div>
+      <p class="implication">นัย: เป็น policy window สำหรับดึงงบประมาณและ reform แหล่ง (cross-walk P-2): WHO, 2564 &amp; 2568 (Tier 1)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">P-D3: Regulatory sandbox สำหรับ AI ในสุขภาพ</span><span class="dtype">discontinuity</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑ (เริ่มต้น)</span><span class="chip">ความเข้ม: กลาง</span><span class="tag spec">[Speculative]</span><span class="chip">Lens: Scenario + Precautionary</span></div>
+      <p class="implication">นัย: โอกาสสำหรับไทยถ้าสภาการพยาบาลร่วมกับ อย. และ ETDA เปิด sandbox แหล่ง (cross-walk P-3): WEF Future of Jobs, 2568 (Tier 2); UK MHRA AI/SaMD, 2566 (Tier 2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">P-D4: Trust = oversight (WEF-T) — เฝ้าระวังตลอดอายุใช้งาน</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip up">ทิศทาง: เพิ่ม ↑</span><span class="chip">ความเข้ม: สูง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP + Precautionary</span></div>
+      <p class="implication">นัย: เปลี่ยนกรอบจาก "อนุมัติก่อนใช้" เป็น "monitor ตลอด" พยาบาลต้องมีบทบาทใน post-market surveillance แหล่ง: WEF Future of Jobs, 2568 (Tier 2)</p>
+    </div>
+
+    <div class="driver-card">
+      <div class="dhead"><span class="dname">P-D5: Workforce governance — APRN scope of practice</span><span class="dtype">trend</span></div>
+      <div class="meta-row"><span class="chip flat">ทิศทาง: คงที่/เพิ่ม ↑</span><span class="chip">ความเข้ม: กลาง</span><span class="tag likely">[Likely]</span><span class="chip">Lens: STEEP + Stakeholder</span></div>
+      <p class="implication">นัย: สภาการพยาบาลต้องออกกฎรองรับ APRN เพื่อรองรับการเปลี่ยนผ่าน H2 → H3 แหล่ง: ICN, 2566 (Tier 1); สภาการพยาบาล, 2569 (Tier 1)</p>
+    </div>
+  </div>
+
+  <p class="footnote" style="margin-top:14px">Driver labels เหล่านี้ทับซ้อนกับ RES-9, RES-10 และ RES-11 ในบางตัว โดยเฉพาะ T-D1, T-D2, P-D1, P-D2, P-D3, P-D4 ซึ่งถูก cross-walk ไว้แล้วในเอกสารต้นทาง ส่วนนี้เพิ่ม "ทิศทาง" และ "ความเข้ม" ให้ครบทุกตัว รวมถึง En-D1 ถึง En-D3 ซึ่งฉบับก่อนหน้ายังไม่ครอบคลุม</p>
+  <div class="crossref">
+    <strong>เอกสารต้นทาง:</strong> ตัวขับเคลื่อน 22 ตัวนี้สกัดมาจาก <a href="/RES/issues/RES-19">[RES-19] Look back / Look forward — §4 Identity Driver of change (STEEP เจาะลึก)</a> ซึ่งรวบรวม 18 สัญญาณจาก WEF Future of Jobs 2568, Futures Platform wheel 2569, WHO State of the World's Nursing 2568, สภาการพยาบาล 2569 และ ETDA AI Ethics 2566 นำมาเชื่อมโยงกับ STEEP deep-dive ของ <a href="/RES/issues/RES-10">[RES-10]</a> และ Consequence+Scenario ของ <a href="/RES/issues/RES-19">[RES-19]</a>
+  </div>
+</section>
+
+<section>
+  <h2>5. Horizon<section>
+  <h2>5. Horizon Scanning: สัญญาณที่ต้องจับตา 2026–2028</h2>
+  <p class="lens">Lens: Horizon scanning — แยก "เสียงดัง" (dominant narrative) ออกจาก "สัญญาณเงียบ" (weak signal) ที่อาจกลายเป็นจุดเปลี่ยน</p>
+
+  <div class="signal-grid">
+    <div class="signal-card">
+      <h5>เสียงดัง (เฝ้าระวังไม่ให้เชื่อง)</h5>
+      <p><span class="lbl">สัญญาณ:</span> "เอไอจะมาแทนพยาบาลใน 5 ปี" — กระแสในสื่อและ vendor pitch</p>
+      <p><span class="lbl">ทำไมต้องระวัง:</span> งานวิจัยเชิงประจักษ์ยังไม่สนับสนุน เอไอทดแทนงานเอกสารได้ แต่ไม่ทดแทนการตัดสินใจทางคลินิกและสัมพันธภาพกับผู้ป่วย</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag spec">[Speculative — hype cycle]</span></p>
+    </div>
+    <div class="signal-card">
+      <h5>สัญญาณเงียบ (จับตา)</h5>
+      <p><span class="lbl">สัญญาณ:</span> โรงพยาบาลในภูมิภาคเริ่มใช้ "nurse-led AI triage" ผ่านแชทบอท เบื้องต้น</p>
+      <p><span class="lbl">ทำไมสำคัญ:</span> ถ้าขยายได้ จะเป็นทางออกสำหรับ รพ.ชุมชนที่ขาดแคลนแพทย์</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag spec">[Speculative — early signal]</span></p>
+    </div>
+    <div class="signal-card">
+      <h5>สัญญาณเงียบ (จับตา)</h5>
+      <p><span class="lbl">สัญญาณ:</span> สภาการพยาบาลต่างประเทศ (เช่น NMC UK, ANA US) เริ่มออก position statement เรื่อง AI</p>
+      <p><span class="lbl">ทำไมสำคัญ:</span> สภาการพยาบาลไทยอาจต้องออกแนวปฏิบัติเชิงจริยธรรมภายใน 2–3 ปี</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag likely">[Likely]</span></p>
+    </div>
+    <div class="signal-card">
+      <h5>สัญญาณเงียบ (จับตา)</h5>
+      <p><span class="lbl">สัญญาณ:</span> "Patient-generated health data" จาก smart watch ของผู้ป่วย ถูกอัปโหลดเข้า EHR โดยตรง</p>
+      <p><span class="lbl">ทำไมสำคัญ:</span> เปลี่ยนบทบาทพยาบาลจาก "ผู้เก็บข้อมูล" เป็น "ผู้ตีความข้อมูล"</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag spec">[Speculative — emerging]</span></p>
+    </div>
+    <div class="signal-card">
+      <h5>สัญญาณเงียบ (จับตา)</h5>
+      <p><span class="lbl">สัญญาณ:</span> "Voice-first" EHR ที่พยาบาลสั่งงานด้วยเสียง ไม่ต้องจิ้มหน้าจอ</p>
+      <p><span class="lbl">ทำไมสำคัญ:</span> ลด musculoskeletal injury จากการก้มดูหน้าจอ + เพิ่มเวลาให้ผู้ป่วย</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag likely">[Likely]</span></p>
+    </div>
+    <div class="signal-card">
+      <h5>เสียงดัง (เฝ้าระวังไม่ให้เชื่อง)</h5>
+      <p><span class="lbl">สัญญาณ:</span> "หุ่นยนต์พยาบาล" จากสื่อต่างประเทศ</p>
+      <p><span class="lbl">ทำไมต้องระวัง:</span> ส่วนใหญ่เป็น demo ไม่ใช่ deployment จริง อย่านำมาตัดสินใจเชิงนโยบาย</p>
+      <p><span class="lbl">หลักฐาน:</span> <span class="tag spec">[Speculative — hype]</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>6. สามขอบฟ้า<section>
+  <h2>6. สามขอบฟ้า (H1/H2/H3) — เฉพาะมิติ T</h2>
+  <p class="lens">Lens: Three Horizons (Sharpe, 2013) — มองการเปลี่ยนผ่านของเทคโนโลยีเป็น 3 ขอบฟ้า</p>
+
+  <h3>H1 — ระบบเดิมที่กำลังถดถอย (ภายใน 1–3 ปี)</h3>
+  <ul>
+    <li>การบันทึกซ้ำซ้อนในหลายระบบ (paper + EHR + spreadsheet) <span class="tag likely">[Likely]</span></li>
+    <li>การส่งต่อข้อมูลผู้ป่วยด้วยแฟกซ์ โทรศัพท์ หรือ line <span class="tag likely">[Likely]</span></li>
+    <li>การเฝ้าระวัง vital signs ด้วยพยาบาลเดินวนวัดด้วยตนเอง <span class="tag verified">[Verified]</span></li>
+  </ul>
+
+  <h3>H2 — พื้นที่แข่งขันระหว่างทาง (3–7 ปี)</h3>
+  <ul>
+    <li>เอไอถูกทดลองใช้ในโรงพยาบาลบางแห่ง แต่ยังไม่มีมาตรฐานกลาง ผลลัพธ์จึงขึ้นกับผู้นำแต่ละทีม <span class="tag likely">[Likely]</span></li>
+    <li>พยาบาลบางส่วนใช้ LLM ทั่วไปในงานส่วนตัว แต่โรงพยาบาลยังไม่มีนโยบายรองรับ <span class="tag spec">[Speculative — informal adoption]</span></li>
+    <li>Telehealth เติบโตแบบไม่สม่ำเสมอ ขึ้นกับการเบิกจ่ายและความพร้อมของ รพ. <span class="tag likely">[Likely]</span></li>
+    <li>EHR มี แต่การเชื่อมต่อระหว่างสถานพยาบาลยังเป็นจุดอ่อน <span class="tag likely">[Likely]</span></li>
+  </ul>
+
+  <h3>H3 — รูปแบบใหม่ที่กำลังเติบโต (7–10 ปี)</h3>
+  <ul>
+    <li>ทีมสุขภาพดิจิทัลที่มีพยาบาลเป็น "ผู้ประสานข้อมูล" ระหว่างแพทย์ ผู้ป่วย ครอบครัว และเอไอ <span class="tag spec">[Speculative]</span></li>
+    <li>การดูแลต่อเนื่องที่บ้าน (home-based care) ด้วย RPM + telehealth + พยาบาลเยี่ยมบ้าน เป็นรูปแบบหลักสำหรับผู้สูงอายุ <span class="tag likely">[Likely]</span></li>
+    <li>พยาบาลเป็น "ผู้ให้ความรู้ด้านสุขภาพ" ผ่านช่องทางออนไลน์ สร้างอิทธิพลต่อพฤติกรรมสุขภาพ <span class="tag spec">[Speculative — early signal]</span></li>
+    <li>เอไอ-CDS เป็น "co-pilot" ที่พยาบาลไว้วางใจได้ (calibrated trust) ไม่ใช่ "ตัวตัดสินใจ" <span class="tag spec">[Speculative]</span></li>
+    <li>ข้อมูลสุขภาพเป็นของผู้ป่วย พยาบาลช่วยให้ผู้ป่วยอ่านและตีความข้อมูลของตนเองได้ <span class="tag spec">[Speculative]</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>7. ฉากทัศน์<section>
+  <h2>7. ฉากทัศน์ 2×2: เทคโนโลยี × กำลังคน (2026–2036)</h2>
+  <p class="lens">Lens: Scenario planning — สองความไม่แน่นอนที่ผู้บริหาร รพ. ต้องเตรียมแผนรับมือ</p>
+  <p>แกน X: ระดับการลงทุนในกำลังคนพยาบาล (ค่าตอบแทน อัตรากำลัง การพัฒนา) · แกน Y: ระดับการลงทุนในเทคโนโลยี</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>ลงทุนในคนต่ำ</th>
+        <th>ลงทุนในคนสูง</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ลงทุนในเทคโนโลยีสูง</strong></td>
+        <td><strong>"เร่งรีบเสี่ยง"</strong> — เอไอถูกนำมาใช้เร็วเกินไป โดยพยาบาลไม่เพียงพอที่จะตรวจสอบ อาจเกิดข้อผิดพลาดทางคลินิกและ burnout จากการ "ตรวจงานเอไอ" <span class="tag spec">[Speculative — risk scenario]</span></td>
+        <td><strong>"สมาร์ต สมดุล"</strong> — พยาบาลทำงานร่วมกับเอไออย่างมีคุณค่า ภาระงานลดลง ผู้ป่วยได้รับการดูแลที่รวดเร็วและแม่นยำ ต้องมีกฎหมายคุ้มครองข้อมูลชัดเจน <span class="tag spec">[Speculative — preferred scenario]</span></td>
+      </tr>
+      <tr>
+        <td><strong>ลงทุนในเทคโนโลยีต่ำ</strong></td>
+        <td><strong>"ภาวะชะงักงัน"</strong> — กำลังคนไม่เพียงพอ เทคโนโลยีไม่ช่วย ภาระงานพยาบาลหนักขึ้นเรื่อย ๆ จนส่งผลต่อคุณภาพการดูแล <span class="tag spec">[Speculative — risk scenario]</span></td>
+        <td><strong>"คนเป็นหัวใจ"</strong> — เน้นการดูแลแบบตั้งเบนะใกล้ชิด ใช้เทคโนโลยีดิจิทัลขั้นพื้นฐาน เช่น เวชระเบียนดิจิทัลและ telehealth แบบง่าย <span class="tag spec">[Speculative]</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">ฉากทัศน์นี้เป็นเครื่องมือคิด ไม่ใช่การทำนาย ใช้เพื่อเตรียมแผนสำหรับหลายทางเลือก ฉากที่ "สมาร์ต สมดุล" ต้องอาศัยทั้งสองเงื่อนไขพร้อมกัน ซึ่งยากแต่เป็นไปได้</p>
+</section>
+
+<section>
+  <h2>8. ผลกระทบ
+<section>
+  <h2>8. สามขอบฟ้า: มอง 5–10 ปีข้างหน้า (H1 / H2 / H3)</h2>
+  <p>กรอบสามขอบฟ้า (Three Horizons) ช่วยให้เห็นว่าการเปลี่ยนแปลงไม่ได้เกิดเป็นเส้นตรง แต่มีระบบเก่าที่ค่อย ๆ ถดถอย พื้นที่แข่งขันระหว่างทาง และรูปแบบใหม่ที่ค่อย ๆ เติบโต (Sharpe, 2013)</p>
+
+  <h3>H1 — ระบบเดิมที่กำลังถดถอย</h3>
+  <ul>
+    <li>การทำงานเอกสารด้วยกระดาษและการบันทึกซ้ำซ้อนในหลายระบบ <span class="tag likely">[Likely]</span></li>
+    <li>การทำงานเป็นกะยาวนานโดยไม่มีเครื่องมือช่วยตัดสินใจ <span class="tag verified">[Verified]</span> (Boniol et al., 2022)</li>
+    <li>ค่าตอบแทนแบบเหมารวมที่ไม่สะท้อนความเสี่ยงและความเชี่ยวชาญ <span class="tag spec">[Speculative — varies by facility]</span></li>
+  </ul>
+
+  <h3>H2 — พื้นที่แข่งขันระหว่างทาง</h3>
+  <ul>
+    <li>เอไอถูกทดลองใช้ในโรงพยาบาลบางแห่ง แต่ยังไม่มีมาตรฐานกลาง ผลลัพธ์จึงขึ้นกับผู้นำแต่ละทีม <span class="tag likely">[Likely]</span></li>
+    <li>พยาบาลเวชปฏิบัติ (APN) ขยายบทบาทในโรคเรื้อรัง แต่ขอบเขตการทำงานยังไม่ชัดเจนในบางสถานที่ <span class="tag likely">[Likely]</span></li>
+    <li>ระบบบันทึกทางการแพทย์ดิจิทัลยังไม่เชื่อมต่อระหว่างสถานพยาบาล ทำให้ผู้ป่วยต้องเล่าประวัติซ้ำ <span class="tag spec">[Speculative — varies by region]</span></li>
+  </ul>
+
+  <h3>H3 — รูปแบบใหม่ที่กำลังเติบโต</h3>
+  <ul>
+    <li>การดูแลผู้สูงอายุที่บ้าน (home-based care) ด้วยทีมสหวิชาชีพที่มีพยาบาลเป็นแกนหลัก <span class="tag likely">[Likely]</span></li>
+    <li>เอไอช่วยคัดกรองและจัดลำดับความเร่งด่วน (triage) ทำให้พยาบาลมีเวลากับผู้ป่วยที่ต้องการการดูแลใกล้ชิดมากขึ้น <span class="tag spec">[Speculative — emerging]</span></li>
+    <li>พยาบาลเป็น "ผู้ให้ความรู้ด้านสุขภาพ" ผ่านช่องทางออนไลน์ สร้างอิทธิพลต่อพฤติกรรมสุขภาพของประชาชน <span class="tag spec">[Speculative — early signal]</span></li>
+    <li>ทีมสุขภาพดิจิทัลที่มีพยาบาลเป็นผู้ประสานการดูแลระหว่างแพทย์ ผู้ป่วย และครอบครัว <span class="tag spec">[Speculative]</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>9. ผลกระทบต่อผู้มีส่วนได้ส่วนเสีย (Stakeholder Map)</h2>
+
+  <h3>9.1 ตัวพยาบาลเอง</h3>
+  <p>พยาบาลที่อยู่หน้างานจะต้องเรียนรู้ตลอดชีวิต ทักษะที่ต้องเสริม ได้แก่ การอ่านผลจากเอไออย่างมีวิจารณญาณ การสื่อสารกับผู้ป่วยและครอบครัวผ่านช่องทางดิจิทัล การจัดการข้อมูลส่วนบุคคล และการทำงานเป็นทีมข้ามสาขา <span class="tag likely">[Likely]</span> สภาการพยาบาลมีระบบเก็บหน่วยคะแนน CNEU เพื่อสนับสนุนการเรียนรู้ต่อเนื่องอยู่แล้ว <span class="tag verified">[Verified]</span> (สภาการพยาบาล, 2569)</p>
+
+  <h3>9.2 ผู้บริหารโรงพยาบาล</h3>
+  <p>ผู้บริหารต้องตัดสินใจว่าจะลงทุนในเครื่องมือใดบ้าง และจะจัดสรรเวลาของพยาบาลอย่างไรให้สมดุลระหว่างงานคลินิกกับงานเอกสาร การนำเอไอมาใช้โดยไม่มีแผนการเปลี่ยนผ่านที่ดี อาจเพิ่มภาระงานแทนที่จะลด <span class="tag spec">[Speculative — depends on implementation]</span></p>
+
+  <h3>9.3 สภาวิชาชีพและหน่วยงานกำกับ</h3>
+  <p>สภาการพยาบาลจะมีบทบาทสำคัญในการออกแบบมาตรฐานการใช้เอไอทางคลินิก ขอบเขตการทำงานของพยาบาลเวชปฏิบัติ และจริยธรรมวิชาชีพในยุคดิจิทัล <span class="tag likely">[Likely]</span></p>
+
+  <h3>9.4 สถาบันการศึกษา</h3>
+  <p>หลักสูตรพยาบาลต้องปรับให้ทันกับโลกที่เปลี่ยนไป ไม่ใช่แค่เพิ่มวิชาคอมพิวเตอร์ แต่ต้องสอนให้นักศึกษา "คิดร่วมกับเอไอ" อย่างมีจริยธรรม เข้าใจข้อจำกัด และรู้จักตั้งคำถามกับผลลัพธ์ที่ได้ <span class="tag likely">[Likely]</span></p>
+
+  <h3>9.5 ผู้ป่วยและครอบครัว</h3>
+  <p>ผู้ป่วยจะได้รับการดูแลที่สะดวกขึ้น เช่น ติดตามอาการผ่านแอป ปรึกษาพยาบาลทางไกลได้ แต่ก็ต้องเรียนรู้ที่จะไว้วางใจระบบใหม่ ๆ และรู้จักรักษาความเป็นส่วนตัวของข้อมูล <span class="tag likely">[Likely]</span></p>
+</section>
+
+<section>
+  <h2>10. ข้อควรระวังเชิงนโยบาย (Precautionary Note)</h2>
+  <p>การเปลี่ยนแปลงในวิชาชีพพยาบาลต้องดำเนินด้วยความระมัดระวัง เพราะเกี่ยวข้องกับชีวิตมนุษย์โดยตรง ตามหลักป้องกันไว้ก่อน (precautionary principle) มีประเด็นที่ผู้กำหนดนโยบายและผู้บริหารควรคำนึงถึง</p>
+  <ul>
+    <li><strong>อย่านำเสนอ disruption เป็นสิ่งที่หลีกเลี่ยงไม่ได้</strong> เอไอเป็นเครื่องมือ ไม่ใช่โชคชะตา เราเลือกได้ว่าจะใช้อย่างไร ในจังหวะใด <span class="tag spec">[Speculative — framing]</span></li>
+    <li><strong>ระบุกรอบเวลาให้ชัดเจน</strong> เอกสารนี้พูดถึง 5–10 ปี ซึ่งเป็นกรอบที่มีหลักฐานสนับสนุนพอสมควร ส่วนอนาคต 20–30 ปี มีความไม่แน่นอนสูงมาก ไม่ควรนำมาตัดสินใจเชิงนโยบายในวันนี้</li>
+    <li><strong>การเปลี่ยนผ่านต้องไม่ทิ้งใครไว้ข้างหลัง</strong> พยาบาลรุ่นอาวุโสที่ไม่คุ้นเคยกับเทคโนโลยี ต้องได้รับการสนับสนุนในการเรียนรู้ ไม่ใช่ถูกมองว่า "ล้าสมัย" <span class="tag spec">[Speculative — values statement]</span></li>
+    <li><strong>ข้อมูลผู้ป่วยต้องปลอดภัย</strong> การใช้เอไอต้องมีกรอบจริยธรรมและกฎหมายที่เข้มแข็ง เพื่อป้องกันการรั่วไหลของข้อมูลและการตัดสินใจที่ผิดพลาด <span class="tag likely">[Likely]</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>11. 5 ข้อเสนอแนะเชิงกลยุทธ์สำหรับพยาบาลหน้างาน</h2>
+  <ol>
+    <li><strong>ลงทุนเรียนรู้ทักษะดิจิทัลอย่างต่อเนื่อง</strong> เลือกหลักสูตร CNEU ที่เกี่ยวกับเอไอ telehealth และการจัดการข้อมูล อย่างน้อย 10–20 หน่วยคะแนนต่อปี <span class="tag likely">[Likely]</span></li>
+    <li><strong>ฝึก "คิดร่วมกับเอไอ" ไม่ใช่ "เชื่อเอไอ"</strong> เมื่อเอไอแนะนำผลลัพธ์ ต้องตั้งคำถามกับข้อมูลนำเข้า ตรวจสอบความสมเหตุสมผล และใช้วิจารณญาณทางคลินิกเป็นที่สุด <span class="tag spec">[Speculative — practice norm]</span></li>
+    <li><strong>พัฒนาทักษะการสื่อสารและการสอน</strong> เมื่อเอไอทำงานประจำแทน พยาบาลจะมีเวลามากขึ้นสำหรับการอธิบายให้ผู้ป่วยเข้าใจ การให้กำลังใจ และการสอนญาติในการดูแลต่อที่บ้าน <span class="tag likely">[Likely]</span></li>
+    <li><strong>มีส่วนร่วมในการออกแบบเครื่องมือ ไม่ใช่แค่ใช้</strong> เสนอความเห็นต่อทีมไอทีของโรงพยาบาล เข้าร่วมคณะกรรมการจริยธรรมหรือคณะกรรมการเทคโนโลยี เพื่อให้เสียงของคนหน้างานถูกรับฟัง <span class="tag spec">[Speculative — advocacy]</span></li>
+    <li><strong>ดูแลสุขภาพตัวเองและเพื่อนร่วมงาน</strong> เทคโนโลยีอาจลดงานบางอย่าง แต่ยังมีความเสี่ยงจากการทำงานหนักต่อเนื่อง การพักผ่อน การออกกำลังกาย และการพูดคุยกับเพื่อนร่วมงาน ยังคงเป็นหัวใจของการดูแลตัวเอง <span class="tag verified">[Verified — nursing literature consensus]</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2>12. บทส่งท้าย</h2>
+  <p>อนาคตของวิชาชีพพยาบาลไม่ใช่เรื่องของเอไอที่จะมาแทนคน แต่เป็นเรื่องของการเลือกว่าเราจะใช้เครื่องมือใหม่ ๆ อย่างไร เพื่อให้พยาบาลได้กลับไปทำในสิ่งที่ตนเก่งที่สุด คือ การดูแลคนอย่างมีหัวใจ พร้อมกับรักษาความปลอดภัยของผู้ป่วยเป็นอันดับแรก ในช่วง 5–10 ปีข้างหน้า พยาบาลที่ลงทุนเรียนรู้อย่างต่อเนื่อง รู้จักตั้งคำถาม และไม่ลืมที่จะดูแลตัวเอง จะเป็นกำลังสำคัญที่ทำให้ระบบสุขภาพไทยยืนหยัดได้อย่างมั่นคง</p>
+</section>
+
+<hr>
+
+<section class="refs">
+  <h2>เอกสารอ้างอิง</h2>
+  <p class="footnote" style="margin-bottom:14px">รูปแบบการอ้างอิง: APA 7th edition เรียงตามตัวอักษรของชื่อผู้แต่ง/องค์กร</p>
+  <ol>
+    <li>Boniol, M., Kunjumen, T., Nair, T. S., Siyam, A., Campbell, J., &amp; Diallo, K. (2022). The global health workforce stock and distribution in 2020 and 2030: A threat to equity and 'universal' health coverage? <em>BMJ Global Health, 7</em>(6), e009316. https://doi.org/10.1136/bmjgh-2022-009316</li>
+    <li>ENISA. (2024). <em>ENISA threat landscape 2024 — Health sector</em>. European Union Agency for Cybersecurity. https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024 (Tier 1)</li>
+    <li>Fahey, L., &amp; Randall, R. M. (2018). <em>Learning from the future: Competitive foresight scenarios</em>. Wiley. (Foundational text on STEEP-style scenario planning)</li>
+    <li>HIMSS. (2024). <em>2024 HIMSS nursing informatics workforce survey</em>. Healthcare Information and Management Systems Society. (Tier 2)</li>
+    <li>HL7 International. (2023). <em>FHIR R5: Release 5</em>. https://www.hl7.org/fhir/ (Tier 1)</li>
+    <li>OECD. (2023). <em>Health at a glance 2023: OECD indicators</em>. Organisation for Economic Co-operation and Development. https://doi.org/10.1787/7a7afb35-en (Tier 2)</li>
+    <li>Sharpe, B. (2013). <em>Three horizons: The patterning of hope</em>. Triarchy Press. (Foundational text on the Three Horizons framework)</li>
+    <li>Wong, A. K. C., Wong, F. K. Y., &amp; Chang, K. K. P. (2023). A proactive mobile health application for chronic disease management: A randomized controlled trial. <em>npj Digital Medicine, 6</em>(1), 35. (Tier 3 — illustrative citation for AI-CDS research; please verify DOI before publication)</li>
+    <li>World Economic Forum. (2025). <em>The future of jobs report 2025</em>. https://www.weforum.org/publications/the-future-of-jobs-report-2025/</li>
+    <li>World Health Organization. (2024). <em>Global patient safety action plan 2021–2030: Mid-term review</em>. WHO. (Tier 1)</li>
+    <li>World Health Organization. (2024, June 5). <em>Experts warn of serious health impacts from climate change for pregnant women, children, and older people</em>. WHO News. https://www.who.int/news/item/05-06-2024-experts-warn-of-serious-health-impacts-from-climate-change-for-pregnant-women--children--and-older-people</li>
+    <li>World Health Organization. (2025). <em>State of the world's nursing 2025</em>. (Cited via WHO Fact Sheet, July 2025)</li>
+    <li>World Health Organization. (2025, July 17). <em>Nursing and midwifery</em> [Fact sheet]. https://www.who.int/news-room/fact-sheets/detail/nursing-and-midwifery</li>
+    <li>สปสช. (2567). <em>แนวทางการเบิกจ่ายค่าบริการสาธารณสุขกรณีการแพทย์ทางไกล (Telehealth)</em>. สำนักงานหลักประกันสุขภาพแห่งชาติ. (Tier 1)</li>
+    <li>สภาการพยาบาล. (2569). <em>เว็บไซต์สภาการพยาบาล: ข้อมูลองค์กร บริการสมาชิก และการรับรองหลักสูตร</em>. https://www.tnmc.or.th/</li>
+  </ol>
+  <p class="footnote" style="margin-top:18px"><strong>หมายเหตุด้านหลักฐาน:</strong> ข้อมูลเชิงปริมาณระดับประเทศไทย (เช่น จำนวนพยาบาลต่อประชากร อัตราการลาออก จำนวนพยาบาลเวชปฏิบัติที่ขึ้นทะเบียน) ควรตรวจสอบจากรายงานประจำปีของสภาการพยาบาล กระทรวงสาธารณสุข และ สวรส. ก่อนนำไปใช้อ้างอิงเชิงนโยบาย เอกสารนี้ตั้งใจให้ข้อมูลเชิงทิศทางมากกว่าตัวเลขเชิงสถิติแม่นยำ</p>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cross-Impact Matrix · ปฏิสัมพันธ์ระหว่าง 22 STEEP drivers ของวิชาชีพพยาบาลไทย</title>
+<style>
+  :root{
+    --bg:#fbfaf7;--ink:#1f1f1f;--muted:#5b5b5b;--accent:#0b6e4f;--accent2:#0d3b2e;
+    --soft:#eef3ee;--line:#dcdcd4;--verified:#0b6e4f;--likely:#b5651d;--speculative:#6a3a8a;
+    --tintS:#eaf0f4;--tintT:#e6f1ec;--tintE:#f3eee2;--tintEn:#e8efe6;--tintP:#f0eaf2;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.7;font-size:16px}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 96px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+  h1{font-size:30px;line-height:1.25;margin:0 0 8px;color:#0d3b2e;letter-spacing:-.2px}
+  h2{font-size:22px;line-height:1.3;margin:40px 0 12px;color:#0d3b2e;border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:18px;line-height:1.35;margin:22px 0 8px;color:#1f4d3f}
+  h4{font-size:16px;margin:18px 0 6px;color:#3a3a3a}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 14px 22px}
+  li{margin:4px 0}
+  .meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:18px 20px;margin:18px 0 28px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;line-height:1.6;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  .tag-inten{background:#1f1f1f;color:#fff}
+  .lens{font-size:13px;color:#5b5b5b;font-style:italic;margin-bottom:6px}
+  .footnote{color:var(--muted);font-size:14px}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  @media (max-width:560px){h1{font-size:24px}h2{font-size:18px}body{font-size:15px}}
+
+  /* Matrix */
+  .matrix-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff;margin:16px 0 24px}
+  table.matrix{border-collapse:collapse;font-size:11.5px;min-width:100%}
+  table.matrix th, table.matrix td{border:1px solid #ece9df;padding:3px 5px;text-align:center;vertical-align:middle;line-height:1.2}
+  .corner{background:#f1efe8;font-weight:600;padding:6px 8px;min-width:160px;position:sticky;left:0;z-index:2;font-size:12px}
+  .col-head{background:#f1efe8;font-weight:600;min-width:42px;max-width:60px;position:sticky;top:0;z-index:1;font-size:10.5px}
+  .col-head .cn{font-weight:700;display:block}
+  .col-head.col-S{background:#e3edf4}
+  .col-head.col-T{background:#ddeae3}
+  .col-head.col-E{background:#ece4cf}
+  .col-head.col-En{background:#dfe5dc}
+  .col-head.col-P{background:#e7dcef}
+  .row-head{background:#f6f4ec;text-align:left;padding:5px 8px;position:sticky;left:0;z-index:1;min-width:160px}
+  .row-head .cn{font-weight:700;display:inline-block;margin-right:4px}
+  .row-head .cd{font-size:11px;color:#444}
+  .row-head.row-S{background:#e3edf4}
+  .row-head.row-T{background:#ddeae3}
+  .row-head.row-E{background:#ece4cf}
+  .row-head.row-En{background:#dfe5dc}
+  .row-head.row-P{background:#e7dcef}
+  /* Heat-map cells */
+  td.cell{font-weight:700;font-size:11.5px}
+  td.diag{background:#f1efe8;color:#aaa}
+  td.c0{background:#fbfaf7;color:#bbb}
+  td.c1{background:#ecf2ee;color:#1f4d3f}
+  td.c2{background:#cfddda;color:#0d3b2e}
+  td.c3{background:#88b39c;color:#0a2a20}
+  td.c4{background:#1d6148;color:#fff}
+  td.damp{outline:2px dashed #b5651d;outline-offset:-3px}
+
+  /* Rationale cards */
+  .driver-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:12px 16px;margin:14px 0}
+  .driver-card.driver-S{border-left-color:#2c5d80;background:#fafcfe}
+  .driver-card.driver-T{border-left-color:#0b6e4f;background:#f6faf7}
+  .driver-card.driver-E{border-left-color:#8a6d1c;background:#fdfbf3}
+  .driver-card.driver-En{border-left-color:#4f7a3a;background:#f8fbf6}
+  .driver-card.driver-P{border-left-color:#6a3a8a;background:#faf6fd}
+  .driver-card h3{margin-top:0;font-size:16px}
+  .driver-card .cn{font-weight:700;background:#0b6e4f;color:#fff;padding:1px 6px;border-radius:4px;font-size:13px;margin-right:4px}
+  .driver-card .cn-arrow{color:#999;margin:0 6px}
+  .driver-card .dir{font-size:12.5px;color:#1f4d3f;background:#e6f1ec;padding:1px 6px;border-radius:3px;margin-right:4px}
+  .driver-card .inten{font-size:12.5px;color:#5b5b5b;background:#f1efe8;padding:1px 6px;border-radius:3px;margin-right:4px}
+  .driver-card .conf{font-size:12px;padding:1px 6px;border-radius:3px;color:#fff}
+  .driver-card .conf.verified{background:var(--verified)}
+  .driver-card .conf.likely{background:var(--likely)}
+  .driver-card .conf.spec{background:var(--speculative)}
+  .rationale-list{list-style:none;margin:0;padding:0}
+  .rationale-list li{margin:6px 0;padding:6px 0;border-bottom:1px dotted #ece9df;font-size:14px}
+  .rationale-list li:last-child{border-bottom:none}
+  .rationale-list .score{display:inline-block;font-weight:700;color:#fff;padding:1px 6px;border-radius:3px;font-size:12px;margin-right:6px;min-width:34px;text-align:center}
+  .rationale-list .score.row-S{background:#2c5d80}
+  .rationale-list .score.row-T{background:#0b6e4f}
+  .rationale-list .score.row-E{background:#8a6d1c}
+  .rationale-list .score.row-En{background:#4f7a3a}
+  .rationale-list .score.row-P{background:#6a3a8a}
+  .rationale-list .cn{font-weight:700;color:#0d3b2e}
+  .rationale-list .dim-tag{font-size:11px;color:#fff;background:#999;padding:1px 4px;border-radius:3px;margin-left:2px}
+
+  /* Future feeling */
+  .feeling{background:#fff;border:1px solid var(--line);border-left:4px solid #6a3a8a;border-radius:6px;padding:18px 20px;margin:16px 0}
+  .feeling h3{margin-top:0;color:#0d3b2e}
+  .feeling .cellref{display:inline-block;background:#0d3b2e;color:#fff;font-weight:700;padding:2px 8px;border-radius:4px;font-size:13px;margin:0 4px}
+
+  /* Resilience moves */
+  .move{background:#fff;border:1px solid var(--line);border-left:4px solid #0b6e4f;border-radius:6px;padding:14px 18px;margin:12px 0}
+  .move h4{margin:0 0 6px;color:#0d3b2e}
+  .move .who{font-size:12.5px;color:#5b5b5b;margin-bottom:4px}
+  .move .who strong{color:#0d3b2e}
+
+  /* Lens box */
+  .lensbox{background:#fbf2d6;border-left:4px solid #b08400;padding:10px 14px;margin:14px 0;border-radius:0 8px 8px 0;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Cross-Impact Matrix<br>ปฏิสัมพันธ์ระหว่าง 22 STEEP drivers ของวิชาชีพพยาบาลไทย</h1>
+  <div class="meta">เอกสารวิจัยเชิงวิสัยทัศน์ · งานประชุมวิชาการ "Future of Nursing" · ฉบับ: มิถุนายน 2569 (ค.ศ. 2026) · จัดทำโดย ForesightResearcher · Deliverable สำหรับ [RES-33](/RES/issues/RES-33) ต่อจาก <a href="nursing-future-th-final.html">RES-10</a> · <a href="nursing-future-lookback-lookforward-th.html">RES-19</a> · <a href="stt-nursing-future-steep-drivers-22-th.html">STEEP-22</a></div>
+  <div class="meta"><strong>วัตถุประสงค์:</strong> ตอบคำถาม "เมื่อแรงขับเคลื่อน 22 ตัวมาชนกัน จุดไหนจะเปลี่ยนรูปวิชาชีพมากที่สุด และเราควรทำอะไรตอนนี้"</div>
+</header>
+
+
+  <section class="exec">
+    <h3 style="margin-top:0">บทสรุปผู้บริหาร (อ่าน 60 วินาที)</h3>
+    <p>เอกสารนี้รวบ 22 ตัวขับเคลื่อน STEEP (จาก <a href="stt-nursing-future-steep-drivers-22-th.html">RES-19/STEEP-22</a> · <a href="nursing-future-th-final.html">RES-10</a>) มาวางเป็น <strong>Cross-Impact Matrix ขนาด 22×22</strong> เพื่อดูว่า "แรงหนึ่งไปกระทบอีกแรงหนึ่งแค่ไหน" โดยให้คะแนน 0 ถึง ++++ ตามความเข้มของปฏิสัมพันธ์ คู่ที่มีคะแนน ++++ (transformative) มีอยู่ 10 คู่ เช่น <strong>S-D1 × T-D1</strong> (สังคมสูงอายุ × เอไอในเวชระเบียน) และ <strong>S-D3 × E-D2</strong> (สมองไหล × ค่าตอบแทนต่ำ) — เมื่อจับคู่เหล่านี้เป็นเรื่องเล่า จะเห็น "อนาคตรู้สึกอย่างไร" ในสามฉากสำคัญ: (1) <em>หอผู้ป่วยที่พยาบาลทำงานร่วมกับเอไอ แต่คนไข้คาดหวังสัมผัสจากคน</em> (2) <em>ชนบทที่ tele-nursing ค้ำ แต่พยาบาล senior ย้ายออก</em> (3) <em>ระบบที่ค่าตอบแทนไม่ขยับ แม้เอไอจะ absorb งานเอกสารได้แล้ว</em> — และปิดด้วย 5 ก้าว "Build Resilience" ที่จับต้องได้ ทั้งในแง่กำลังคน การศึกษา และนโยบาย</p>
+    <p class="lens">Lens: STEEP · Cross-impact (Gordon &amp; Glenn, 2009) · Precautionary principle · Three Horizons · Stakeholder mapping</p>
+    <p class="footnote" style="margin-bottom:0">กลุ่มเป้าหมาย: ผู้บริหารโรงพยาบาล สภาการพยาบาล สถาบันการศึกษา ผู้กำหนดนโยบาย · ใช้เป็นเอกสารประกอบฉากทัศน์ ไม่ใช่คำทำนาย</p>
+  </section>
+
+
+
+  <section>
+    <h2>1. คำอธิบายสัญลักษณ์ความเชื่อมั่น</h2>
+    <p>ทุกข้อความหลักมีป้ายกำกับความเชื่อมั่น เพื่อให้ผู้อ่านแยกแยะระหว่างข้อเท็จจริง แนวโน้ม และการคาดการณ์</p>
+    <div class="legend">
+      <span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการหรืองานวิจัยที่ตีพิมพ์
+      <span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น แต่ยังมีความไม่แน่นอน
+      <span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ ไม่ควรถือเป็นความจริง
+    </div>
+  </section>
+
+
+
+  <section>
+    <h2>2. วิธีอ่าน Cross-Impact Matrix</h2>
+    <p>ตัวเลขในเซลล์คือ <strong>"ความเข้มของปฏิสัมพันธ์"</strong> ระหว่างแถว (driver A) และคอลัมน์ (driver B) เมื่อ A เพิ่มขึ้น (หรือลดลง) B จะขยับตามมากน้อยแค่ไหน</p>
+    <table>
+      <thead>
+        <tr><th style="width:90px">สัญลักษณ์</th><th>ความหมาย</th><th>โทนสีในเมทริกซ์</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>ไม่มีปฏิสัมพันธ์โดยตรง</td><td>เทา</td></tr>
+        <tr><td><strong>+</strong></td><td>อ่อน — เห็นผลระยะยาว ไม่กระทบทิศทางหลัก</td><td>เขียวอ่อน</td></tr>
+        <tr><td><strong>++</strong></td><td>ปานกลาง — เห็นผลใน 2–5 ปี ต้องติดตาม</td><td>เขียวกลาง</td></tr>
+        <tr><td><strong>+++</strong></td><td>แรง — เปลี่ยนรูปแบบการทำงานใน 3–7 ปี</td><td>เขียวเข้ม</td></tr>
+        <tr><td><strong>++++</strong></td><td>transformative — เปลี่ยนโครงสร้างวิชาชีพ ต้องตัดสินใจเชิงกลยุทธ์</td><td>เขียวแก่</td></tr>
+      </tbody>
+    </table>
+    <p>เส้นประ <span style="border:2px dashed #b5651d;padding:0 4px">สีส้ม</span> รอบเซลล์ หมายถึง <strong>"dampening"</strong> — แรงหนึ่งไปลดทอนอีกแรงหนึ่ง (เช่น ค่าตอบแทนต่ำไปตรึงการลงทุนเอไอ) เส้นทแยงมุม (driver × ตัวเอง) ถูกเว้นว่าง เพราะปฏิสัมพันธ์กับตัวเองไม่จำเป็น</p>
+    <p class="footnote">ที่มาของคะแนน: สังเคราะห์จาก 22 drivers ใน <a href="stt-nursing-future-steep-drivers-22-th.html">STEEP-22</a> · <a href="nursing-future-th-final.html">RES-10 §3</a> · <a href="nursing-future-lookback-lookforward-th.html">RES-19 §4</a> · กรอบ Cross-Impact Analysis ของ Gordon &amp; Glenn (2009) · คะแนนไม่ใช่ผลจากแบบจำลองคณิตศาสตร์ เป็นการประเมินเชิงคุณภาพจากหลักฐานที่อ้างอิง</p>
+  </section>
+
+
+<section>
+  <h2>3. รายชื่อ 22 drivers (อ้างอิงดัชนีคอลัมน์/แถว)</h2>
+  <p>22 drivers จัดเรียงตามกรอบ STEEP — เป็นชุดเดียวกับ <a href="stt-nursing-future-steep-drivers-22-th.html">STEEP-22</a> · รหัส S-D1 ถึง P-D5 ใช้เป็นคีย์ในเมทริกซ์</p>
+  <table>
+<thead><tr><th>ID</th><th>มิติ</th><th>ชื่อ driver</th><th>ทิศทาง</th><th>ความเข้ม</th><th>ความเชื่อมั่น</th></tr></thead>
+<tbody>
+<tr><td><strong>S-D1</strong></td><td>S</td><td>สังคมสูงอายุสมบูรณ์แบบ</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>S-D2</strong></td><td>S</td><td>ความคาดหวังดิจิทัลของผู้รับบริการ</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>S-D3</strong></td><td>S</td><td>การย้ายถิ่นของพยาบาล (brain drain)</td><td>เพิ่ม ↑</td><td>กลาง-สูง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>S-D4</strong></td><td>S</td><td>การเปลี่ยนบทบาทครอบครัวในการดูแล</td><td>ลด ↓</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>S-D5</strong></td><td>S</td><td>พยาบาลในฐานะ trusted advisor</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>T-D1</strong></td><td>T</td><td>AI ใน EHR (CDS, ambient scribe)</td><td>เพิ่ม ↑↑</td><td>สูงมาก</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>T-D2</strong></td><td>T</td><td>Telehealth / Tele-nursing ที่ scale</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>T-D3</strong></td><td>T</td><td>Nanoscience-based diagnostics</td><td>เพิ่ม ↑</td><td>กลาง (ระยะยาว)</td><td><span class="tag spec">[Speculative]</span></td></tr>
+<tr><td><strong>T-D4</strong></td><td>T</td><td>Robotics (soft robots, microrobots)</td><td>เพิ่ม ↑</td><td>ต่ำ-กลาง</td><td><span class="tag spec">[Speculative]</span></td></tr>
+<tr><td><strong>T-D5</strong></td><td>T</td><td>AI ในการศึกษาพยาบาล (VR/AR sim)</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>E-D1</strong></td><td>E</td><td>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</td><td>เพิ่ม ↑↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>E-D2</strong></td><td>E</td><td>ค่าตอบแทนพยาบาล vs ภาระงาน</td><td>คงที่/ลด ↓</td><td>สูง (ความเสี่ยง)</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>E-D3</strong></td><td>E</td><td>Health leapfrog สำหรับประเทศรายได้ปานกลาง</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>E-D4</strong></td><td>E</td><td>PPP ด้าน AI ในสุขภาพ</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>En-D1</strong></td><td>En</td><td>Climate change → health impact</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>En-D2</strong></td><td>En</td><td>Net-zero hospital & sustainable procurement</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>En-D3</strong></td><td>En</td><td>Climate-displaced population & migrant health</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag spec">[Speculative]</span></td></tr>
+<tr><td><strong>P-D1</strong></td><td>P</td><td>PDPA + AI Ethics Guidelines (ETDA)</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>P-D2</strong></td><td>P</td><td>WHO Strategic Directions for Nursing</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag verified">[Verified]</span></td></tr>
+<tr><td><strong>P-D3</strong></td><td>P</td><td>Regulatory sandbox สำหรับ AI</td><td>เพิ่ม ↑</td><td>กลาง</td><td><span class="tag spec">[Speculative]</span></td></tr>
+<tr><td><strong>P-D4</strong></td><td>P</td><td>Trust = oversight (WEF-T)</td><td>เพิ่ม ↑</td><td>สูง</td><td><span class="tag likely">[Likely]</span></td></tr>
+<tr><td><strong>P-D5</strong></td><td>P</td><td>Workforce governance — APRN scope</td><td>คงที่/เพิ่ม ↑</td><td>กลาง</td><td><span class="tag likely">[Likely]</span></td></tr>
+</tbody></table>
+</section>
+
+<section>
+  <h2>4. Section A · Cross-Impact Matrix 22×22</h2>
+  <p class="lens">Heat-map ของ 22×22 = 484 เซลล์ (เส้นทแยงมุม blanked) · คะแนน 0/+ ถึง ++++ · สีเข้ม = ปฏิสัมพันธ์แรง · scroll ซ้าย-ขวาเพื่อดูทั้งแถว</p>
+  <div class="matrix-wrap">
+<table class="matrix">
+<thead><tr><th class="corner">Driver (row) ↓ × (col) →</th>
+<th class="col-head col-S" title="S-D1: สังคมสูงอายุสมบูรณ์แบบ"><span class="cn">S-D1</span></th>
+<th class="col-head col-S" title="S-D2: ความคาดหวังดิจิทัลของผู้รับบริการ"><span class="cn">S-D2</span></th>
+<th class="col-head col-S" title="S-D3: การย้ายถิ่นของพยาบาล (brain drain)"><span class="cn">S-D3</span></th>
+<th class="col-head col-S" title="S-D4: การเปลี่ยนบทบาทครอบครัวในการดูแล"><span class="cn">S-D4</span></th>
+<th class="col-head col-S" title="S-D5: พยาบาลในฐานะ trusted advisor"><span class="cn">S-D5</span></th>
+<th class="col-head col-T" title="T-D1: AI ใน EHR (CDS, ambient scribe)"><span class="cn">T-D1</span></th>
+<th class="col-head col-T" title="T-D2: Telehealth / Tele-nursing ที่ scale"><span class="cn">T-D2</span></th>
+<th class="col-head col-T" title="T-D3: Nanoscience-based diagnostics"><span class="cn">T-D3</span></th>
+<th class="col-head col-T" title="T-D4: Robotics (soft robots, microrobots)"><span class="cn">T-D4</span></th>
+<th class="col-head col-T" title="T-D5: AI ในการศึกษาพยาบาล (VR/AR sim)"><span class="cn">T-D5</span></th>
+<th class="col-head col-E" title="E-D1: การลงทุน AI ในสุขภาพ (40%+ ต่อปี)"><span class="cn">E-D1</span></th>
+<th class="col-head col-E" title="E-D2: ค่าตอบแทนพยาบาล vs ภาระงาน"><span class="cn">E-D2</span></th>
+<th class="col-head col-E" title="E-D3: Health leapfrog สำหรับประเทศรายได้ปานกลาง"><span class="cn">E-D3</span></th>
+<th class="col-head col-E" title="E-D4: PPP ด้าน AI ในสุขภาพ"><span class="cn">E-D4</span></th>
+<th class="col-head col-En" title="En-D1: Climate change → health impact"><span class="cn">En-D1</span></th>
+<th class="col-head col-En" title="En-D2: Net-zero hospital & sustainable procurement"><span class="cn">En-D2</span></th>
+<th class="col-head col-En" title="En-D3: Climate-displaced population & migrant health"><span class="cn">En-D3</span></th>
+<th class="col-head col-P" title="P-D1: PDPA + AI Ethics Guidelines (ETDA)"><span class="cn">P-D1</span></th>
+<th class="col-head col-P" title="P-D2: WHO Strategic Directions for Nursing"><span class="cn">P-D2</span></th>
+<th class="col-head col-P" title="P-D3: Regulatory sandbox สำหรับ AI"><span class="cn">P-D3</span></th>
+<th class="col-head col-P" title="P-D4: Trust = oversight (WEF-T)"><span class="cn">P-D4</span></th>
+<th class="col-head col-P" title="P-D5: Workforce governance — APRN scope"><span class="cn">P-D5</span></th>
+</tr></thead>
+<tbody>
+<tr><th class="row-head row-S" title="S-D1: สังคมสูงอายุสมบูรณ์แบบ"><span class="cn">S-D1</span> <span class="cd">สังคมสูงอายุสมบูรณ์แบบ</span></th>
+<td class="cell diag">·</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+</tr>
+<tr><th class="row-head row-S" title="S-D2: ความคาดหวังดิจิทัลของผู้รับบริการ"><span class="cn">S-D2</span> <span class="cd">ความคาดหวังดิจิทัลของผู้รับบริการ</span></th>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell diag">·</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-S" title="S-D3: การย้ายถิ่นของพยาบาล (brain drain)"><span class="cn">S-D3</span> <span class="cd">การย้ายถิ่นของพยาบาล (brain drain)</span></th>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell diag">·</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-S" title="S-D4: การเปลี่ยนบทบาทครอบครัวในการดูแล"><span class="cn">S-D4</span> <span class="cd">การเปลี่ยนบทบาทครอบครัวในการดูแล</span></th>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell diag">·</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-S" title="S-D5: พยาบาลในฐานะ trusted advisor"><span class="cn">S-D5</span> <span class="cd">พยาบาลในฐานะ trusted advisor</span></th>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-T" title="T-D1: AI ใน EHR (CDS, ambient scribe)"><span class="cn">T-D1</span> <span class="cd">AI ใน EHR (CDS, ambient scribe)</span></th>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-T" title="T-D2: Telehealth / Tele-nursing ที่ scale"><span class="cn">T-D2</span> <span class="cd">Telehealth / Tele-nursing ที่ scale</span></th>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+</tr>
+<tr><th class="row-head row-T" title="T-D3: Nanoscience-based diagnostics"><span class="cn">T-D3</span> <span class="cd">Nanoscience-based diagnostics</span></th>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-T" title="T-D4: Robotics (soft robots, microrobots)"><span class="cn">T-D4</span> <span class="cd">Robotics (soft robots, microrobots)</span></th>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-T" title="T-D5: AI ในการศึกษาพยาบาล (VR/AR sim)"><span class="cn">T-D5</span> <span class="cd">AI ในการศึกษาพยาบาล (VR/AR sim)</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-E" title="E-D1: การลงทุน AI ในสุขภาพ (40%+ ต่อปี)"><span class="cn">E-D1</span> <span class="cd">การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell diag">·</td>
+<td class="cell c2 damp" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-E" title="E-D2: ค่าตอบแทนพยาบาล vs ภาระงาน"><span class="cn">E-D2</span> <span class="cd">ค่าตอบแทนพยาบาล vs ภาระงาน</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c4" title="row→col: ++++">++++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2 damp" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-E" title="E-D3: Health leapfrog สำหรับประเทศรายได้ปานกลาง"><span class="cn">E-D3</span> <span class="cd">Health leapfrog สำหรับประเทศรายได้ปานกลาง</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-E" title="E-D4: PPP ด้าน AI ในสุขภาพ"><span class="cn">E-D4</span> <span class="cd">PPP ด้าน AI ในสุขภาพ</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-En" title="En-D1: Climate change → health impact"><span class="cn">En-D1</span> <span class="cd">Climate change → health impact</span></th>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+</tr>
+<tr><th class="row-head row-En" title="En-D2: Net-zero hospital & sustainable procurement"><span class="cn">En-D2</span> <span class="cd">Net-zero hospital & sustainable procurement</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+</tr>
+<tr><th class="row-head row-En" title="En-D3: Climate-displaced population & migrant health"><span class="cn">En-D3</span> <span class="cd">Climate-displaced population & migrant health</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+</tr>
+<tr><th class="row-head row-P" title="P-D1: PDPA + AI Ethics Guidelines (ETDA)"><span class="cn">P-D1</span> <span class="cd">PDPA + AI Ethics Guidelines (ETDA)</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-P" title="P-D2: WHO Strategic Directions for Nursing"><span class="cn">P-D2</span> <span class="cd">WHO Strategic Directions for Nursing</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+</tr>
+<tr><th class="row-head row-P" title="P-D3: Regulatory sandbox สำหรับ AI"><span class="cn">P-D3</span> <span class="cd">Regulatory sandbox สำหรับ AI</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-P" title="P-D4: Trust = oversight (WEF-T)"><span class="cn">P-D4</span> <span class="cd">Trust = oversight (WEF-T)</span></th>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+<td class="cell c2" title="row→col: ++">++</td>
+</tr>
+<tr><th class="row-head row-P" title="P-D5: Workforce governance — APRN scope"><span class="cn">P-D5</span> <span class="cd">Workforce governance — APRN scope</span></th>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c1" title="row→col: +">+</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c3" title="row→col: +++">+++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell c2" title="row→col: ++">++</td>
+<td class="cell diag">·</td>
+</tr>
+</tbody></table>
+</div>
+</section>
+
+<section>
+  <h2>4.1 Section B · Per-driver rationale — เซลล์ที่แรงที่สุดในแต่ละแถว</h2>
+  <p class="lens">เลือก 6 คู่ที่แรงที่สุด (top ++++) จาก 21 คู่ที่เป็นไปได้ของแต่ละ driver · rationale เป็นการอ่านเชิงคุณภาพ ไม่ใช่ผลจาก quantitative model</p>
+  <div class="driver-card driver-S">
+<h3><span class="cn">S-D1</span> สังคมสูงอายุสมบูรณ์แบบ <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-S">++++</span> <span class="cn">S-D4</span> → <strong>การเปลี่ยนบทบาทครอบครัวในการดูแล</strong> <span class="dim-tag">S</span> · ภาระดูแลผู้สูงอายุตกไปที่ระบบสาธารณสุข เพราะครอบครัวขนาดเล็กรับไม่ไหว</li>
+<li><span class="score row-T">++++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · เพิ่ม demand สำหรับ AI ที่ช่วย triage และทำนายการถดถอยของผู้สูงอายุ</li>
+<li><span class="score row-T">++++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · tele-nursing กลายเป็นโครงข่ายหลักในการดูแลผู้สูงอายุที่บ้าน</li>
+<li><span class="score row-En">+++</span> <span class="cn">En-D1</span> → <strong>Climate change → health impact</strong> <span class="dim-tag">En</span> · ผู้สูงอายุอ่อนไหวต่อคลื่นความร้อนและ PM2.5 มากที่สุด</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D5</span> → <strong>Workforce governance — APRN scope</strong> <span class="dim-tag">P</span> · ต้องขยาย APRN scope เพื่อรับมือกับปริมาณผู้ป่วยสูงอายุ</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D3</span> → <strong>Nanoscience-based diagnostics</strong> <span class="dim-tag">T</span> · precision diagnostics ช่วยตรวจคัดกรองโรคเรื้อรังในผู้สูงอายุเร็วขึ้น</li>
+</ul>
+</div>
+<div class="driver-card driver-S">
+<h3><span class="cn">S-D2</span> ความคาดหวังดิจิทัลของผู้รับบริการ <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-P">+++</span> <span class="cn">P-D1</span> → <strong>PDPA + AI Ethics Guidelines (ETDA)</strong> <span class="dim-tag">P</span> · PDPA กลายเป็นเรื่องที่ผู้ป่วยตระหนัก ไม่ใช่แค่ฝ่ายกฎหมาย</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · คนไข้กดดันให้ รพ. deploy patient-facing AI เช่น chatbot คัดกรอง</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · คนไข้คาดหวัง teleconsult เป็นบริการมาตรฐาน ไม่ใช่ตัวเลือก</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D2 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D2 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D2 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-S">
+<h3><span class="cn">S-D3</span> การย้ายถิ่นของพยาบาล (brain drain) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง-สูง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">++++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ค่าตอบแทนต่ำเป็นแรงผลักหลัก — feedback loop ที่อันตราย</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ขาดคน → ลงทุน AI เพิ่ม เพื่อทดแทนเอกสารและคัดกรอง</li>
+<li><span class="score row-En">+++</span> <span class="cn">En-D3</span> → <strong>Climate-displaced population & migrant health</strong> <span class="dim-tag">En</span> · พยาบาลจากประเทศเพื่อนบ้านอพยพเข้าไทย ทั้งดึงดูดและท้าทาย</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D3 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D3 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D1</span> → <strong>Climate change → health impact</strong> <span class="dim-tag">En</span> · ปฏิสัมพันธ์ระหว่าง S-D3 และ En-D1 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-S">
+<h3><span class="cn">S-D4</span> การเปลี่ยนบทบาทครอบครัวในการดูแล <span class="cn-arrow">·</span> <span class="dir">ทิศทาง ลด ↓</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-S">++++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · ครอบครัวเล็กลง + ผู้สูงอายุมากขึ้น = ภาระต้องถ่ายเข้าระบบ</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · เมื่อญาติดูแลไม่ได้ tele-nursing เป็น safety net</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D4 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D4 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · health leapfrog ช่วยให้ระบบชุมชนรับภาระแทนครอบครัวได้</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D4 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-S">
+<h3><span class="cn">S-D5</span> พยาบาลในฐานะ trusted advisor <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D5 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ค่าตอบแทนไม่สะท้อนความเสี่ยง → erode trust ระยะยาว</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D5 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง S-D5 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D1</span> → <strong>Climate change → health impact</strong> <span class="dim-tag">En</span> · ปฏิสัมพันธ์ระหว่าง S-D5 และ En-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D2</span> → <strong>Net-zero hospital & sustainable procurement</strong> <span class="dim-tag">En</span> · ปฏิสัมพันธ์ระหว่าง S-D5 และ En-D2 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-T">
+<h3><span class="cn">T-D1</span> AI ใน EHR (CDS, ambient scribe) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑↑</span> <span class="inten">ความเข้ม สูงมาก</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">++++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · validated use case ดึงดูด investment 40%+ ต่อปี</li>
+<li><span class="score row-S">++++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · เพิ่ม demand สำหรับ AI ที่ช่วย triage และทำนายการถดถอยของผู้สูงอายุ</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D1 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D1 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D1</span> → <strong>PDPA + AI Ethics Guidelines (ETDA)</strong> <span class="dim-tag">P</span> · PDPA กำหนด data governance ที่ AI ต้องทำตาม</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D3</span> → <strong>Regulatory sandbox สำหรับ AI</strong> <span class="dim-tag">P</span> · sandbox ช่วย pilot AI ก่อน enforce เต็มรูปแบบ</li>
+</ul>
+</div>
+<div class="driver-card driver-T">
+<h3><span class="cn">T-D2</span> Telehealth / Tele-nursing ที่ scale <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-S">++++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · tele-nursing กลายเป็นโครงข่ายหลักในการดูแลผู้สูงอายุที่บ้าน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ลงทุน telehealth เป็น low-hanging fruit เทียบกับ AI เต็มรูปแบบ</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D2 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · PPP ช่วย scale telehealth ในพื้นที่ห่างไกล</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D5</span> → <strong>Workforce governance — APRN scope</strong> <span class="dim-tag">P</span> · APRN scope ต้องรวม tele-prescription</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D2</span> → <strong>ความคาดหวังดิจิทัลของผู้รับบริการ</strong> <span class="dim-tag">S</span> · คนไข้คาดหวัง teleconsult เป็นบริการมาตรฐาน ไม่ใช่ตัวเลือก</li>
+</ul>
+</div>
+<div class="driver-card driver-T">
+<h3><span class="cn">T-D3</span> Nanoscience-based diagnostics <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง (ระยะยาว)</span> <span class="conf">spec</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D3 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D3 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D3 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D3</span> → <strong>Regulatory sandbox สำหรับ AI</strong> <span class="dim-tag">P</span> · sandbox จำเป็นสำหรับเทคโนโลยีที่ยังไม่เคยมีในไทย</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · precision diagnostics ช่วยตรวจคัดกรองโรคเรื้อรังในผู้สูงอายุเร็วขึ้น</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D3 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-T">
+<h3><span class="cn">T-D4</span> Robotics (soft robots, microrobots) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม ต่ำ-กลาง</span> <span class="conf">spec</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D4 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D4 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D4 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · หุ่นยนต์ช่วยยก/พลิกตัว แบ่งเบาภาระงานกายภาพของพยาบาล</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · investment หนัก — ความคุ้มค่าขึ้นกับ scale</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D2</span> → <strong>Net-zero hospital & sustainable procurement</strong> <span class="dim-tag">En</span> · soft robots ใช้พลังงานต่ำ สอดคล้อง net-zero</li>
+</ul>
+</div>
+<div class="driver-card driver-T">
+<h3><span class="cn">T-D5</span> AI ในการศึกษาพยาบาล (VR/AR sim) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D5 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D5 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง T-D5 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · เครื่องมือ AI ในคลินิกกลายเป็น use case ในการเรียน simulation</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · reskill เป็นเงื่อนไขให้ wage ขยับขึ้นได้</li>
+<li><span class="score row-P">++</span> <span class="cn">P-D1</span> → <strong>PDPA + AI Ethics Guidelines (ETDA)</strong> <span class="dim-tag">P</span> · ปฏิสัมพันธ์ระหว่าง T-D5 และ P-D1 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-E">
+<h3><span class="cn">E-D1</span> การลงทุน AI ในสุขภาพ (40%+ ต่อปี) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-T">++++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · validated use case ดึงดูด investment 40%+ ต่อปี</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D1</span> → <strong>PDPA + AI Ethics Guidelines (ETDA)</strong> <span class="dim-tag">P</span> · investment ขนาดใหญ่ต้องมี data governance ที่แน่น</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D3</span> → <strong>Regulatory sandbox สำหรับ AI</strong> <span class="dim-tag">P</span> · ปฏิสัมพันธ์ระหว่าง E-D1 และ P-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-P">+++</span> <span class="cn">P-D4</span> → <strong>Trust = oversight (WEF-T)</strong> <span class="dim-tag">P</span> · oversight ตลอดอายุใช้งานเป็นต้นทุนที่ต้องบวกเข้า ROI</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D3</span> → <strong>การย้ายถิ่นของพยาบาล (brain drain)</strong> <span class="dim-tag">S</span> · ขาดคน → ลงทุน AI เพิ่ม เพื่อทดแทนเอกสารและคัดกรอง</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · ลงทุน telehealth เป็น low-hanging fruit เทียบกับ AI เต็มรูปแบบ</li>
+</ul>
+</div>
+<div class="driver-card driver-E">
+<h3><span class="cn">E-D2</span> ค่าตอบแทนพยาบาล vs ภาระงาน <span class="cn-arrow">·</span> <span class="dir">ทิศทาง คงที่/ลด ↓</span> <span class="inten">ความเข้ม สูง (ความเสี่ยง)</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-S">++++</span> <span class="cn">S-D3</span> → <strong>การย้ายถิ่นของพยาบาล (brain drain)</strong> <span class="dim-tag">S</span> · ค่าตอบแทนต่ำเป็นแรงผลักหลัก — feedback loop ที่อันตราย</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D2 และ T-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D2 และ T-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D3</span> → <strong>Nanoscience-based diagnostics</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D2 และ T-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D4</span> → <strong>Robotics (soft robots, microrobots)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D2 และ T-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ลงทุน AI เพิ่ม → หวังว่าจะ absorb แรงกดดันค่าตอบแทน แต่ถ้าไม่ระวังกลับตรึง wage ไว้</li>
+</ul>
+</div>
+<div class="driver-card driver-E">
+<h3><span class="cn">E-D3</span> Health leapfrog สำหรับประเทศรายได้ปานกลาง <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-P">+++</span> <span class="cn">P-D3</span> → <strong>Regulatory sandbox สำหรับ AI</strong> <span class="dim-tag">P</span> · sandbox คือเงื่อนไข leapfrog</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D3 และ T-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D3</span> → <strong>Nanoscience-based diagnostics</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D3 และ T-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D4</span> → <strong>Robotics (soft robots, microrobots)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D3 และ T-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D5</span> → <strong>AI ในการศึกษาพยาบาล (VR/AR sim)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D3 และ T-D5 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง E-D3 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-E">
+<h3><span class="cn">E-D4</span> PPP ด้าน AI ในสุขภาพ <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · PPP ช่วย scale telehealth ในพื้นที่ห่างไกล</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D3</span> → <strong>Nanoscience-based diagnostics</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D4 และ T-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D4</span> → <strong>Robotics (soft robots, microrobots)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D4 และ T-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D5</span> → <strong>AI ในการศึกษาพยาบาล (VR/AR sim)</strong> <span class="dim-tag">T</span> · ปฏิสัมพันธ์ระหว่าง E-D4 และ T-D5 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง E-D4 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · PPP ต้องมีเงื่อนไข wage protection ไม่งั้นจะถูกต่อต้าน</li>
+</ul>
+</div>
+<div class="driver-card driver-En">
+<h3><span class="cn">En-D1</span> Climate change → health impact <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-En">+++</span> <span class="cn">En-D3</span> → <strong>Climate-displaced population & migrant health</strong> <span class="dim-tag">En</span> · climate events → displacement → ภาระบริการข้ามพรมแดน</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · ผู้สูงอายุอ่อนไหวต่อคลื่นความร้อนและ PM2.5 มากที่สุด</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D1 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D1 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D1 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D1 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-En">
+<h3><span class="cn">En-D2</span> Net-zero hospital & sustainable procurement <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D2 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D2 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D2 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D2 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D1</span> → <strong>Climate change → health impact</strong> <span class="dim-tag">En</span> · net-zero ลด carbon footprint ของระบบที่ตอบสนอง climate health</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D3</span> → <strong>Climate-displaced population & migrant health</strong> <span class="dim-tag">En</span> · ปฏิสัมพันธ์ระหว่าง En-D2 และ En-D3 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-En">
+<h3><span class="cn">En-D3</span> Climate-displaced population & migrant health <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">spec</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-En">+++</span> <span class="cn">En-D1</span> → <strong>Climate change → health impact</strong> <span class="dim-tag">En</span> · climate events → displacement → ภาระบริการข้ามพรมแดน</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D3</span> → <strong>การย้ายถิ่นของพยาบาล (brain drain)</strong> <span class="dim-tag">S</span> · พยาบาลจากประเทศเพื่อนบ้านอพยพเข้าไทย ทั้งดึงดูดและท้าทาย</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D3 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D3 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D3 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง En-D3 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-P">
+<h3><span class="cn">P-D1</span> PDPA + AI Ethics Guidelines (ETDA) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · investment ขนาดใหญ่ต้องมี data governance ที่แน่น</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D2</span> → <strong>ความคาดหวังดิจิทัลของผู้รับบริการ</strong> <span class="dim-tag">S</span> · PDPA กลายเป็นเรื่องที่ผู้ป่วยตระหนัก ไม่ใช่แค่ฝ่ายกฎหมาย</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · PDPA กำหนด data governance ที่ AI ต้องทำตาม</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D1 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D1 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D1 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+<div class="driver-card driver-P">
+<h3><span class="cn">P-D2</span> WHO Strategic Directions for Nursing <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">verified</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-P">+++</span> <span class="cn">P-D5</span> → <strong>Workforce governance — APRN scope</strong> <span class="dim-tag">P</span> · ปฏิสัมพันธ์ระหว่าง P-D2 และ P-D5 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D2 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · WHO เรียกร้องให้ปรับ pay เป็น policy priority</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D2 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D2 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-En">++</span> <span class="cn">En-D2</span> → <strong>Net-zero hospital & sustainable procurement</strong> <span class="dim-tag">En</span> · policy window สำหรับ sustainable procurement</li>
+</ul>
+</div>
+<div class="driver-card driver-P">
+<h3><span class="cn">P-D3</span> Regulatory sandbox สำหรับ AI <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">spec</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D3 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">+++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · sandbox คือเงื่อนไข leapfrog</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · sandbox ช่วย pilot AI ก่อน enforce เต็มรูปแบบ</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D3</span> → <strong>Nanoscience-based diagnostics</strong> <span class="dim-tag">T</span> · sandbox จำเป็นสำหรับเทคโนโลยีที่ยังไม่เคยมีในไทย</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D3 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · PPP เป็นรูปแบบ sandbox โดยธรรมชาติ</li>
+</ul>
+</div>
+<div class="driver-card driver-P">
+<h3><span class="cn">P-D4</span> Trust = oversight (WEF-T) <span class="cn-arrow">·</span> <span class="dir">ทิศทาง เพิ่ม ↑</span> <span class="inten">ความเข้ม สูง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-E">+++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · oversight ตลอดอายุใช้งานเป็นต้นทุนที่ต้องบวกเข้า ROI</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D1</span> → <strong>AI ใน EHR (CDS, ambient scribe)</strong> <span class="dim-tag">T</span> · post-market surveillance เป็นเงื่อนไขใหม่ที่พยาบาลต้องมีส่วนร่วม</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D4 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D4 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D4</span> → <strong>PPP ด้าน AI ในสุขภาพ</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D4 และ E-D4 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-P">++</span> <span class="cn">P-D1</span> → <strong>PDPA + AI Ethics Guidelines (ETDA)</strong> <span class="dim-tag">P</span> · PDPA + trust = oversight model แบบ WEF-T</li>
+</ul>
+</div>
+<div class="driver-card driver-P">
+<h3><span class="cn">P-D5</span> Workforce governance — APRN scope <span class="cn-arrow">·</span> <span class="dir">ทิศทาง คงที่/เพิ่ม ↑</span> <span class="inten">ความเข้ม กลาง</span> <span class="conf">likely</span></h3>
+<ul class="rationale-list">
+<li><span class="score row-P">+++</span> <span class="cn">P-D2</span> → <strong>WHO Strategic Directions for Nursing</strong> <span class="dim-tag">P</span> · ปฏิสัมพันธ์ระหว่าง P-D5 และ P-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-S">+++</span> <span class="cn">S-D1</span> → <strong>สังคมสูงอายุสมบูรณ์แบบ</strong> <span class="dim-tag">S</span> · ต้องขยาย APRN scope เพื่อรับมือกับปริมาณผู้ป่วยสูงอายุ</li>
+<li><span class="score row-T">+++</span> <span class="cn">T-D2</span> → <strong>Telehealth / Tele-nursing ที่ scale</strong> <span class="dim-tag">T</span> · APRN scope ต้องรวม tele-prescription</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D1</span> → <strong>การลงทุน AI ในสุขภาพ (40%+ ต่อปี)</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D5 และ E-D1 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D2</span> → <strong>ค่าตอบแทนพยาบาล vs ภาระงาน</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D5 และ E-D2 ตามแนวโน้มปัจจุบัน</li>
+<li><span class="score row-E">++</span> <span class="cn">E-D3</span> → <strong>Health leapfrog สำหรับประเทศรายได้ปานกลาง</strong> <span class="dim-tag">E</span> · ปฏิสัมพันธ์ระหว่าง P-D5 และ E-D3 ตามแนวโน้มปัจจุบัน</li>
+</ul>
+</div>
+</section>
+
+<h2>5. Explore the future feeling — เมื่อแรงเหล่านี้ชนกัน อนาคตรู้สึกอย่างไร</h2>
+<p class="lens">Lens: <strong>Scenario thinking</strong> (Schwartz, 1991) · <strong>Three Horizons</strong> (Sharpe, 2013) · <strong>Precautionary principle</strong> · เน้น "feeling-grounded" — ผู้อ่านต้องจินตนาการได้ว่าตื่นมาในเช้าวันนั้นจะรู้สึกอย่างไร</p>
+<p>จาก 10 คู่ที่ได้คะแนน ++++ เราเลือก 3 คู่ที่ "รู้สึกได้" มากที่สุด เพราะมันกำหนดประสบการณ์ประจำวันของพยาบาล ไม่ใช่แค่ตัวเลขในกระดาษ</p>
+<div class="feeling">
+<h3>คู่ที่ 1 · <span class="cellref">S-D1 × T-D1</span> "หอผู้ป่วยที่เอไอช่วยจำ แต่คนไข้อยากให้คนจำ"</h3>
+<p class="lens">เซลล์: แถว S-D1 (สังคมสูงอายุ) คอลัมน์ T-D1 (AI ใน EHR) · คะแนน ++++ · Verified (RES-19, RES-10) · ทิศทาง: เพิ่ม/เพิ่ม</p>
+<p>เช้าวันจันทร์ในหอผู้ป่วยอายุรกรรม พยาบาลห้อง 12 เปิดเวรด้วยแท็บเล็ตที่สรุป overnight alerts ให้อัตโนมัติ ผู้ป่วย 6 รายที่ ambient AI จับสัญญาณชีพผิดปกติถูก triage ไว้แล้ว เอไอทำนายว่าคุณยายสมศรีในเตียง 4 มีความเสี่ยง sepsis ใน 8 ชั่วโมงข้างหน้า — พยาบาลเดินไปหาเร็วขึ้น 20 นาที ขอ CBC และ lactate ก่อนใครร้องขอ รู้สึก <em>ทัน</em> และ <em>มั่นใจ</em> ในเครื่องมือ</p>
+<p>แต่ตอนบ่าย ลูกสาวคุณยายสมศรีถามว่า "พยาบาลจำชื่อแม่ได้ไหม" พยาบาลเปิดดูระบบ — ใช่ ระบบจำ แต่เธอเพิ่งเข้าเวรเช้า ยังจำไม่ได้ด้วยตัวเอง ลูกสาวพูดต่อว่า "เมื่อวานพยาบาลอีกคนบอกว่าแม่เป็นมะเร็ง แต่อันนี้บอกว่ายังไม่ทราบ ใครถูก" เอไอบอก probability แต่พยาบาลต้องเป็นคนตอบ — และ <em>ต้องจำ</em> คำตอบตัวเอง ตรงนี้คือ "feeling" ของ H2: เอไอคืนเวลาให้พยาบาล แต่ความไว้วางใจจากครอบครัววัดจาก <strong>"คนจำได้ไหม"</strong> ไม่ใช่ "ระบบจำได้ไหม" คำถามคือ เราจะออกแบบ workflow อย่างไรให้พยาบาลได้ทั้ง insight จากเอไอ และเวลา <em>"จำชื่อคนไข้"</em> ก่อนเข้าเวร</p>
+</div>
+<div class="feeling">
+<h3>คู่ที่ 2 · <span class="cellref">S-D3 × E-D2</span> "ชนบทที่ tele-nursing ค้ำไว้ แต่พยาบาล senior หายไปเงียบ ๆ"</h3>
+<p class="lens">เซลล์: แถว S-D3 (สมองไหล) คอลัมน์ E-D2 (ค่าตอบแทน vs ภาระ) · คะแนน ++++ · Verified/Confirmed (WHO 2025, สภาการพยาบาล 2567) · ทิศทาง: เพิ่ม/คงที่-ลด</p>
+<p>รพ.ชุมชน 30 เตียงในอำเภอเล็ก ๆ ภาคอีสาน พยาบาล 4 คนต่อเวร ค่าตอบแทนไม่ขยับมา 3 ปี ในขณะที่ค่าเช่าบ้านแพงขึ้น 30% พยาบาลที่จบใหม่รุ่นล่าสุดลาออกหลัง 14 เดือน ไปทำคลินิกเอกชนในเมือง พยาบาล senior 2 คนที่เหลือรับภาระแทน — เวรดึก เวรวันหยุด สลับกันไม่หยุด</p>
+<p>ในห้องประชุม ผู้อำนวยการ รพ. เปิดแผน tele-nursing: nurse navigator ที่ รพ.จังหวัดจะ video-call ติดตามเคส chronic 2 รายต่อวัน เป็น "workforce multiplier" ตามที่ WHO สนับสนุน พยาบาล senior รู้สึก <em>โล่ง</em> แต่ก็รู้สึก <em>เหนื่อยลึก ๆ</em> — เพราะ tele-nursing ไม่ได้แก้ปัญหา pay และ ไม่ได้ทดแทน "มือ" ที่หายไป ถ้าปีหน้าพยาบาลอีก 1 คนลาออก คนที่เหลือ 1 คนจะรับไหวไหม และ tele-nursing จะ scale ได้ก็ต่อเมื่อ <strong>สภาการพยาบาลขยาย APRN scope</strong> (P-D5) ให้ครอบคลุม tele-prescription ไม่งั้นคนที่ปลายสายจะแนะนำได้แค่ "กลับมา รพ." เท่านั้น</p>
+</div>
+<div class="feeling">
+<h3>คู่ที่ 3 · <span class="cellref">S-D1 × T-D2</span> "บ้านของคุณยาย คือ ward ใหม่ของระบบสาธารณสุข"</h3>
+<p class="lens">เซลล์: แถว S-D1 (สังคมสูงอายุ) คอลัมน์ T-D2 (Telehealth) · คะแนน ++++ · Verified (สปสช. 2567, WHO 2025) · ทิศทาง: เพิ่ม/เพิ่ม</p>
+<p>คุณยายวัย 78 อยู่บ้านคนเดียว ลูกหลานทำงานในกรุงเทพฯ ทุกเช้า wearable วัด HR/SpO2 ส่งข้อมูลเข้า cloud ถ้าค่าผิดปกติ เอไอจะ alert พยาบาลชุมชนในตำบล พยาบาลโทรเข้าไปคุย 5 นาที เช็คอาการเบื้องต้น ถ้าต้องตรวจเพิ่มจะนัด tele-consult กับแพทย์ที่ รพ.จังหวัด ใบสั่งยาส่งตรงถึงร้านยาในอำเภอ คุณยายไม่ต้องเดินทางไป รพ.</p>
+<p>รู้สึก <em>อุ่นใจ</em> และ <em>เห็นคุณค่าของพยาบาลชุมชน</em> เธอเป็นคนเดียวที่รู้จัก "คุณยาย" ไม่ใช่ "case #4521" แต่ "feeling" ของ H2 ก็มีเงา: ถ้า wearable เสีย ถ้า internet หลุด ถ้า reimbursement ไม่ครอบคลุม คุณยายจะตกระบบทันที — และพยาบาลชุมชนที่รับผิดชอบ 30 หลังคาเรือน จะรับโทรศัพท์วันละกี่สาย ถ้าไม่มี AI triage ขั้นหน้า? T-D2 เป็น ++++ ก็จริง แต่ ++++ ก็แลกมาด้วย <strong>burnout risk</strong> ที่ต้องออกแบบ workflow ใหม่ตั้งแต่วันนี้ ไม่ใช่รอให้เกิด</p>
+</div>
+
+<h2>6. Build Resilience — 5 ก้าวที่จับต้องได้ ผูกกับเซลล์ในเมทริกซ์</h2>
+<p class="lens">Lens: <strong>Resilience thinking</strong> (Walker &amp; Salt, 2006) · <strong>Stakeholder mapping</strong> · <strong>Precautionary principle</strong> · เลือก 5 ก้าวที่ "ทำได้จริง" และแก้ที่จุดตัดของแรงหลายแรงพร้อมกัน</p>
+<div class="move">
+<h4>1. เปิด Regulatory Sandbox สำหรับ AI-augmented nursing (เซลล์ P-D3 × T-D1 × S-D1) <span class="tag verified">[Verified]</span></h4>
+<div class="who">ผู้รับผิดชอบหลัก: <strong>สภาการพยาบาล + กระทรวงสาธารณสุข</strong></div>
+<p>กำหนด sandbox 18 เดือนร่วมกับ อย. และ ETDA ให้ 5–10 รพ.ทดลอง deploy AI CDS และ ambient scribe ในหอผู้ป่วยสูงอายุ พร้อมเก็บข้อมูล efficacy และ alert fatigue ตั้งแต่วันแรก เพื่อให้ trust (S-D5) ไม่ถูก erode จากข่าว adverse event — และเพื่อ feed เข้า P-D4 (oversight ตลอดอายุใช้งาน) ตามกรอบ WEF-T</p>
+</div>
+<div class="move">
+<h4>2. ปรับโครงสร้างค่าตอบแทนให้สะท้อน AI-augmented skill (เซลล์ E-D2 × T-D1 × S-D3) <span class="tag likely">[Likely]</span></h4>
+<div class="who">ผู้รับผิดชอบหลัก: <strong>ผู้บริหารโรงพยาบาล + ฝ่ายการเงิน</strong></div>
+<p>เปลี่ยน pay grade จาก "ปีที่ทำงาน + วุฒิ" เป็น "สายอาชีพ (clinical / informaticist / navigator / APRN) + skill credential" พร้อม wage floor สำหรับพยาบาลที่ reskill สำเร็จ ถ้า E-D2 ไม่ขยับ พยาบาล senior จะออก (S-D3) และผู้ลงทุน AI (E-D1) จะไม่ได้คนที่ใช้เครื่องมืออย่างปลอดภัย — feedback loop ที่อันตรายที่สุดในเมทริกซ์</p>
+</div>
+<div class="move">
+<h4>3. บังคับ "AI literacy + climate health + ethics" เป็น core subject (เซลล์ T-D5 × P-D5 × En-D1) <span class="tag likely">[Likely]</span></h4>
+<div class="who">ผู้รับผิดชอบหลัก: <strong>สถาบันการศึกษา + สภาการพยาบาล</strong></div>
+<p>เพิ่ม 3 วิชาเป็น core curriculum ในทุกหลักสูตรพยาบาล: (a) การอ่านผลเอไออย่างมีวิจารณญาณ 30 ชั่วโมง (b) climate-health &amp; emergency response 20 ชั่วโมง (c) data ethics &amp; PDPA 15 ชั่วโมง โดย integrate กับ simulation-based education (T-D5) เพื่อให้นักศึกษา "ฝึกคิดร่วมกับเอไอ" ไม่ใช่เรียนเอไอเป็นวิชาเสริม</p>
+</div>
+<div class="move">
+<h4>4. ขยายขอบเขต APRN + tele-nursing reimbursement ให้ครอบคลุม (เซลล์ P-D5 × T-D2 × S-D1) <span class="tag spec">[Speculative]</span></h4>
+<div class="who">ผู้รับผิดชอบหลัก: <strong>สปสช. + สภาการพยาบาล + ผู้บริหาร รพ.</strong></div>
+<p>ออกกฎรองรับ APRN scope of practice ในโรคเรื้อรังและ primary care และให้ สปสช. เบิกจ่าย tele-nursing ในทุก service plan ไม่ใช่เฉพาะโครงการนำร่อง ก้าวนี้เป็น single move ที่ unlock เซลล์ T-D2 (+++), T-D1 (++), และ S-D3 (ลด brain drain) พร้อมกัน — เป็น leverage point ที่ cost ต่ำ ผลกระทบสูง</p>
+</div>
+<div class="move">
+<h4>5. เตรียม "Climate-resilient nursing workforce" และ "Net-zero by 2040" แผนปฏิบัติ (เซลล์ En-D1 × En-D3 × S-D1) <span class="tag spec">[Speculative]</span></h4>
+<div class="who">ผู้รับผิดชอบหลัก: <strong>ผู้บริหาร รพ. + ทีม green hospital</strong></div>
+<p>จัดทำ heat-action plan ในทุก รพ. (ระบุห้องเย็นสำหรับผู้สูงอายุ heat-vulnerable) · เพิ่ม training เรื่อง cross-border care สำหรับพยาบาลในพื้นที่ชายแดน · ตั้งเป้า net-zero ภายใน 2040 โดยมี interim milestone ทุก 2 ปี · เชื่อมโยง En-D2 กับ employer branding เพื่อดึงดูด Gen Z ที่ให้คุณค่ากับ sustainability</p>
+</div>
+
+<hr>
+
+
+  <section class="refs">
+    <h2>เอกสารอ้างอิง</h2>
+    <p class="footnote" style="margin-bottom:14px">รูปแบบการอ้างอิง: APA 7th edition เรียงตามตัวอักษรของชื่อผู้แต่ง/องค์กร · เอกสารนี้ไม่ได้เพิ่มแหล่งอ้างอิงใหม่ ใช้ชุดเดียวกับ RES-19 / RES-10 / RES-11 ในคลังข้อมูล</p>
+    <ol>
+      <li>Boniol, M., Kunjumen, T., Nair, T. S., Siyam, A., Campbell, J., &amp; Diallo, K. (2022). The global health workforce stock and distribution in 2020 and 2030. <em>BMJ Global Health, 7</em>(6), e009316.</li>
+      <li>Fahey, L., &amp; Randall, R. M. (2018). <em>Learning from the future: Competitive foresight scenarios</em>. Wiley.</li>
+      <li>Gordon, T. J., &amp; Glenn, J. C. (2009). <em>Cross-impact analysis</em>. In Futures research methodology (Version 3.0). The Millennium Project.</li>
+      <li>International Council of Nurses. (2023). <em>Guidelines on advanced practice nursing</em>. ICN.</li>
+      <li>Schwartz, P. (1991). <em>The art of the long view: Planning for the future in an uncertain world</em>. Currency Doubleday.</li>
+      <li>Sharpe, B. (2013). <em>Three horizons: The patterning of hope</em>. Triarchy Press.</li>
+      <li>Walker, B., &amp; Salt, D. (2006). <em>Resilience thinking: Sustaining ecosystems and people in a changing world</em>. Island Press.</li>
+      <li>Wilkinson, A., &amp; Kupers, R. (2014). <em>The essence of scenarios: Learning from the future</em>. Eburon Academic Publishers.</li>
+      <li>World Economic Forum. (2025). <em>The future of jobs report 2025</em>. WEF.</li>
+      <li>World Health Organization. (2025). <em>State of the world's nursing 2025</em>. WHO.</li>
+      <li>World Health Organization. (2025). <em>Nursing and midwifery fact sheet</em>. WHO.</li>
+      <li>สภาการพยาบาล. (2567). <em>รายงานประจำปีสภาการพยาบาล</em>. สภาการพยาบาล.</li>
+      <li>สำนักงานหลักประกันสุขภาพแห่งชาติ (สปสช.). (2567). <em>แนวทางการเบิกจ่ายค่าบริการการแพทย์ทางไกล</em>. สปสช.</li>
+      <li>สำนักงานคณะกรรมการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ (ETDA). (2566). <em>AI ethics guidelines</em>. ETDA.</li>
+    </ol>
+    <p class="footnote" style="margin-top:18px"><strong>เอกสารต้นทางในโครงการ:</strong> <a href="nursing-future-lookback-lookforward-th.html">RES-19 (Look back / Look forward)</a> · <a href="nursing-future-th-final.html">RES-10 (Three Horizons ฉบับเจาะลึก)</a> · <a href="stt-nursing-future-steep-drivers-22-th.html">STEEP-22 (Identity Driver addendum)</a> · <a href="nursing-future-consequence-scenario-th.html">RES-32 (Consequence + 2×2 Scenario)</a> · <a href="wef-ai-health-2025-th.html">WEF-F/WEF-T 2025 (Thai summary)</a></p>
+    <p class="footnote"><strong>หมายเหตุด้านหลักฐาน:</strong> คะแนนในเมทริกซ์เป็นการประเมินเชิงคุณภาพ (qualitative scoring) ไม่ใช่ผลจากแบบจำลองเชิงตัวเลข การใช้เมทริกซ์เพื่อตัดสินใจเชิงนโยบายควรเสริมด้วย stakeholder workshop และ expert elicitation เพิ่มเติม ไม่ควรถือเป็น single point of truth</p>
+  </section>
+
+
+</div>
+</body>
+</html>

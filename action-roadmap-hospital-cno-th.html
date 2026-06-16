@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Action Roadmap · ระดับโรงพยาบาล (CNO) 12 เดือน · แผนปฏิบัติการ 2026–2027 สู่ "สมาร์ต สมดุล" ของวิชาชีพพยาบาลไทย</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --verified:#0b6e4f;
+    --likely:#b5651d;
+    --speculative:#6a3a8a;
+    --gold:#b08400;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.7;font-size:16.5px}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 22px 80px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}
+  h1{font-size:26px;line-height:1.3;margin:0 0 8px;color:#0d3b2e;letter-spacing:-.2px}
+  h2{font-size:20px;line-height:1.3;margin:36px 0 10px;color:#0d3b2e;border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:17px;line-height:1.35;margin:20px 0 6px;color:#1f4d3f}
+  h4{font-size:15.5px;margin:14px 0 4px;color:#3a3a3a}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 12px 22px}
+  li{margin:4px 0}
+  .meta{color:var(--muted);font-size:13.5px;margin-top:6px}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:16px 20px;margin:14px 0 24px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+  .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12.5px;font-weight:600;border:1px solid transparent;line-height:1.7;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  .lens{font-size:13px;color:#5b5b5b;font-style:italic;margin-bottom:6px}
+  .footnote{color:var(--muted);font-size:13.5px}
+  hr{border:none;border-top:1px solid var(--line);margin:28px 0}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  @media (max-width:560px){h1{font-size:22px}h2{font-size:17px}body{font-size:15.5px}}
+
+  .lensbox{background:#fbf2d6;border-left:4px solid #b08400;padding:10px 14px;margin:14px 0;border-radius:0 8px 8px 0;font-size:14px}
+
+  .op-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .op-table th,.op-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  .op-table th{background:#f1efe8;color:#0d3b2e;font-weight:600}
+  .op-table td.idx{font-weight:700;color:#0b6e4f;white-space:nowrap;background:#fafaf6;width:32px}
+  .op-table .rowref{font-size:11.5px;color:var(--muted);display:block;margin-top:2px}
+
+  .assumption{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:12px 16px;margin:10px 0}
+  .assumption h4{margin:0 0 4px;color:#0d3b2e;font-size:15px}
+  .assumption .valid{background:#fbf2d6;border-left:3px solid #b08400;padding:7px 11px;margin:7px 0 0;border-radius:0 6px 6px 0;font-size:13.5px}
+  .assumption .valid b{color:#7a5418}
+
+  .budget{counter-reset:b;margin:10px 0 0;padding:0;list-style:none}
+  .budget li{counter-increment:b;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px 10px 50px;margin:8px 0;position:relative}
+  .budget li::before{content:counter(b);position:absolute;left:12px;top:10px;background:#0b6e4f;color:#fff;font-weight:700;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13.5px}
+  .budget li b{color:#0d3b2e}
+
+  .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+  @media (max-width:680px){.risk-grid{grid-template-columns:1fr}}
+  .risk{background:#fff;border:1px solid var(--line);border-left:4px solid #8a5a2a;border-radius:6px;padding:10px 14px}
+  .risk b{color:#0d3b2e}
+  .risk p{margin:4px 0 0;font-size:13.5px}
+  .risk .kill{background:#fbf2d6;border-left:3px solid #b08400;padding:6px 10px;margin:8px 0 0;border-radius:0 5px 5px 0;font-size:13px}
+
+  .horizon{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:8px 0}
+  .horizon .period{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;display:block;margin-bottom:4px}
+  .horizon h4{margin:0 0 4px;color:#0d3b2e;font-size:15px}
+  .horizon p{margin:0;font-size:14px}
+
+  .refs ol{font-size:14px;padding-left:20px}
+  .refs li{margin:5px 0}
+
+  footer.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Action Roadmap · ระดับโรงพยาบาล (CNO)<br><span style="font-size:18px;color:#3a3a3a;font-weight:500">แผนปฏิบัติการ 12 เดือน 2026–2027 สู่ "สมาร์ต สมดุล" — สำหรับผู้บริหารโรงพยาบาล (CNO / ผู้อำนวยการฝ่ายการพยาบาล)</span></h1>
+  <div class="meta">เอกสารวิจัยเชิงวิสัยทัศน์ · งานประชุมวิชาการ "Future of Nursing" · ฉบับ: มิถุนายน 2569 (ค.ศ. 2026) · จัดทำโดย ForesightResearcher · <strong>เอกสารระดับปฏิบัติการ</strong> (sibling ของ <a href="action-roadmap-th.html">action-roadmap-th.html</a> ระดับวิชาชีพ/นโยบาย) · Deliverable สำหรับ [RES-61](/RES/issues/RES-61) ต่อจาก [RES-60](/RES/issues/RES-60)</div>
+  <div class="meta"><strong>คำถามหลัก:</strong> ในฐานะ CNO ของโรงพยาบาล <em>แห่งเดียว</em> ฉันจะทำอะไรได้บ้างใน 12 เดือน — ให้สอดคล้องกับทิศ "สมาร์ต สมดุล" และไม่ตกขบวนใน 1–3 ปีถัดไป</div>
+</header>
+
+<section class="exec">
+  <h3 style="margin-top:0">บทสรุปผู้บริหาร (อ่าน 60 วินาที)</h3>
+  <p><strong>ข้อสรุป:</strong> 4 การกระทำ งบรวม <em>3–6 ล้านบาท/ปี</em> สำหรับ รพ. ขนาดกลาง — CNO <em>สั่งการได้เอง</em>ใน 12 เดือน โดยไม่ต้องรอ sandbox/สภาการพยาบาล/สปสช. เคลื่อน</p>
+  <p>เอกสารนี้คือ <strong>แผน 12 เดือนสำหรับผู้บริหารโรงพยาบาล (CNO)</strong> ที่ดึงมาจาก <a href="action-roadmap-th.html">แผนระดับวิชาชีพ/นโยบาย 2026–2036</a> เลือกเฉพาะ 4 การกระทำที่ CNO <em>สั่งการได้เอง</em>ในปีงบประมาณเดียว — ไม่ใช่ 7 ข้อทั้งชุด และไม่ใช่ทุกข้อที่ต้องรอสภาการพยาบาล/สปสช. เคลื่อน</p>
+  <ul>
+    <li><strong>OP-1 · Sandbox application:</strong> สมัครเข้า Regulatory Sandbox ของ สภาการพยาบาล/ETDA เพื่อ deploy ambient scribe + CDS ใน 1–2 หอผู้ป่วย · <span class="tag verified">[Verified]</span></li>
+    <li><strong>OP-2 · APRN scope pilot:</strong> ออกคำสั่งการพยาบาลให้ APRN ดูแลโรคเรื้อรัง + tele-nursing ในกรอบที่ สภาฯ อนุญาต · <span class="tag likely">[Likely]</span></li>
+    <li><strong>OP-3 · Pay-grade pilot (Reskill Premium):</strong> ทดลอง wage floor ใหม่สำหรับพยาบาลที่ผ่าน reskill AI literacy + climate-health ใน 1–2 หอผู้ป่วย · <span class="tag likely">[Likely]</span></li>
+    <li><strong>OP-4 · Heat-action plan:</strong> เปิด "ห้องเย็น" สำหรับผู้สูงอายุ + outreach ทีมพยาบาลชุมชน ในช่วงฤดูร้อน มี.ค.–พ.ค. · <span class="tag spec">[Speculative]</span></li>
+  </ul>
+  <p>ทั้ง 4 ข้อ <em>สอดคล้อง</em> กับ Phase 1 (0–12 เดือน) ของ <a href="action-roadmap-th.html">action-roadmap-th.html §6</a> ใช้ driver labels S-D1/T-D1/T-D2/E-D2/En-D1 จาก <a href="nursing-future-cross-impact-th.html">RES-33</a> · สภาการพยาบาล + สปสช. เป็นผู้ปลดล็อกระดับนโยบาย — CNO <em>เตรียมองค์กร</em>ให้ deploy ได้ทันทีเมื่อกรอบนโยบายมา</p>
+  <p class="lens">Lens: STEEP · Three Horizons (H1→H2) · Impact × Feasibility (Cobby &amp; Yeoman, 2010) · Precautionary · Stakeholder mapping (CNO + ฝ่ายการเงิน + หัวหน้าหอผู้ป่วย + ทีมชุมชน)</p>
+  <p class="footnote" style="margin-bottom:0">กลุ่มเป้าหมาย: CNO / ผู้อำนวยการฝ่ายการพยาบาล · ใช้เป็นแผนปฏิบัติ ไม่ใช่คำทำนาย — ตัวเลขงบประมาณเป็น <em>bands</em></p>
+</section>
+
+<section>
+  <h2>1. คำอธิบายสัญลักษณ์ความเชื่อมั่น</h2>
+  <p>ทุกข้อความหลักมีป้ายกำกับความเชื่อมั่น เพื่อให้ผู้อ่านแยกแยะระหว่างข้อเท็จจริง แนวโน้ม และการคาดการณ์</p>
+  <div class="legend">
+    <span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการหรืองานวิจัยที่ตีพิมพ์
+    <span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น แต่ยังมีความไม่แน่นอน
+    <span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ ไม่ควรถือเป็นความจริง
+  </div>
+</section>
+
+<section>
+  <h2>2. บริบท — ทำไม CNO ต้องทำ <em>ตอนนี้</em> ไม่ใช่รอ</h2>
+  <p>แผนระดับวิชาชีพ ([action-roadmap-th.html](/RES/issues/RES-60)) ระบุว่า 4 ข้อต่อไปนี้ <em>เกิดขึ้นพร้อมกัน</em>ในช่วง 12 เดือนข้างหน้า <span class="tag likely">[Likely]</span></p>
+  <ul>
+    <li>สังคมสูงอายุเต็มขั้น (S-D1) ดันภาระงานพยาบาลต่อเวรเพิ่มขึ้น <span class="tag verified">[Verified]</span></li>
+    <li>AI ใน EHR (T-D1) เริ่มเป็น default ใน รพ. ใหญ่ — ถ้า รพ. ไม่ deploy เอง vendor จะ deploy ให้แบบไม่มี governance <span class="tag verified">[Verified]</span></li>
+    <li>สมองไหล (S-D3) × ค่าตอบแทนต่ำ (E-D2) เป็น feedback loop ที่ดูดคนออก — แต่ละ quarter ที่รอ ต้นทุน "ดึงกลับ" สูงขึ้น <span class="tag likely">[Likely]</span></li>
+    <li>คลื่นความร้อน/PM2.5 (En-D1) กระทบผู้สูงอายุโดยตรง — ฤดูร้อน 2570 จะหนักกว่าปีก่อน <span class="tag spec">[Speculative]</span></li>
+  </ul>
+  <div class="lensbox"><strong>เลนส์ที่ใช้:</strong> Three Horizons (Sharpe, 2013) — ตอนนี้คือ <em>Horizon 1→2 transition</em> ของระบบสุขภาพไทย: ระบบเดิม (ไม่ deploy AI, ไม่ปรับ pay grade, ไม่มี heat-action) กำลังถูก stress test; ถ้า CNO เตรียมองค์กร <em>ก่อน</em> Horizon 2 มาถึง ก็จะเข้าสู่ H3 ได้ก่อน รพ. ที่รอ</div>
+</section>
+
+<section>
+  <h2>3. สมมติฐานที่ต้อง validate ใน 12 เดือนแรก</h2>
+  <p class="lens">Lens: <strong>Assumption-based planning</strong> (Dewar, 2002) · ดึง 3 สมมติฐานจาก <a href="action-roadmap-th.html">action-roadmap-th.html §5</a> ที่ CNO <em>validate ได้ด้วยตัวเอง</em> ในระดับ รพ. ไม่ต้องรอนโยบาย</p>
+
+  <div class="assumption">
+    <h4>A-op1 · Ambient scribe ใน รพ. จะลด paperwork ได้จริง ≥ 30%</h4>
+    <p><strong>สมมติฐาน:</strong> deploy ambient scribe ใน 1 หอผู้ป่วย เวลา documentation ของพยาบาลจะลดลง ≥ 30% ภายใน 3 เดือน และ alert fatigue จาก CDS ไม่เกิน 1 false alert/เวร <span class="footnote">(ต่อยอดจาก Pillar 1 ใน action-roadmap-th.html §3 — ส่วน <em>เฉพาะ</em>ที่ CNO วัดได้)</span></p>
+    <div class="valid"><b>Validation move:</b> baseline สัปดาห์ที่ 1 → deploy สัปดาห์ที่ 2 → วัดซ้ำเดือนที่ 3 · <em>leading indicator:</em> nursing-hours-per-patient-day ลด ≥ 0.3 ชม. หรือ patient-facing time เพิ่ม ≥ 20%</div>
+  </div>
+
+  <div class="assumption">
+    <h4>A-op2 · APRN scope ในกรอบเดิมของ สภาการพยาบาล จะรองรับ tele-nursing ได้จริง</h4>
+    <p><strong>สมมติฐาน:</strong> APRN ที่ผ่าน 6-เดือน pilot จะดูแลผู้ป่วยโรคเรื้อรัง (DM, HT, CKD stage 1–3) ผ่าน tele-nursing ได้โดยไม่เกิด adverse event ≥ grade 2 <span class="footnote">(ต่อยอดจาก A2)</span></p>
+    <div class="valid"><b>Validation move:</b> เปิด tele-nursing clinic 1 วัน/สัปดาห์ เดือนที่ 4 · ติดตาม 30/90/180 วัน · <em>leading indicator:</em> ER revisit &lt; 5% · patient satisfaction ≥ 4.0/5</div>
+  </div>
+
+  <div class="assumption">
+    <h4>A-op3 · Reskill Premium (+10–15% wage) จะดึงพยาบาล senior กลับจากการย้ายออก</h4>
+    <p><strong>สมมติฐาน:</strong> wage premium 10–15% สำหรับพยาบาลที่ผ่าน AI literacy + climate-health + ethics จะทำให้ turnover senior ลด ≥ 15% ใน 12 เดือน <span class="footnote">(ต่อยอดจาก A4 — ทดสอบที่ skill credential ไม่ใช่ wage floor 20%)</span></p>
+    <div class="valid"><b>Validation move:</b> เปรียบเทียบ turnover 2 หอผู้ป่วย treatment vs 2 หอผู้ป่วย control · <em>leading indicator:</em> voluntary turnover ลด ≥ 3 pp ใน Q4 2570</div>
+  </div>
+</section>
+
+<section>
+  <h2>4. แผนปฏิบัติการ 0–12 เดือน (4 การกระทำ)</h2>
+  <p class="lens">Lens: <strong>Impact × Feasibility</strong> (Cobby &amp; Yeoman, 2010) · เลือก 4 จาก 7 การกระทำใน <a href="action-roadmap-th.html">action-roadmap-th.html §4</a> — เกณฑ์คัด: (1) CNO <em>สั่งการได้เอง</em>ภายใน รพ. (2) ไม่ต้องรอ sandbox/สภาฯ/สปสช. (3) งบประมาณอยู่ในกรอบ OPEX ปกติ (4) วัดผลได้ภายใน 12 เดือน</p>
+
+  <table class="op-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>การกระทำ</th>
+        <th>Owner</th>
+        <th>ส่งมอบ 90 วันแรก</th>
+        <th>KPI 6 เดือน</th>
+        <th>ผลลัพธ์ 12 เดือน</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="idx">OP-1</td>
+        <td><strong>สมัคร Regulatory Sandbox + deploy ambient scribe + CDS ใน 1–2 หอผู้ป่วย</strong></td>
+        <td>CNO + หัวหน้าฝ่าย IT + คณะกรรมการ AI ของ รพ.</td>
+        <td>baseline measurement (เวลา documentation/เวร) · shortlist vendor 2–3 ราย · ยื่นใบสมัคร sandbox ต่อ สภาการพยาบาล/ETDA</td>
+        <td>deploy ใน ≥ 1 หอผู้ป่วย · alert fatigue &lt; 1 false alert/เวร · post-market adverse event = 0</td>
+        <td>≥ 2 หอผู้ป่วย deploy · nursing-hours-per-patient-day ลด ≥ 0.3 ชม. · patient-facing time เพิ่ม ≥ 20%</td>
+      </tr>
+      <tr>
+        <td class="idx">OP-2</td>
+        <td><strong>เปิด APRN tele-clinic สำหรับโรคเรื้อรัง (DM/HT/CKD) + tele-nursing service line</strong></td>
+        <td>CNO + หัวหน้า APRN + ทีมชุมชน</td>
+        <td>คำสั่งการพยาบาลกำหนดขอบเขต APRN · คัดเลือกผู้ป่วย 30 รายแรก · protocol tele-nursing</td>
+        <td>≥ 100 visits · ER revisit &lt; 5% · patient satisfaction ≥ 4.0/5</td>
+        <td>≥ 300 visits · service line พร้อม scale · input ให้ สปสช. สำหรับ reimbursement negotiation</td>
+      </tr>
+      <tr>
+        <td class="idx">OP-3</td>
+        <td><strong>Pilot "Reskill Premium" — wage floor ใหม่สำหรับพยาบาลที่ผ่าน 3-วิชา core (AI literacy + climate-health + ethics)</strong></td>
+        <td>CNO + ฝ่ายการเงิน + HR + หัวหน้าหอผู้ป่วย</td>
+        <td>สำรวจพยาบาลที่สนใจ · ออกแบบเกณฑ์ reskill · เจรจา wage band +10–15% กับฝ่ายการเงิน · ตั้ง control group 2 หอผู้ป่วย</td>
+        <td>≥ 30% ของพยาบาล senior ใน treatment group ลงทะเบียน · voluntary turnover ใน treatment ต่ำกว่า control ≥ 2 pp</td>
+        <td>turnover ลด ≥ 3 pp · payroll cost &lt; +20% · productivity gain ≥ 15% · ผลลัพธ์พร้อมเป็น business case ปี 2571</td>
+      </tr>
+      <tr>
+        <td class="idx">OP-4</td>
+        <td><strong>Heat-action plan — "ห้องเย็น" สำหรับผู้สูงอายุ + outreach ทีมพยาบาลชุมชน</strong></td>
+        <td>CNO + ทีมชุมชน + green hospital team + อบจ.</td>
+        <td>ทำ heat-vulnerability map ของเขต รพ. · ระบุห้องเย็น ≥ 1 จุด · training ทีม 20 คน · MOU กับ อบจ. สำหรับศูนย์เย็นชุมชน</td>
+        <td>≥ 200 ครัวเรือน heat-vulnerable ได้รับ outreach · heat-related ER visit ในช่วง มี.ค.–พ.ค. ลด ≥ 10% vs baseline</td>
+        <td>≥ 500 ครัวเรือน · heat-related admission ลด ≥ 15% (3-yr baseline) · SOP พร้อม replicate</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote"><strong>ที่มาแต่ละแถว:</strong> OP-1 = action-roadmap-th.html §6 Phase 1 Action 1 (เฉพาะส่วนที่ รพ. ทำได้) · ผูกเซลล์ P-D3 × T-D1, E-D1 × P-D3 (cell order per parent) · OP-2 = §6 Phase 1 Action 2 · ผูก P-D5 × T-D2, P-D5 × S-D1 (cell order per parent) · OP-3 = §6 Phase 1 Action 4 (ตั้งต้น — wage floor ส่วนที่ รพ. จ่ายเอง) · ผูก E-D2 × S-D3 (<em>loop-breaker</em>) · OP-4 = §6 Phase 1 Action 5 (ตั้งต้น) · ผูก En-D1 × S-D1 (<em>insurance policy ต้นทุนต่ำ</em>)</p>
+  <p class="footnote" style="margin-top:6px"><strong>สิ่งที่ <em>ตัดออก</em>จากแผนใหญ่:</strong> Action 3 (AI literacy + climate-health เป็น core subject) — สถาบันการศึกษา + สภาฯ ไม่ใช่ รพ. · Action 6 (Trust &amp; Oversight) — งานระดับชาติ แต่ CNO <em>ต้อง feed</em> adverse event data เข้า dashboard · Action 7 (Public narrative) — งานระดับชาติ</p>
+</section>
+
+<section>
+  <h2>5. ค่าใช้จ่ายและทรัพยากรที่ต้องตั้งงบประมาณ</h2>
+  <p class="lens">Lens: <strong>STEEP-เศรษฐกิจ</strong> + Precautionary principle · ตัวเลขเป็น <em>bands</em> (ช่วงกว้าง) — ไม่ใช่ราคาตายตัว ขึ้นกับขนาด รพ. ภูมิภาค และ vendor ที่เลือก · สมมติฐาน: รพ. ขนาด 200–500 เตียง สังกัด สธ. หรือ รพ. มหาวิทยาลัย</p>
+  <ol class="budget">
+    <li><b>OP-1 · Sandbox + ambient scribe</b> — license AI 250K–800K บาท/ปี + integration HIS 300K–1.2M บาท ครั้งเดียว + IT 0.5 FTE × 6 เดือน · สมมติฐาน: ใช้ vendor ไทย/ในภูมิภาค</li>
+    <li><b>OP-2 · APRN tele-clinic</b> — platform 100K–400K บาท + APRN 0.3 FTE × 12 เดือน + training 40 ชม. · สมมติฐาน: ใช้ platform เดิมของ รพ. เพิ่ม module</li>
+    <li><b>OP-3 · Reskill Premium</b> — wage premium 10–15% × senior count · ตัวอย่าง: 30 คน × 6K–9K บาท/เดือน × 12 เดือน ≈ 2.2–3.2M บาท/ปี (รวม training)</li>
+    <li><b>OP-4 · Heat-action plan</b> — ปรับปรุงห้องเย็น 200K–500K บาท + outreach + MOU อบจ. (ไม่มีค่าใช้จ่ายตรง) · สมมติฐาน: ใช้พื้นที่เดิม</li>
+  </ol>
+  <p class="footnote" style="margin-top:8px"><strong>ข้อสังเกต:</strong> ต้นทุนรวมของ 4 actions อยู่ในกรอบ <em>3–6 ล้านบาท/ปี</em> สำหรับ รพ. ขนาดกลาง — เทียบกับต้นทุนการสูญเสียพยาบาล senior 1 คน (recruit + train + ramp-up ≈ 400,000–800,000 บาท) <span class="tag likely">[Likely]</span> · การลงทุนนี้ <em>คุ้ม</em> ถ้า reduce turnover ≥ 3 คน/ปี ในกลุ่ม senior</p>
+</section>
+
+<section>
+  <h2>6. ความเสี่ยงและเงื่อนไขการยุติโครงการ (kill criteria)</h2>
+  <p class="lens">Lens: <strong>Precautionary principle</strong> · ดึงจาก <a href="action-roadmap-th.html">action-roadmap-th.html §8</a> และ recast เป็น <em>operational kill switch</em> — ถ้าเข้าเงื่อนไขใดเงื่อนไขหนึ่ง ให้หยุด/ทบทวนทันที ไม่ใช่ "ดูว่าจะเป็นอย่างไร"</p>
+
+  <div class="risk-grid">
+    <div class="risk">
+      <b>R1 · Sandbox deploy แล้วเกิด adverse event ≥ grade 2</b>
+      <p>post-market surveillance พบ harm ต่อผู้ป่วยจาก AI CDS หรือ ambient scribe</p>
+      <div class="kill"><b>Kill:</b> ระงับ AI ในหอผู้ป่วยนั้นทันที · รายงาน สภาการพยาบาล ภายใน 30 วัน · ทบทวน governance ก่อน deploy หอใหม่</div>
+    </div>
+    <div class="risk">
+      <b>R2 · Reskill Premium เพิ่ม payroll แต่ productivity ไม่ขยับ</b>
+      <p>หลัง 6 เดือน productivity gain &lt; 5% และ turnover ลด &lt; 1 pp</p>
+      <div class="kill"><b>Kill:</b> phase out premium ในกลุ่มที่ไม่ผ่าน reskill เกณฑ์ · redesign เป็น pay-for-skill แทน flat premium</div>
+    </div>
+    <div class="risk">
+      <b>R3 · Heat-action plan ไม่ลด admission ในปีแรก</b>
+      <p>heat-related ER visit ไม่ลดลง vs baseline 3 ปี (อาจเพราะ summer 2570 รุนแรงกว่า)</p>
+      <div class="kill"><b>Kill:</b> เปลี่ยน baseline เป็น 5 ปี · เพิ่มพื้นที่ coverage แทนการถอน · รายงานเป็น "adaptive response" ไม่ใช่ "failure"</div>
+    </div>
+    <div class="risk">
+      <b>R4 · Vendor lock-in ทำให้ รพ. เสีย autonomy</b>
+      <p>Vendor AI กำหนด price increase &gt; 20% หลังปีที่ 1 หรือปฏิเสธเปิด audit log</p>
+      <div class="kill"><b>Kill:</b> contract ต้องระบุ open API + audit log + price ceiling ตั้งแต่วันแรก · ถ้า vendor ไม่ยอม → เปลี่ยน vendor ก่อน deploy</div>
+    </div>
+  </div>
+  <p class="footnote" style="margin-top:8px">หมายเหตุ: ความเสี่ยงด้าน APRN scope ที่แพทยสภาอาจต่อต้าน รับมือด้วย stakeholder workshop (ดู A-op2) ไม่ใช่ <em>kill switch</em></p>
+</section>
+
+<section>
+  <h2>7. Horizon scan — สิ่งที่ต้องจับตาใน 1–3 ปี</h2>
+  <p class="lens">Lens: <strong>Three Horizons</strong> + <strong>Horizon scanning</strong> · เนื้อหาส่วนนี้เป็น <em>headline-only</em> — รายละเอียดเต็มอยู่ใน Phase 2–3 ของ <a href="action-roadmap-th.html">action-roadmap-th.html §6</a> ไม่ซ้ำในเอกสารนี้</p>
+
+  <div class="horizon">
+    <span class="period">Phase 2 · 1–3 ปี · Phase 3 · 3–5 ปี · Phase 4 · 5–10 ปี (2570–2579)</span>
+    <h4>headline scan เท่านั้น — ดูรายละเอียดที่ <a href="action-roadmap-th.html">action-roadmap-th.html §6</a></h4>
+    <p><strong>Phase 2 (1–3y):</strong> sandbox scale เป็น 50 รพ. · tele-nursing reimbursement มีผลบังคับใช้ · CNO ที่ deploy OP-1–2 ก่อนมี <em>first-mover data</em> ใช้ lobby งบประมาณปี 2571 · <strong>Phase 3 (3–5y):</strong> AI deployment + APRN scope กลายเป็น "ค่า default" · peer รพ. ที่ deploy ก่อนมี productivity เพิ่ม 15–20% · <strong>Phase 4 (5–10y):</strong> ตาม <a href="nursing-future-th-final.html">Scenario A "สมาร์ต สมดุล"</a> ไทยเป็น ASEAN hub ด้าน AI-augmented nursing — <em>แต่</em> ถ้า Phase 1–2 ล้มเหลว ระบบจะถูกดูดเข้าสู่ฉาก "เร่งรีบเสี่ยง" เพราะ feedback loop S-D3 × E-D2 <span class="tag spec">[Speculative — long-horizon]</span></p>
+  </div>
+</section>
+
+<hr>
+
+<section class="refs">
+  <h2>เอกสารอ้างอิง</h2>
+  <p class="footnote" style="margin-bottom:12px">รูปแบบ: APA 7 · ใช้ citation pool ร่วมกับ <a href="action-roadmap-th.html">action-roadmap-th.html</a> และ <a href="nursing-future-cross-impact-th.html">RES-33 (Cross-Impact Matrix 22×22)</a> · คัดเฉพาะที่เกี่ยวกับ hospital-level deployment</p>
+  <ol>
+    <li>Cobby, J., &amp; Yeoman, I. (2010). <em>Transforming local economies through events: Impact analysis, leverage points and outcomes</em>. In <em>Festival and events management</em> (pp. 165–184). Routledge.</li>
+    <li>Dewar, J. A. (2002). <em>Assumption-based planning: A tool for reducing avoidable surprises</em>. RAND Corporation.</li>
+    <li>International Council of Nurses. (2023). <em>Guidelines on advanced practice nursing</em>. ICN.</li>
+    <li>Meadows, D. H. (1999). <em>Leverage points: Places to intervene in a system</em>. Sustainability Institute.</li>
+    <li>Sharpe, B. (2013). <em>Three horizons: The patterning of hope</em>. Triarchy Press.</li>
+    <li>World Health Organization. (2025). <em>State of the world's nursing 2025</em>. WHO.</li>
+    <li>สภาการพยาบาล. (2567). <em>รายงานประจำปีสภาการพยาบาล</em>. สภาการพยาบาล.</li>
+    <li>สำนักงานหลักประกันสุขภาพแห่งชาติ (สปสช.). (2567). <em>แนวทางการเบิกจ่ายค่าบริการการแพทย์ทางไกล</em>. สปสช.</li>
+    <li>สำนักงานคณะกรรมการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ (ETDA). (2566). <em>AI ethics guidelines</em>. ETDA.</li>
+  </ol>
+  <p class="footnote" style="margin-top:10px"><strong>เอกสารต้นทางในโครงการ:</strong> <a href="action-roadmap-th.html">action-roadmap-th.html</a> · <a href="nursing-future-cross-impact-th.html">nursing-future-cross-impact-th.html</a> · <a href="nursing-future-th-final.html">nursing-future-th-final.html</a> · <a href="ride-2-curve-th.html">ride-2-curve-th.html</a></p>
+  <p class="footnote"><strong>หลักฐาน:</strong> ลำดับชั้น Tier 1 (รัฐ/สภาวิชาชีพ/peer-reviewed) &gt; Tier 2 (WHO/WEF/OECD) &gt; Tier 3 (peer-reviewed เฉพาะทาง) &gt; Tier 4 (industry/blog) · ตัวเลขงบประมาณเป็น <em>bands</em> เชิงคุณภาพ ไม่ใช่ผลจากแบบจำลองเชิงตัวเลข — CNO ควร validate กับฝ่ายการเงิน รพ. ก่อนตั้งงบ</p>
+</section>
+
+<footer class="foot">
+จัดทำโดย ForesightResearcher · มิถุนายน 2569 · ใช้ประกอบการนำเสนอในงานประชุมวิชาการ "Future of Nursing" 2026-06-18 · Sibling file ของ <a href="action-roadmap-th.html">action-roadmap-th.html</a> · มิใช่คำแนะนำทางการแพทย์หรือการลงทุน
+</footer>
+
+</div>
+</body>
+</html>

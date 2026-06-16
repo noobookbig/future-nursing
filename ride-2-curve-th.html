@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ride 2 Curve: สองอนาคตของพยาบาลไทย 2026–2036</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --verified:#0b6e4f;
+    --likely:#b5651d;
+    --speculative:#6a3a8a;
+    --heads:#0b6e4f;
+    --tails:#a33a3a;
+    --tintA:#eaf3ee;
+    --tintB:#f3eee8;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.75;font-size:17px}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 24px 96px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+  h1{font-size:32px;line-height:1.3;margin:0 0 10px;color:var(--accent2);letter-spacing:-.2px}
+  h2{font-size:24px;line-height:1.3;margin:44px 0 12px;color:var(--accent2);border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:19px;line-height:1.35;margin:26px 0 8px;color:#1f4d3f}
+  h4{font-size:16px;margin:20px 0 6px;color:#3a3a3a}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 14px 22px}
+  li{margin:5px 0}
+  .meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:18px 22px;margin:18px 0 28px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 0}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;line-height:1.7;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#f1efe8}
+  blockquote{margin:14px 0;padding:10px 16px;border-left:4px solid var(--accent);background:#f3f6f3;color:#2a2a2a;font-style:italic}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+  .refs ol{font-size:15px}
+  .refs li{margin:6px 0}
+  .footnote{color:var(--muted);font-size:14px}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  .persona{border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:18px 0}
+  .persona.A{background:var(--tintA);border-left:5px solid var(--heads)}
+  .persona.B{background:var(--tintB);border-left:5px solid #8a5a2a}
+  .persona h3{margin-top:0;color:var(--accent2)}
+  .persona .who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 12px}
+  @media (max-width:640px){.persona .who{grid-template-columns:1fr}}
+  .persona .who div{font-size:14.5px}
+  .persona .who .lbl{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+  .artifact{border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:12px 0;background:#fff}
+  .artifact.heads{border-left:4px solid var(--heads)}
+  .artifact.tails{border-left:4px solid var(--tails)}
+  .artifact h4{margin-top:0;color:var(--accent2)}
+  .artifact .trace{font-size:13px;color:var(--muted);font-style:italic;margin:4px 0 8px}
+  .scenario{border-radius:10px;padding:18px 22px;margin:18px 0}
+  .scenario.heads{background:#eaf3ee;border:1px solid #cfe0d6}
+  .scenario.tails{background:#f5e9e9;border:1px solid #e2c7c7}
+  .scenario h3{margin-top:0}
+  .scenario.heads h3{color:#0d3b2e}
+  .scenario.tails h3{color:#7a1f1f}
+  .narrative{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:14px 18px;margin:10px 0;font-size:16px;line-height:1.85}
+  .narrative .when{display:block;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+  .curve-wrap{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 14px;margin:14px 0;text-align:center}
+  .curve-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+  .curve-cap{font-size:13px;color:var(--muted);margin-top:8px}
+  .prompts{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:18px 22px;margin:18px 0}
+  .prompts h3{margin-top:0}
+  .prompts ol{margin-left:18px}
+  .prompts li{margin:10px 0;font-size:16px}
+  .source-link{font-size:13px}
+  @media print{body{font-size:12pt}.wrap{padding:18px}.tag{color:#000;background:#fff;border-color:#000}}
+  @media (max-width:560px){h1{font-size:26px}h2{font-size:20px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Ride 2 Curve<br>สองอนาคตของพยาบาลไทย 2026–2036</h1>
+  <div class="meta">เอกสารประกอบการบรรยาย · งานประชุมวิชาการ "อนาคตของวิชาชีพพยาบาล" · ฉบับ: มิถุนายน 2569 (ค.ศ. 2026) · ต่อยอดจาก <a href="nursing-future-steep-technology-th.html">STEEP Technology Deep-Dive (RES-11)</a> และ <a href="nursing-future-th.html">ภาพรวม STEEP (RES-9)</a></div>
+  <div class="meta">ผู้จัดทำ: ForesightResearcher · ผู้สั่งงาน: CEO · ภายใต้โครงการ Conference Presentation Future of Nursing</div>
+</header>
+
+<section class="exec">
+  <h3 style="margin-top:0">บทสรุปสำหรับผู้บรรยาย (อ่าน 60 วินาที)</h3>
+  <p>เทคนิค "Ride 2 Curve" พาเราเดินตามแนวโน้มปัจจุบันไปข้างหน้า แล้วหยุดที่จุดแยก (ราว ค.ศ. 2030) เพื่อถามว่า พยาบาลไทยจะ <strong>ขี่ไปทางหัวเหรียญ (Heads)</strong> ซึ่งลงทุนทั้งในเทคโนโลยีและในคนพร้อมกัน หรือ <strong>ทางก้อย (Tails)</strong> ซึ่งเทคโนโลยีวิ่งเร็วเกินกำลังคนจะตามทัน เอกสารนี้สร้าง 2 personas จากสัญญาณ STEEP/Technology ที่วิเคราะห์ไว้ใน RES-9 และ RES-11 คือ <strong>พี่ฝน</strong> (พยาบาล ER ประสบการณ์ 7 ปี) และ <strong>อ้อม</strong> (หัวหน้าทีมดูแลผู้ป่วยที่บ้าน) แต่ละคนจะถือ artifact ต่างกันในปี ค.ศ. 2033 และ 2036 ขึ้นกับว่าเรา "พลิกเหรียญ" ออกด้านใด เราเชื่อว่าการเปิดให้ผู้ฟังเห็นภาพสองฝั่งอย่างชัดเจน จะช่วยให้การตัดสินใจเชิงนโยบายและการลงทุนในอีก 10 ปีข้างหน้า ตั้งอยู่บนความเป็นจริงมากกว่าความเชื่อ</p>
+</section>
+
+<section>
+  <h2>1. คำอธิบายสัญลักษณ์ความเชื่อมั่น</h2>
+  <p>ทุกข้อความหลักมีป้ายกำกับความเชื่อมั่น เพื่อให้ผู้อ่านแยกแยะได้ชัดเจน</p>
+  <div class="legend">
+    <span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการหรืองานวิจัยที่ตีพิมพ์ มีแหล่งอ้างอิงชัดเจน
+    <span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานสนับสนุนหลายชิ้น แต่ยังมีความไม่แน่นอน
+    <span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ มาจากการตีความข้อมูลที่มีอยู่ ไม่ควรถือเป็นความจริง
+  </div>
+  <p class="footnote">ลำดับชั้นหลักฐาน: Tier 1 (รัฐ/สภาวิชาชีพ/peer-reviewed) &gt; Tier 2 (รายงาน sectoral เช่น WHO, WEF, OECD) &gt; Tier 3 (peer-reviewed เฉพาะทาง) &gt; Tier 4 (industry/blog ใช้ประกอบ horizon scanning เท่านั้น)</p>
+</section>
+
+<section>
+  <h2>2. Ride the Curve: กรอบความคิดและกราฟเส้นโค้ง</h2>
+  <p><strong>เทคนิค Ride 2 Curve</strong> เริ่มจากจุดปัจจุบัน (2026) แล้วฉายแนวโน้มที่วัดได้ในวันนี้ไปข้างหน้า 10 ปี โดยระบุ <strong>จุดแยก (divergence point)</strong> ที่ทิศทางอาจแตกต่างกันมาก ในที่นี้จุดแยกอยู่ที่ราว ค.ศ. 2030 เมื่อการลงทุนในเทคโนโลยีเอไอทางคลินิกเริ่มแพร่หลายในโรงพยาบาลขนาดใหญ่ และการเบิกจ่าย telehealth ของ สปสช. เริ่มชัดเจน <span class="tag likely">[Likely]</span> หลังจากนั้นเส้นโค้งจะแยกเป็น 2 ทาง ไปสู่อนาคต 2 แบบในปี ค.ศ. 2033 และ 2036</p>
+  <p>เส้นโค้งนี้ตั้งอยู่บนสมมติฐานสองข้อจาก RES-11 (T deep-dive) <span class="tag likely">[Likely]</span></p>
+  <ol>
+    <li><strong>แกน X = ระดับการลงทุนในกำลังคน</strong> (ค่าตอบแทน อัตรากำลัง การพัฒนา) — วัดจากนโยบายของกระทรวงสาธารณสุขและ สภาการพยาบาล</li>
+    <li><strong>แกน Y = ระดับการลงทุนในเทคโนโลยี</strong> — วัดจากการนำ AI-CDS, ambient scribe, RPM, telehealth มาใช้ในสถานพยาบาล</li>
+  </ol>
+
+  <div class="curve-wrap" role="img" aria-label="กราฟเส้นโค้งแสดงเส้นทางจากปัจจุบัน 2026 ไปยังจุดแยก 2030 และอนาคตสองทางใน 2033 และ 2036">
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0b6e4f"/>
+    </marker>
+    <marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a33a3a"/>
+    </marker>
+  </defs>
+  <!-- frame -->
+  <rect x="0" y="0" width="720" height="280" fill="#fff"/>
+  <!-- year axis -->
+  <line x1="60" y1="240" x2="700" y2="240" stroke="#999" stroke-width="1"/>
+  <!-- year labels -->
+  <g font-family="Sarabun, sans-serif" font-size="13" fill="#333" text-anchor="middle">
+    <line x1="100" y1="240" x2="100" y2="246" stroke="#999"/><text x="100" y="262">2026 (วันนี้)</text>
+    <line x1="260" y1="240" x2="260" y2="246" stroke="#999"/><text x="260" y="262">2030 (จุดแยก)</text>
+    <line x1="420" y1="240" x2="420" y2="246" stroke="#999"/><text x="420" y="262">2033</text>
+    <line x1="600" y1="240" x2="600" y2="246" stroke="#999"/><text x="600" y="262">2036</text>
+  </g>
+  <!-- Y axis hints -->
+  <g font-family="Sarabun, sans-serif" font-size="11" fill="#777">
+    <text x="20" y="120" transform="rotate(-90 20 120)" text-anchor="middle">การลงทุนในเทคโนโลยี (สูงขึ้น)</text>
+  </g>
+  <!-- Heads path -->
+  <path d="M 100 220 Q 180 200 260 170 Q 340 130 420 90 Q 500 60 600 50"
+        fill="none" stroke="#0b6e4f" stroke-width="3" marker-end="url(#ah)"/>
+  <!-- Tails path -->
+  <path d="M 100 220 Q 180 210 260 180 Q 340 170 420 200 Q 500 215 600 220"
+        fill="none" stroke="#a33a3a" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#at)"/>
+  <!-- Fork node -->
+  <circle cx="260" cy="175" r="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="260" y="158" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="12" fill="#333">จุดแยก</text>
+  <!-- Heads label -->
+  <text x="510" y="40" font-family="Sarabun, sans-serif" font-size="15" font-weight="700" fill="#0b6e4f">Heads — "สมาร์ต สมดุล"</text>
+  <text x="510" y="58" font-family="Sarabun, sans-serif" font-size="11" fill="#0b6e4f">ลงทุนทั้งคนและเทคโนโลยี</text>
+  <!-- Tails label -->
+  <text x="510" y="208" font-family="Sarabun, sans-serif" font-size="15" font-weight="700" fill="#a33a3a">Tails — "เร่งรีบเสี่ยง / ชะงักงัน"</text>
+  <text x="510" y="226" font-family="Sarabun, sans-serif" font-size="11" fill="#a33a3a">เทคโนโลยีวิ่งเร็วเกินกำลังคน</text>
+  <!-- legend dots at 2026 -->
+  <circle cx="100" cy="220" r="5" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="11" fill="#333">เริ่มต้น</text>
+  <!-- 2033 and 2036 nodes on Heads -->
+  <circle cx="420" cy="90" r="4" fill="#0b6e4f"/>
+  <circle cx="600" cy="50" r="5" fill="#0b6e4f"/>
+  <!-- 2033 and 2036 nodes on Tails -->
+  <circle cx="420" cy="200" r="4" fill="#a33a3a"/>
+  <circle cx="600" cy="220" r="5" fill="#a33a3a"/>
+</svg>
+  </div>
+  <p class="curve-cap">รูปที่ 1: เส้นโค้งจากวันนี้ (2026) ผ่านจุดแยก (2030) ไปยัง 2 อนาคต Heads (เส้นทึบสีเขียว) และ Tails (เส้นประสีแดง)</p>
+</section>
+
+<hr>
+
+<section>
+  <h2>3. Persona 1: "พี่ฝน" — พยาบาลวิชาชีพ ER ประสบการณ์ 7 ปี</h2>
+
+  <div class="persona A">
+    <h3>พี่ฝน (Fon), 31 ปี — พยาบาลวิชาชีพ ER, โรงพยาบาลตติยภูมิ</h3>
+    <p>พี่ฝนเป็นพยาบาลเจนเนอเรชันที่ทำงานในแผนกฉุกเฉินโรงพยาบาลรัฐขนาดใหญ่ในเขตเมือง เริ่มทำงานหลังเรียนจบ 4 ปี สะสมประสบการณ์ triage, ดูแลผู้ป่วยวิกฤติ, และประสานงานกับทีมแพทย์หลายสาขา เธอเป็นหนึ่งในพยาบาลที่เริ่มใช้ ChatGPT ช่วยสรุปเคสในชีวิตส่วนตัว แต่ยังไม่มีนโยบายจากโรงพยาบาลรองรับ <span class="tag spec">[Speculative — informal adoption]</span></p>
+
+    <div class="who">
+      <div><span class="lbl">บริบทประชากร</span>อายุ 31 ปี · พยาบาล Gen Z · ทำงานกะผสม 8–12 ชั่วโมง · เห็นผู้ป่วยสูงอายุที่มีโรคร่วมเพิ่มขึ้นทุกปี</div>
+      <div><span class="lbl">ความต้องการหลัก</span>ลดเวลาเอกสาร เพิ่มเวลาข้างเตียง · ตัดสินใจทางคลินิกที่มีหลักฐานหนุนหลัง · ไม่ถูกเอไอ "ตรวจงาน" จนเพิ่มภาระ</div>
+      <div><span class="lbl">แรงเสียดทานหลัก</span>ระบบ EHR ที่บันทึกซ้ำซ้อน · ความเสี่ยงจาก LLM ทั่วไป (hallucination) · ขาดกฎเกณฑ์การใช้เอไอในงานคลินิก <span class="tag likely">[Likely]</span></div>
+      <div><span class="lbl">สัญญาณ STEEP ที่เธอเป็นตัวแทน</span>S: สังคมสูงอายุ ผู้ป่วยวิกฤติซับซ้อน · T: Driver 4.1 (AI-CDS), Driver 4.2 (ambient scribe) · P: APN role expansion <span class="tag verified">[Verified — traceable to RES-9 + RES-11]</span></div>
+    </div>
+  </div>
+
+  <h3>Artifact ของพี่ฝน: Ambient AI Scribe v2 + AI co-pilot ใน ER</h3>
+
+  <div class="artifact heads">
+    <h4>Heads (อนาคตสมดุล): "Ambient AI Scribe v2 + AI co-pilot บน EHR"</h4>
+    <p class="trace">สืบเนื่องจาก Driver 4.2 (Ambient AI Scribes และ Generative AI Documentation) ใน RES-11 + Driver 4.1 (AI Clinical Decision Support) + STEEP-T signals ใน RES-9</p>
+    <p><strong>รูปลักษณ์:</strong> ไมโครโฟนขนาดเล็กที่ปกเสื้อพยาบาล บันทึกบทสนทนากับผู้ป่วยและทีมแพทย์ แล้วแปลงเป็น SOAP note ภาษาไทยอัตโนมัติ พร้อมโมดูล "co-pilot" ที่ดึง MEWS/MOAS score, sepsis bundle, fall risk แบบ real-time บนหน้าจอ tablet <span class="tag spec">[Speculative — emerging]</span></p>
+    <p><strong>สิ่งที่ทดแทน:</strong> การจดบันทึกด้วยมือและพิมพ์ตามท้าย — ลดเวลาเอกสาร 30–50% <span class="tag likely">[Likely]</span></p>
+    <p><strong>สิ่งที่เปิดทางให้:</strong> เวลาที่คืนมาใช้กับการประเมินผู้ป่วยซ้ำ การสื่อสารกับญาติ และการคิดวิเคราะห์เคส</p>
+    <p><strong>ความเสี่ยงที่เพิ่มเข้ามา:</strong> ความผิดพลาดจาก LLM (hallucination), การรั่วไหลของข้อมูลเสียง, การพึ่งพาเอไอจนลดทักษะการเขียนทางคลินิก <span class="tag likely">[Likely]</span></p>
+  </div>
+
+  <div class="artifact tails">
+    <h4>Tails (อนาคตเสี่ยง): "AI clinical pathway advisor" ที่ไม่มีบริบทไทย</h4>
+    <p class="trace">สืบเนื่องจาก Driver 4.1 + Driver 4.6 (Generative AI/LLM) ใน RES-11 แต่ขาดการลงทุนในกำลังคนและการปรับให้เข้ากับบริบทไทย</p>
+    <p><strong>รูปลักษณ์:</strong> แอปแชทบอทที่แนะนำแนวทางการรักษาตาม guideline ตะวันตก โดยไม่เชื่อมต่อกับข้อมูลผู้ป่วยจริง ไม่ผ่านการรับรองจาก สภาการพยาบาล และไม่มี "human-in-the-loop" ที่ชัดเจน <span class="tag spec">[Speculative — risk scenario]</span></p>
+    <p><strong>สิ่งที่ทดแทน:</strong> ไม่ได้ทดแทนอะไรจริง แต่กลายเป็น "ตัวช่วยชั่วคราว" ที่พยาบาลต้อง "ตรวจงานเอไอ" เพิ่ม</p>
+    <p><strong>สิ่งที่เปิดทางให้:</strong> ไม่มี — เพิ่มภาระงานตรวจสอบ (verification burden) โดยไม่คืนเวลาให้ข้างเตียง</p>
+    <p><strong>ความเสี่ยง:</strong> ข้อแนะนำทางคลินิกที่ไม่เข้ากับบริบทไทย (เช่น ยาที่ไม่มีในบัญชียาหลัก), ความรับผิดชอบทางกฎหมายไม่ชัดเจน, AI-washing โดยผู้บริหาร รพ. <span class="tag spec">[Speculative — risk scenario]</span></p>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <h2>4. Persona 2: "อ้อม" — หัวหน้าทีมดูแลผู้ป่วยที่บ้าน (Remote Patient Monitoring)</h2>
+
+  <div class="persona B">
+    <h3>อ้อม (Aom), 38 ปี — หัวหน้าทีมพยาบาลเยี่ยมบ้าน / RPM, โรงพยาบาลชุมชน</h3>
+    <p>อ้อมเป็นพยาบาลอาวุโสที่ผ่านการอบรมการดูแลผู้สูงอายุที่บ้าน และได้รับมอบหมายให้นำร่องโครงการ RPM ของโรงพยาบาลชุมชนแห่งหนึ่งในภาคตะวันออกเฉียงเหนือ เธอดูแลผู้ป่วยโรคหัวใจล้มเหลวและเบาหวานที่จำหน่ายกลับบ้าน ประสานกับญาติและ อสม. ในพื้นที่</p>
+
+    <div class="who">
+      <div><span class="lbl">บริบทประชากร</span>อายุ 38 ปี · พยาบาลอาวุโส 12 ปี · ฐานผู้ป่วย 60–80 ราย/เดือน · ครอบครัวผู้ป่วยมักอยู่ห่างกัน</div>
+      <div><span class="lbl">ความต้องการหลัก</span>เห็นภาพรวมสุขภาพผู้ป่วยแบบ real-time · สื่อสารกับผู้สูงอายุที่ไม่ถนัดแอป · ลดการเดินทางซ้ำซ้อม</div>
+      <div><span class="lbl">แรงเสียดทานหลัก</span>อุปกรณ์ RPM ราคาสูงและเชื่อมต่อ FHIR ไม่ได้ · ผู้สูงอายุบางรายไม่มี smartphone · งบประมาณ รพ.ชุมชนจำกัด <span class="tag spec">[Speculative — varies by facility]</span></div>
+      <div><span class="lbl">สัญญาณ STEEP ที่เธอเป็นตัวแทน</span>S: สังคมสูงอายุ + ครอบครัวเล็กลง · E: งบประมาณ รพ.ชุมชนจำกัด · T: Driver 4.3 (Telehealth + RPM), Driver 4.4 (FHIR/HL7) <span class="tag verified">[Verified — traceable to RES-9 + RES-11]</span></div>
+    </div>
+  </div>
+
+  <h3>Artifact ของอ้อม: RPM home-kit + Tele-nurse dashboard</h3>
+
+  <div class="artifact heads">
+    <h4>Heads (อนาคตสมดุล): "RPM home-kit + Tele-nurse dashboard ที่เชื่อมต่อ FHIR"</h4>
+    <p class="trace">สืบเนื่องจาก Driver 4.3 (Telehealth และ Remote Patient Monitoring) ใน RES-11 + Driver 4.4 (EHR Maturity/FHIR/HL7) + สัญญาณเงียบเรื่อง Health Information Exchange ใน RES-11</p>
+    <p><strong>รูปลักษณ์:</strong> ชุดอุปกรณ์ที่บ้าน (เครื่องวัดความดันอัตโนมัติ, patch ECG แปะอก, เครื่องวัดน้ำตาล, เครื่องชั่งน้ำหนัก) ส่งข้อมูลเข้า FHIR repository ของโรงพยาบาล อ้อมดูภาพรวมผู้ป่วย 60–80 รายผ่าน dashboard เดียว และใช้ "tele-nurse video call" ผ่าน tablet ของญาติหรือ อสม. <span class="tag spec">[Speculative — emerging]</span></p>
+    <p><strong>สิ่งที่ทดแทน:</strong> การโทรตามอาการรายบุคคล + การเดินทางเยี่ยมบ้านที่ไม่จำเป็น — ลดเวลาเดินทางราว 40% <span class="tag likely">[Likely]</span></p>
+    <p><strong>สิ่งที่เปิดทางให้:</strong> การตรวจจับภาวะหัวใจล้มเหลวกำเริบล่วงหน้า 1–2 สัปดาห์ก่อนที่ผู้ป่วยจะกลับมา ER (early warning)</p>
+    <p><strong>ความเสี่ยงที่เพิ่มเข้ามา:</strong> ข้อมูลสุขภาพที่รั่วไหลจากอุปกรณ์ที่บ้าน, การพึ่งพาไฟฟ้า/อินเทอร์เน็ต, ภาระงาน "เฝ้าจอ" ตลอด 24 ชั่วโมง <span class="tag likely">[Likely]</span></p>
+  </div>
+
+  <div class="artifact tails">
+    <h4>Tails (อนาคตเสี่ยง): "Smart-watch ที่ผู้ป่วยซื้อเอง + แอปแชทที่ไม่เชื่อมต่อ"</h4>
+    <p class="trace">สืบเนื่องจาก Driver 4.3 + Driver 4.6 (Generative AI/LLM) แต่ขาดการลงทุนในโครงสร้างพื้นฐานข้อมูลและการเชื่อมต่อระหว่างระบบ</p>
+    <p><strong>รูปลักษณ์:</strong> ผู้ป่วยซื้อ smart watch จากห้าง ข้อมูลหัวใจถูกเก็บในคลาวด์ของบริษัทเอกชน ไม่เชื่อมต่อกับ EHR ของโรงพยาบาล อ้อมต้องขอให้ผู้ป่วย "ถ่ายรูปหน้าจอ" ส่งมาทางไลน์ แล้วพิมพ์ลงเวชระเบียนเอง <span class="tag spec">[Speculative — fragmented scenario]</span></p>
+    <p><strong>สิ่งที่ทดแทน:</strong> ไม่ได้ทดแทนอะไร — กลายเป็นงานเพิ่มชั้นใหม่ที่ "ดูเหมือนทันสมัย" แต่ไม่มีข้อมูลคุณภาพ</p>
+    <p><strong>สิ่งที่เปิดทางให้:</strong> ช่องว่างความเหลื่อมล้ำดิจิทัล (digital health gap) ระหว่างผู้ป่วยที่ซื้ออุปกรณ์ได้กับผู้ป่วยที่ไม่ได้</p>
+    <p><strong>ความเสี่ยง:</strong> ข้อมูลผู้ป่วยถูกบริษัทเอกชนเก็บโดยไม่ผ่าน PDPA, อัลกอริทึมทำนายที่ไม่ผ่านการตรวจสอบ, ภาระงานพยาบาลเพิ่มขึ้นโดยไม่มีผลลัพธ์ทางคลินิกชัดเจน <span class="tag spec">[Speculative — risk scenario]</span></p>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <h2>5. "Flip the Coin" — สองฉากทัศน์ 2033 และ 2036</h2>
+  <p>ผู้บรรยายสามารถเชิญผู้ฟัง "พลิกเหรียญ" เพื่อเลือกฉากที่จะอ่านต่อไปนี้ ทั้งสองฉากมาจากฉากทัศน์ 2×2 ใน RES-11 (เทคโนโลยี × กำลังคน) แต่ขยายเป็นเรื่องเล่าสั้น ๆ เพื่อให้จับต้องได้</p>
+
+  <div class="scenario heads">
+    <h3>Heads — "สมาร์ต สมดุล" (Smart Balance) <span class="tag verified">[traceable to RES-11 scenario 2×2]</span></h3>
+    <p>เหรียญออกหัว สังคมไทยลงทุนทั้งในเทคโนโลยีและในคนพร้อมกัน ภายใต้กรอบจริยธรรมที่ สภาการพยาบาล และ กระทรวงสาธารณสุข ร่วมออกแบบ</p>
+
+    <div class="narrative">
+      <span class="when">2033 — พี่ฝน อายุ 38 ปี</span>
+      พี่ฝนเข้าเวรเช้าใน ER เธอเปิด tablet ขึ้นมา Ambient AI Scribe v2 ที่ติดอยู่ที่ปกเสื้อเริ่มบันทึกเสียงอัตโนมัติ เมื่อเธอสนทนากับผู้ป่วยสูงอายุที่มาด้วยอาการเจ็บหน้าอก AI co-pilot แสดง MEWS score 7 พร้อมข้อแนะนำ "พิจารณา ECG ภายใน 10 นาที, เปิด sepsis bundle" บนหน้าจอเดียวกัน เธอใช้เวลา 3 นาทีในการตรวจ อีก 5 นาทีในการอธิบายให้ญาติเข้าใจ แล้วบันทึก SOAP note เสร็จใน 1 นาที — รวมเวลาทั้งเคส 25 นาที จากเดิม 45 นาที เวลา 20 นาทีที่คืนมา เธอใช้นั่งลงข้างเตียงคุยกับผู้ป่วยเรื่องยาที่ต้องกินต่อที่บ้าน
+    </div>
+
+    <div class="narrative">
+      <span class="when">2036 — อ้อม อายุ 48 ปี, หัวหน้าทีม RPM</span>
+      อ้อมนั่งดู dashboard ในห้องทำงานเล็ก ๆ ที่โรงพยาบาลชุมชน หน้าจอแสดงผู้ป่วย 120 ราย แบ่งเป็น "เขียว เหลือง แดง" ตามความเสี่ยง เธอเห็นคุณตาแสง ผู้ป่วยหัวใจล้มเหลว ขึ้นเป็น "เหลือง" เพราะค่า NT-proBNP ในเลือดที่เจาะที่บ้านผ่าน patch สูงขึ้น อ้อมกดปุ่ม "tele-visit" คุณตาแสงเห็นหน้าอ้อมบน tablet ของหลานสาวที่อยู่ข้าง ๆ ทันที อ้อมสังเกตว่าขาบวมเพิ่มขึ้น ปรับยาเพิ่ม และนัดเยี่ยมบ้านจริงใน 2 วัน เธอไม่ต้องเดินทางไปก่อน เพราะ "เห็นความเสี่ยงจากข้อมูลก่อน" เธอเลิกงาน 17:00 น. ไม่มีโทรศัพท์ดักเตือนกลางดึก เพราะระบบได้รับการ calibrate ให้เตือนเฉพาะภาวะวิกฤติจริง
+    </div>
+  </div>
+
+  <div class="scenario tails">
+    <h3>Tails — "เร่งรีบเสี่ยง" (Hasty Risk) <span class="tag verified">[traceable to RES-11 scenario 2×2]</span></h3>
+    <p>เหรียญออกก้อย เทคโนโลยีถูกนำมาใช้เร็วเกินกว่ากำลังคนและกฎระเบียบจะตามทัน เกิดภาระงาน "ตรวจสอบเอไอ" เพิ่ม ความเสี่ยงทางคลินิกและจริยธรรมพุ่งขึ้น</p>
+
+    <div class="narrative">
+      <span class="when">2033 — พี่ฝน อายุ 38 ปี</span>
+      พี่ฝนเข้าเวรเช้า เธอเปิด "AI clinical pathway advisor" ที่โรงพยาบาลซื้อมาเมื่อปีที่แล้ว ระบบแนะนำให้ผู้ป่วยชาย 65 ปี ที่มาด้วยอาการเจ็บหน้าอก "เริ่ม dabigatran 150 mg BID" ตาม guideline ตะวันตก แต่ยานี้ไม่มีในบัญชียาหลักแห่งชาติของไทย และค่า eGFR ของผู้ป่วยอยู่ที่ 38 ซึ่งห้ามใช้ พี่ฝนต้องใช้เวลา 10 นาที "ตรวจงานเอไอ" และเปลี่ยนเป็น warfarin ตามแนวทางเดิม หัวหน้าทีมบ่นว่า "ซื้อเอไอมาเพื่ออะไร เสียเวลามากกว่าเดิมอีก" พี่ฝนกลับบ้านดึก รู้สึกว่าเธอกลายเป็น "เลขานุการของเอไอ" ไม่ใช่พยาบาล
+    </div>
+
+    <div class="narrative">
+      <span class="when">2036 — อ้อม อายุ 48 ปี, หัวหน้าทีม RPM</span>
+      อ้อมดูแลผู้ป่วย 80 ราย แต่ข้อมูลมาจาก 4 แหล่งที่ไม่เชื่อมต่อกัน — smart watch ของผู้ป่วย, แอปของบริษัทเอกชน, กระดาษจาก อสม., และโทรศัพท์จากญาติ เธอไม่สามารถแยกได้ว่าค่าไหนน่าเชื่อถือ ผู้ป่วยรายหนึ่งเสียชีวิตจากภาวะหัวใจล้มเหลวกำเริบ อ้อมพบภายหลังว่า smart watch ของเขาแจ้งเตือน atrial fibrillation มา 3 วันแล้ว แต่ข้อมูลอยู่ในคลาวด์ของบริษัทเอกชน ไม่ถึงมือทีม อ้อมรู้สึกผิด และเริ่มคิดจะลาออก
+    </div>
+  </div>
+
+  <p class="footnote">ทั้งสองฉากเป็นเครื่องมือคิด ไม่ใช่การทำนาย เพื่อให้ผู้ฟังเห็นว่าทางเลือกเชิงนโยบายวันนี้ กำหนดชีวิตการทำงานของพยาบาลในอีก 10 ปีข้างหน้า</p>
+</section>
+
+<hr>
+
+<section>
+  <h2>6. คำถามปลายเปิดสำหรับผู้ฟัง (Discussion Prompts)</h2>
+  <div class="prompts">
+    <p>ผู้บรรยายสามารถหยุดที่จุดใดก็ได้ แล้วเปิดให้ผู้ฟังตอบคำถามเหล่านี้ (เหมาะกับการทำ table discussion 3–5 นาที)</p>
+    <ol>
+      <li>คุณอยู่ฝั่งใดของเหรียญ? ถ้าเลือกได้ คุณอยากให้พยาบาลไทยอยู่ในฉาก "Heads — สมาร์ต สมดุล" หรือ "Tails — เร่งรีบเสี่ยง" ในปี ค.ศ. 2036? และทำไม?</li>
+      <li>ในฉาก Heads พี่ฝน "คืนเวลา 20 นาที" จากเอกสารไปใช้กับผู้ป่วย ถ้าโรงพยาบาลของคุณนำเวลาที่คืนมานี้ไปเพิ่มงานอื่น (เช่น งานคุณภาพ งานสอนนักศึกษา) จะเป็นผลดีหรือผลเสีย?</li>
+      <li>อ้อมในฉาก Tails เกือบพลาดสัญญาณ atrial fibrillation เพราะข้อมูลอยู่ในคลาวด์เอกชน คุณคิดว่า กฎหมาย PDPA และข้อเสนอ "Health Information Exchange" ระดับจังหวัด จะช่วยแก้ปัญหานี้ได้จริงหรือไม่?</li>
+      <li>artifact ทั้ง 4 ชิ้น (Ambient Scribe v2, AI pathway advisor, RPM home-kit, smart-watch fragmented) ตัวใดที่โรงพยาบาลของคุณกำลังจะนำมาใช้ และอยู่ในฝั่ง Heads หรือ Tails?</li>
+      <li>ถ้าคุณเป็นประธาน สภาการพยาบาล คุณจะออก "position statement" เรื่อง AI ในงานพยาบาล ภายในกี่ปี? และควรครอบคลุมเรื่องใดบ้าง?</li>
+    </ol>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <h2>7. ข้อควรระวัง (Precautionary Note)</h2>
+  <p>ตามหลักป้องกันไว้ก่อน (precautionary principle) เทคนิค Ride 2 Curve ไม่ได้ทำนายอนาคต แต่ช่วยให้เห็นทางเลือกและตัดสินใจได้ดีขึ้น</p>
+  <ul>
+    <li><strong>ทั้งสองฉากเป็นไปได้</strong> ขึ้นอยู่กับการลงทุนในกำลังคนควบคู่ไปกับเทคโนโลยี <span class="tag spec">[Speculative — framing]</span></li>
+    <li><strong>ระบุกรอบเวลาให้ชัดเจน</strong> เอกสารนี้พูดถึง 5–10 ปี ซึ่งมีหลักฐานสนับสนุนพอสมควร ส่วนอนาคต 20–30 ปี มีความไม่แน่นอนสูงมาก ไม่ควรนำมาตัดสินใจเชิงนโยบายในวันนี้</li>
+    <li><strong>อย่านำเสนอ Heads เป็น "utopia"</strong> แม้ทุกอย่างราบรื่น พยาบาลยังเผชิญความเสี่ยงจาก cybersecurity (ENISA, 2024) และ digital fatigue ที่ต้องเฝ้าระวัง <span class="tag likely">[Likely]</span></li>
+    <li><strong>อย่านำเสนอ Tails เป็น "dystopia"</strong> แม้เกิดขึ้นจริง พยาบาลยังสามารถปรับตัวได้ และภาคประชาสังคม (สภาวิชาชีพ สถาบันการศึกษา อสม.) จะเป็นแรงหนุนสำคัญ <span class="tag spec">[Speculative — agency statement]</span></li>
+  </ul>
+</section>
+
+<hr>
+
+<section class="refs">
+  <h2>เอกสารอ้างอิง</h2>
+  <p class="footnote" style="margin-bottom:14px">รูปแบบการอ้างอิง: APA 7th edition เรียงตามตัวอักษรของชื่อผู้แต่ง/องค์กร · แหล่งอ้างอิงหลักมาจาก RES-9 และ RES-11 (STEEP Technology Deep-Dive)</p>
+  <ol>
+    <li>Boniol, M., Kunjumen, T., Nair, T. S., Siyam, A., Campbell, J., &amp; Diallo, K. (2022). The global health workforce stock and distribution in 2020 and 2030: A threat to equity and 'universal' health coverage? <em>BMJ Global Health, 7</em>(6), e009316. https://doi.org/10.1136/bmjgh-2022-009316</li>
+    <li>European Union Agency for Cybersecurity (ENISA). (2024). <em>ENISA threat landscape: Health sector</em>. https://www.enisa.europa.eu/publications/enisa-threat-landscape-health-sector</li>
+    <li>Fahey, L., &amp; Randall, R. M. (2018). <em>Learning from the future: Competitive foresight scenarios</em>. Wiley. (Foundational text on STEEP-style scenario planning)</li>
+    <li>Healthcare Information and Management Systems Society (HIMSS). (2024). <em>State of healthcare AI and ambient documentation</em>. https://www.himss.org/resources/state-of-healthcare-ai</li>
+    <li>HL7 International. (2023). <em>FHIR R5 release notes</em>. https://www.hl7.org/fhir/</li>
+    <li>OECD. (2023). <em>Health at a glance 2023: Telehealth and remote monitoring adoption</em>. OECD Publishing.</li>
+    <li>Sharpe, B. (2013). <em>Three horizons: The patterning of hope</em>. Triarchy Press. (Foundational text on the Three Horizons framework)</li>
+    <li>Wong, A., Otles, E., Donnelly, J. P., Krumm, A., McCullough, A., DeTroyer-Cooley, O., Pestrue, J., Phillips, M., Konye, J., Penoza, C., Ghous, M., &amp; Singh, K. (2023). External validation of a widely implemented proprietary sepsis prediction model in hospitalized patients. <em>npj Digital Medicine, 4</em>(1), 1–10. https://doi.org/10.1038/s41746-021-00464-7</li>
+    <li>World Economic Forum. (2025). <em>The future of jobs report 2025</em>. https://www.weforum.org/publications/the-future-of-jobs-report-2025/</li>
+    <li>World Health Organization. (2024, June 5). <em>Experts warn of serious health impacts from climate change for pregnant women, children, and older people</em>. WHO News. https://www.who.int/news/item/05-06-2024-experts-warn-of-serious-health-impacts-from-climate-change-for-pregnant-women--children--and-older-people</li>
+    <li>World Health Organization. (2025). <em>State of the world's nursing 2025</em>. (Cited via WHO Fact Sheet, July 2025)</li>
+    <li>สภาการพยาบาล. (2569). <em>เว็บไซต์สภาการพยาบาล: ข้อมูลองค์กร บริการสมาชิก และการรับรองหลักสูตร</em>. https://www.tnmc.or.th/</li>
+    <li>สำนักงานหลักประกันสุขภาพแห่งชาติ (สปสช.). (2567). <em>แนวทางการเบิกจ่ายชดเชยบริการการแพทย์ทางไกล (Telehealth) ปีงบประมาณ 2567</em>. https://www.nhso.go.th/</li>
+  </ol>
+  <p class="footnote" style="margin-top:18px"><strong>หมายเหตุด้านหลักฐาน:</strong> ข้อมูลเชิงปริมาณระดับประเทศไทย (จำนวนพยาบาล อัตราการลาออก สัดส่วนผู้สูงอายุที่ใช้ RPM) ควรตรวจสอบจากรายงานประจำปีของสภาการพยาบาล กระทรวงสาธารณสุข และ สวรส. ก่อนนำไปใช้อ้างอิงเชิงนโยบาย เอกสารนี้ตั้งใจให้ข้อมูลเชิงทิศทางมากกว่าตัวเลขเชิงสถิติแม่นยำ · Personas เป็นภาพสมมติที่รวมจากสัญญาณ STEEP/Technology ใน RES-9 และ RES-11 ไม่ใช่บุคคลจริง</p>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920,initial-scale=1">
+<title>Infographic: อนาคตของวิชาชีพพยาบาล (2026–2036)</title>
+<meta name="description" content="Infographic สรุปงานวิจัย: อนาคตของวิชาชีพพยาบาล มุมมองเชิงวิสัยทัศน์ 5–10 ปี">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --highlight:#fff7e6;
+    --pos-bg:#f3faf3;
+    --pos-border:#3a8a52;
+    --neg-bg:#fbf3f3;
+    --neg-border:#8a3a3a;
+    --mix-bg:#fcf9ec;
+    --mix-border:#b08400;
+    --gray-bg:#f6f6f3;
+    --gray-border:#5b5b5b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#0a0a0a;color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .stage{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px;
+    background: radial-gradient(ellipse at 30% 20%, #16261f 0%, #0a0a0a 60%), #0a0a0a;
+  }
+
+  .slide{
+    position:relative;
+    width:min(96vw, calc(96vh * 16 / 9));
+    aspect-ratio:16/9;
+    background:var(--bg);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    padding:40px 50px;
+  }
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:30px;
+    border-bottom:2px solid var(--line);
+    padding-bottom:20px;
+  }
+  .title-area h1{
+    font-size:3.2rem;
+    line-height:1.1;
+    margin:0;
+    color:var(--accent2);
+    font-weight:800;
+  }
+  .title-area p{
+    font-size:1.4rem;
+    margin:5px 0 0;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .meta-area{
+    text-align:right;
+    font-size:1rem;
+    color:var(--muted);
+  }
+  .meta-area b{ color:var(--accent2); }
+
+  .main-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:40px;
+    flex:1;
+    min-height:0;
+  }
+
+  /* --- Scenario 2x2 --- */
+  .scenario-box{
+    display:flex;
+    flex-direction:column;
+  }
+  .section-label{
+    font-size:1.2rem;
+    font-weight:800;
+    color:#fff;
+    background:var(--accent2);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:8px;
+    margin-bottom:15px;
+    align-self:flex-start;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .scenario-container{
+    flex:1;
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap:12px;
+    padding:40px 20px 20px 40px;
+  }
+  /* Axes */
+  .axis-y{
+    position:absolute;
+    left:20px; top:40px; bottom:20px;
+    width:2px; background:var(--line);
+    display:flex; flex-direction:column; justify-content:space-between;
+    align-items:center;
+  }
+  .axis-x{
+    position:absolute;
+    left:40px; bottom:10px; right:20px;
+    height:2px; background:var(--line);
+    display:flex; justify-content:space-between;
+    align-items:center;
+  }
+  .axis-label{
+    position:absolute;
+    font-size:1.1rem;
+    font-weight:700;
+    color:var(--muted);
+    background:var(--bg);
+    padding:4px 8px;
+    white-space:nowrap;
+  }
+  .axis-label.y-top{ transform: rotate(-90deg) translateX(50%); left:-55px; top:20px; color:var(--accent); }
+  .axis-label.y-bottom{ transform: rotate(-90deg) translateX(-50%); left:-55px; bottom:20px; }
+  .axis-label.x-left{ left:0; bottom:-25px; }
+  .axis-label.x-right{ right:0; bottom:-25px; color:var(--accent); }
+
+  .axis-title-y{
+    position:absolute;
+    left:-10px; top:50%;
+    transform: rotate(-90deg) translateY(-50%);
+    font-size:1rem; font-weight:800; color:var(--accent2);
+    width:300px; text-align:center;
+  }
+  .axis-title-x{
+    position:absolute;
+    bottom:-45px; left:50%;
+    transform: translateX(-50%);
+    font-size:1rem; font-weight:800; color:var(--accent2);
+    width:300px; text-align:center;
+  }
+
+  .scen-card{
+    border-radius:16px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    border:2px solid var(--line);
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .scen-card h3{
+    margin:0 0 8px;
+    font-size:1.4rem;
+    line-height:1.2;
+  }
+  .scen-card p{
+    margin:0;
+    font-size:1.05rem;
+    line-height:1.4;
+    color:#333;
+  }
+  .scen-card .indicator{
+    margin-top:auto;
+    font-size:0.9rem;
+    font-weight:600;
+    padding-top:10px;
+    border-top:1px solid rgba(0,0,0,0.05);
+  }
+
+  .scen-pos{ background:var(--pos-bg); border-color:var(--pos-border); }
+  .scen-pos h3{ color:var(--pos-border); }
+  .scen-neg{ background:var(--neg-bg); border-color:var(--neg-border); }
+  .scen-neg h3{ color:var(--neg-border); }
+  .scen-mix{ background:var(--mix-bg); border-color:var(--mix-border); }
+  .scen-mix h3{ color:var(--mix-border); }
+  .scen-gray{ background:var(--gray-bg); border-color:var(--gray-border); }
+  .scen-gray h3{ color:var(--gray-border); }
+
+  .target-badge{
+    position:absolute;
+    top:-15px; right:-15px;
+    background:#ffce00;
+    color:#000;
+    padding:5px 12px;
+    border-radius:20px;
+    font-weight:800;
+    font-size:0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index:10;
+  }
+
+  /* --- Recommendations --- */
+  .rec-box{
+    display:flex;
+    flex-direction:column;
+  }
+  .rec-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    flex:1;
+  }
+  .rec-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  .rec-icon{
+    width:64px; height:64px;
+    background:var(--soft);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    color:var(--accent);
+  }
+  .rec-text h4{
+    margin:0 0 4px;
+    font-size:1.3rem;
+    color:var(--accent2);
+  }
+  .rec-text p{
+    margin:0;
+    font-size:1rem;
+    color:var(--muted);
+    line-height:1.4;
+  }
+
+  footer{
+    margin-top:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.9rem;
+    color:var(--muted);
+    border-top:1px dashed var(--line);
+    padding-top:15px;
+  }
+  .footer-tags{
+    display:flex;
+    gap:15px;
+  }
+  .f-tag{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .f-tag .dot{ width:8px; height:8px; border-radius:50%; }
+
+  @media (max-height: 900px) {
+    .slide { padding: 30px 40px; }
+    header { margin-bottom: 20px; }
+    .main-grid { gap: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="slide">
+    <header>
+      <div class="title-area">
+        <h1>อนาคตของวิชาชีพพยาบาล</h1>
+        <p>บทสรุปเชิงวิสัยทัศน์ 2026 – 2036 สำหรับพยาบาลหน้างาน</p>
+      </div>
+      <div class="meta-area">
+        <b>Foresight Research</b> · Conference Presentation<br>
+        กรอบเวลาวิเคราะห์: 10 ปี (ค.ศ. 2026–2036)<br>
+        อ้างอิง: [RES-66] ชุดงานวิจัยพยาบาลไทย
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <!-- LEFT: 2x2 Scenario -->
+      <section class="scenario-box">
+        <div class="section-label">Scenario Planning 2×2</div>
+        <div class="scenario-container">
+          <div class="axis-y">
+            <div class="axis-label y-top">ลงทุนสูง (High)</div>
+            <div class="axis-label y-bottom">ลงทุนต่ำ (Low)</div>
+            <div class="axis-title-y">การลงทุนด้านเทคโนโลยี (AI/Digital)</div>
+          </div>
+          <div class="axis-x">
+            <div class="axis-label x-left">ลงทุนต่ำ (Low)</div>
+            <div class="axis-label x-right">ลงทุนสูง (High)</div>
+            <div class="axis-title-x">การลงทุนด้านกำลังคน (Workforce)</div>
+          </div>
+
+          <!-- Q2: Hurried Risk -->
+          <div class="scen-card scen-neg">
+            <h3>เร่งรีบเสี่ยง <small>(Hurried Risk)</small></h3>
+            <p>เทคโนโลยีมาเร็ว แต่คนไม่พร้อม เกิด Alert Fatigue และความผิดพลาดทางคลินิกจากการตรวจงาน AI</p>
+            <div class="indicator">ดัชนี: อัตรา Burnout พยาบาลพุ่งสูง</div>
+          </div>
+
+          <!-- Q1: Smart Balance (Target) -->
+          <div class="scen-card scen-pos" style="position:relative;">
+            <div class="target-badge">เป้าหมาย (Target)</div>
+            <h3>สมาร์ต สมดุล <small>(Smart Balance)</small></h3>
+            <p>พยาบาลใช้ AI เป็น Co-pilot งานเอกสารลดลง มีเวลาดูแลผู้ป่วยอย่างใกล้ชิดและปลอดภัย</p>
+            <div class="indicator">ดัชนี: เวลาดูแลผู้ป่วยเพิ่ม 30-50%</div>
+          </div>
+
+          <!-- Q3: Stalled -->
+          <div class="scen-card scen-gray">
+            <h3>ภาวะชะงักงัน <small>(Stalled)</small></h3>
+            <p>คนไม่พอและไม่มีเครื่องมือช่วย งานหนักสะสม พยาบาลรุ่นใหม่ลาออก คุณภาพบริการถดถอย</p>
+            <div class="indicator">ดัชนี: อัตราลาออก > 20% ต่อปี</div>
+          </div>
+
+          <!-- Q4: Human-Centric -->
+          <div class="scen-card scen-mix">
+            <h3>คนเป็นหัวใจ <small>(Human-Centric)</small></h3>
+            <p>เน้นการดูแลแบบดั้งเดิม สัมพันธภาพดี แต่พยาบาลเหนื่อยล้าจากงาน Routine ที่ AI ช่วยได้</p>
+            <div class="indicator">ดัชนี: พยาบาลทำงานล่วงเวลาสะสม</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: 5 Recommendations -->
+      <section class="rec-box">
+        <div class="section-label" style="background:var(--accent);">5 Strategic Recommendations</div>
+        <div class="rec-list">
+          <div class="rec-item">
+            <div class="rec-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+            </div>
+            <div class="rec-text">
+              <h4>1. Digital Reskill</h4>
+              <p>เรียนรู้ทักษะ AI และ Data (CNEU 10-20 หน่วย/ปี) เพื่อเป็นผู้ควบคุมเทคโนโลยีไม่ใช่ผู้ตาม</p>
+            </div>
+          </div>
+
+          <div class="rec-item">
+            <div class="rec-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="rec-text">
+              <h4>2. AI Co-pilot Concept</h4>
+              <p>ฝึก "คิดร่วมกับ AI" แต่ใช้วิจารณญาณทางคลินิกเป็นที่สุด (Calibrated Trust)</p>
+            </div>
+          </div>
+
+          <div class="rec-item">
+            <div class="rec-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="rec-text">
+              <h4>3. Soft Skills & Teaching</h4>
+              <p>เน้นทักษะที่ AI ทำแทนไม่ได้: การสื่อสารเชิงลึก การสอน และการประคับประคองใจ</p>
+            </div>
+          </div>
+
+          <div class="rec-item">
+            <div class="rec-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l5 5"/><path d="M9.5 14.5L16 18"/></svg>
+            </div>
+            <div class="rec-text">
+              <h4>4. Nurse as a Designer</h4>
+              <p>มีส่วนร่วมในการออกแบบระบบและเครื่องมือดิจิทัล เพื่อให้ใช้งานได้จริงหน้างาน</p>
+            </div>
+          </div>
+
+          <div class="rec-item">
+            <div class="rec-item-inner" style="display:flex; align-items:center; gap:20px;">
+              <div class="rec-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div class="rec-text">
+                <h4>5. Self-Care & Resilience</h4>
+                <p>ดูแลสุขภาพกายและใจของตนเองและเพื่อนร่วมงาน เพราะพยาบาลคือหัวใจของระบบ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-tags">
+        <div class="f-tag"><span class="dot" style="background:var(--accent)"></span> กลยุทธ์วิชาชีพ</div>
+        <div class="f-tag"><span class="dot" style="background:#ffce00"></span> เป้าหมาย 2036</div>
+        <div class="f-tag"><span class="dot" style="background:var(--muted)"></span> Foresight Driven</div>
+      </div>
+      <div>
+        จัดทำโดย <b>InfographicCreator</b> · สนับสนุนโดย <b>Paperclip</b> · Co-Authored-By: Paperclip &lt;noreply@paperclip.ing&gt;
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

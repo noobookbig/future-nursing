@@ -1,0 +1,15 @@
+*.bak-pre-*
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.fuse_hidden*
+.Trash-*
+
+# Tooling
+node_modules/
+__pycache__/
+*.pyc
