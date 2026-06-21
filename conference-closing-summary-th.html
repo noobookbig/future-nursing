@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บทส่งท้าย · Future of Nursing 2026–2036</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --ink:#1f1f1f;
+    --muted:#5b5b5b;
+    --accent:#0b6e4f;
+    --accent2:#0d3b2e;
+    --soft:#eef3ee;
+    --line:#dcdcd4;
+    --verified:#0b6e4f;
+    --likely:#b5651d;
+    --speculative:#6a3a8a;
+    --gold:#b08400;
+    --heads:#0b6e4f;
+    --tails:#a33a3a;
+    --tintA:#eaf3ee;
+    --tintB:#f3eee8;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:"Sarabun","Noto Sans Thai","TH Sarabun New",-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.75;font-size:17px}
+  .wrap{max-width:940px;margin:0 auto;padding:48px 24px 96px}
+  header.top{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+  .eyebrow{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px}
+  h1{font-size:32px;line-height:1.3;margin:0 0 10px;color:var(--accent2);letter-spacing:-.2px}
+  h2{font-size:24px;line-height:1.3;margin:44px 0 14px;color:var(--accent2);border-left:4px solid var(--accent);padding-left:12px}
+  h3{font-size:19px;line-height:1.35;margin:26px 0 8px;color:#1f4d3f}
+  h4{font-size:16px;margin:20px 0 6px;color:#3a3a3a}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 14px 22px}
+  li{margin:5px 0}
+  .meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .meta b{color:var(--accent2)}
+  .exec{background:var(--soft);border:1px solid #cfe0d6;border-radius:10px;padding:18px 22px;margin:18px 0 24px}
+  .exec h3{margin-top:0;color:var(--accent2);font-size:16px;letter-spacing:.3px;text-transform:uppercase}
+  .pullquote{background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:16px 0 22px;font-size:16.5px;color:#1f1f1f}
+  .pullquote .lbl{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.4px;text-transform:uppercase;display:block;margin-bottom:4px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 0}
+  .tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent;line-height:1.7;white-space:nowrap}
+  .tag.verified{color:#fff;background:var(--verified);border-color:var(--verified)}
+  .tag.likely{color:#fff;background:var(--likely);border-color:var(--likely)}
+  .tag.spec{color:#fff;background:var(--speculative);border-color:var(--speculative)}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#f1efe8;color:var(--accent2);font-weight:600}
+  blockquote{margin:14px 0;padding:10px 16px;border-left:4px solid var(--accent);background:#f3f6f3;color:#2a2a2a;font-style:italic}
+  hr{border:none;border-top:1px solid var(--line);margin:36px 0}
+  .refs ol{font-size:15px;padding-left:22px}
+  .refs li{margin:6px 0}
+  .footnote{color:var(--muted);font-size:14px}
+  a{color:#0b6e4f;text-decoration:none;border-bottom:1px dotted #9bbfb1}
+  a:hover{background:#eef3ee}
+  .lensbox{background:#fbf2d6;border-left:4px solid #b08400;padding:10px 14px;margin:14px 0;border-radius:0 8px 8px 0;font-size:14px}
+  .scene{border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:18px 0;background:#fff;border-left:5px solid var(--heads)}
+  .scene .when{display:block;font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+  .scene h3{margin-top:0;color:var(--accent2)}
+  .takeaways > div{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:14px 18px;margin:10px 0}
+  .takeaways h3{margin:0 0 6px;color:var(--accent2);font-size:17px}
+  .takeaways p{margin:0;font-size:15.5px}
+  .risks > div{background:#fff;border:1px solid var(--line);border-left:4px solid #8a5a2a;border-radius:6px;padding:14px 18px;margin:10px 0}
+  .risks h3{margin:0 0 6px;color:#0d3b2e;font-size:17px}
+  .risks p{margin:0;font-size:15.5px}
+  .actions{counter-reset:act;margin:10px 0 0;padding:0;list-style:none}
+  .actions li{counter-increment:act;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px 12px 56px;margin:8px 0;position:relative}
+  .actions li::before{content:counter(act);position:absolute;left:14px;top:12px;background:var(--accent);color:#fff;font-weight:700;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .actions li b{color:var(--accent2)}
+  .actions li .src{font-size:13px;color:var(--muted);margin-top:4px;display:block}
+  footer.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  @media (max-width:640px){h1{font-size:26px}h2{font-size:20px}h3{font-size:17px}body{font-size:16px}.wrap{padding:32px 18px 64px}.scene,.exec,.takeaways>div,.risks>div,.actions li{padding:14px 14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Conference Closing · บทส่งท้าย</div>
+  <h1>บทส่งท้าย · Future of Nursing 2026–2036</h1>
+  <p class="meta">
+    สำหรับงานประชุมวิชาการ "อนาคตของวิชาชีพพยาบาล" · ฉบับ: <b>มิถุนายน 2569</b> (ค.ศ. 2026) ·
+    <b>ผู้จัดทำ</b> DocumentWriter · <b>ต้นทาง</b> สังเคราะห์จากงานวิจัยชุด Future of Nursing (RES-9 / RES-10 / RES-11 / RES-15 / RES-17 / RES-19 / RES-33 / RES-34 / RES-63 / RES-65 / RES-78)
+  </p>
+  <p class="meta">
+    <b>กรอบวิเคราะห์</b> STEEP · Three Horizons · Scenario 2×2 · Backcasting ·
+    <b>กลุ่มเป้าหมาย</b> พยาบาลหน้างาน · ผู้บริหารโรงพยาบาล · อาจารย์ · นักศึกษา · สภาการพยาบาล · ผู้กำหนดนโยบาย
+  </p>
+</header>
+
+<div class="exec">
+  <h3>บทสรุปผู้บริหาร (อ่าน 60 วินาที)</h3>
+  <p>ในช่วง 5–10 ปีข้างหน้า วิชาชีพพยาบาลไทยกำลังยืนอยู่บน <b>จุดตัดของสามกระแสพร้อมกัน</b> ภาระงานที่หนักขึ้นจากสังคมสูงอายุ เครื่องมือดิจิทัลที่ทยอยเข้ามาเสริมงานประจำวัน และบทบาทวิชาชีพที่กำลังขยายจาก "ผู้ให้การรักษา" ไปสู่ "ผู้ประสานการดูแล ผู้สอนสุขภาพ และผู้ดูแลผู้สูงอายุระยะยาว" (<a href="nursing-future-th-final.html">nursing-future-th-final.md §3</a>) เส้นทางข้างหน้ามีสองฉากที่เป็นไปได้จริง คือ "สมาร์ต สมดุล" ที่ลงทุนทั้งในเทคโนโลยีและในคนพร้อมกัน กับ "เร่งรีบเสี่ยง" ที่เทคโนโลยีวิ่งเร็วเกินกำลังคนจะตามทัน (<a href="ride-2-curve-th.html">ride-2-curve-th.md §5</a> · <a href="action-roadmap-th.html">action-roadmap-th.md §3</a>) บทส่งท้ายนี้สรุปสิ่งที่ท่านผู้ฟังควรจำจากทั้งงานประชุม สิ่งที่พยาบาลต้องเตรียมตัว ความเสี่ยงที่ต้องจับตา และคำเชิญชวนให้เลือกอนาคตที่เราอยากเห็น</p>
+</div>
+
+<div class="pullquote">
+  <span class="lbl">ข้อความที่ท่านผู้ฟังจะจำได้ใน 30 วินาที</span>
+  <i>เอไอและดิจิทัลจะเปลี่ยน "ส่วนผสมของงาน" ของพยาบาล ไม่ใช่ "ทดแทนคน" — แต่ผลลัพธ์จะออกมาเป็น "สมาร์ต สมดุล" หรือ "เร่งรีบเสี่ยง" ขึ้นอยู่กับว่า พวกเราเลือกลงทุนในกำลังคนควบคู่ไปกับเทคโนโลยีหรือไม่</i>
+</div>
+
+<h3>เลนส์ที่ใช้ในการสังเคราะห์</h3>
+<p>เอกสารฉบับนี้ใช้เลนส์ 4 ตัวจากงานวิจัยชุด Future of Nursing เพื่อให้ท่านผู้ฟังที่ติดตามงานวิจัยมาตลอด สามารถตรวจสอบที่มาของข้อสรุปได้</p>
+<ul>
+  <li><b>STEEP</b> · โครงหลัก 5 มิติ (Social · Technological · Economic · Environmental · Political) จาก <a href="nursing-future-th-final.html">nursing-future-th-final.md §3</a></li>
+  <li><b>Three Horizons</b> · กรอบดูการเปลี่ยนผ่านของระบบ (H1 ถดถอย → H2 จุดตัด → H3 เกิดใหม่) จาก Sharpe (2013)</li>
+  <li><b>Scenario 2×2</b> · แกน "การลงทุนในเทคโนโลยี" × "การลงทุนในกำลังคน" จาก <a href="nursing-future-th-final.html">nursing-future-th-final.md §7</a></li>
+  <li><b>Backcasting</b> · เริ่มจากวิสัยทัศน์ 2036 แล้วย้อนกลับมาเป็น "วันนี้ต้องทำอะไร" จาก <a href="action-roadmap-th.html">action-roadmap-th.md §2</a></li>
+</ul>
+<p class="footnote"><b>สัญลักษณ์ความเชื่อมั่น</b> · <span class="tag verified">[Verified]</span> ข้อเท็จจริงจากรายงานทางการ · <span class="tag likely">[Likely]</span> แนวโน้มที่มีหลักฐานหนุนหลายชิ้น · <span class="tag spec">[Speculative]</span> การคาดการณ์เชิงวิสัยทัศน์ — เอกสารฉบับนี้ใช้สัญลักษณ์เดียวกับงานวิจัยชุด Future of Nursing ทั้งหมด</p>
+
+<h3>เลนส์ × ส่วนของเอกสาร</h3>
+<p>ตารางนี้ช่วยให้ท่านผู้ฟังที่ต้องการตรวจสอบย้อนกลับ เห็นได้ทันทีว่าแต่ละส่วนใช้เลนส์อะไรในการสังเคราะห์ และเอกสารต้นทางหลักที่ควรเปิดคู่กัน</p>
+<table>
+<thead><tr><th>ส่วน</th><th>เลนส์หลัก</th><th>เอกสารต้นทางหลักที่ควรเปิดคู่กัน</th></tr></thead>
+<tbody>
+<tr><td>1. เปิด</td><td>Scenario narrative · Inverted Pyramid</td><td><a href="ride-2-curve-th.html">ride-2-curve-th.md §5</a></td></tr>
+<tr><td>2. ใจความหลัก 3–5 ข้อ</td><td>STEEP · Cross-impact synthesis</td><td><a href="nursing-future-th-final.html">nursing-future-th-final.md §3, §9, §11</a></td></tr>
+<tr><td>3. สิ่งที่พยาบาลต้องเตรียมตัว</td><td>Backcasting · Stakeholder lens</td><td><a href="action-roadmap-th.html">action-roadmap-th.md §4</a> · infographic กลยุทธ์ 5 ข้อ</td></tr>
+<tr><td>4. ความเสี่ยงที่ต้องจับตา</td><td>Precautionary principle · Evidence hierarchy</td><td><a href="cyber-attack-hospital-nursing-th.html">cyber-attack-hospital-nursing-th.md</a> · <a href="wef-ai-health-2025-th.html">wef-ai-health-2025-th.md §3.4</a></td></tr>
+<tr><td>5. คำเชิญชวน</td><td>Backcasting · Leverage points</td><td><a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 1–5</a></td></tr>
+<tr><td>6. ปิด</td><td>Synthesis · Values framing</td><td><a href="nursing-future-th-final.html">nursing-future-th-final.md §12</a></td></tr>
+</tbody>
+</table>
+<p class="footnote">ท่านผู้ฟังที่ต้องการ "ตรวจสอบเร็ว" สามารถเปิดเฉพาะต้นทางในคอลัมน์ขวา จะได้ภาพเต็มของแต่ละส่วน ภายในเวลาไม่ถึง 30 นาที</p>
+
+<hr>
+
+<h2>1. เปิด</h2>
+<p>ลองนึกภาพห้องฉุกเฉินของโรงพยาบาลตติยภูมิแห่งหนึ่งในอีก 10 ปีข้างหน้า พี่ฝน พยาบาลอายุ 38 ปี เปิด tablet ขึ้นมา AI co-pilot แสดงคะแนน MEWS ของผู้ป่วยสูงอายุที่เจ็บหน้าอก พร้อมข้อแนะนำ "พิจารณา ECG ภายใน 10 นาที" เธอใช้เวลาตรวจ 3 นาที อธิบายให้ญาติเข้าใจ 5 นาที แล้วบันทึก SOAP note เสร็จใน 1 นาที เวลา 20 นาทีที่เคยหายไปกับเอกสาร เธอได้คืนกลับมานั่งลงข้างเตียง จับมือผู้ป่วย และถามด้วยน้ำเสียงที่อ่อนโยนว่า "ยาที่ต้องกินต่อที่บ้าน เข้าใจดีไหมคะ" (<a href="ride-2-curve-th.html">ride-2-curve-th.md §5</a>)</p>
+<p>นี่คือภาพของฉาก "สมาร์ต สมดุล" ที่เอกสารชุดนี้วาดไว้ ภาพนี้ไม่ใช่นิยายวิทยาศาสตร์ แต่เป็นทิศทางที่สังเคราะห์จากสัญญาณ 22 ตัวขับเคลื่อนในกรอบ STEEP และฉากทัศน์ 2×2 ในงานวิจัยชุด Future of Nursing คำถามไม่ใช่ว่า "ภาพนี้จะเกิดขึ้นไหม" แต่คือ "พวกเราจะเลือกเดินไปทางนี้หรือไม่" (<a href="action-roadmap-th.html">action-roadmap-th.md §2</a>)</p>
+
+<hr>
+
+<h2>2. ใจความหลัก 3–5 ข้อ</h2>
+<p>ถ้าท่านผู้ฟังจะจำอะไรจากงานประชุมนี้เพียงไม่กี่ข้อ ขอให้จำข้อความเหล่านี้</p>
+
+<div class="takeaways">
+  <div>
+    <h3>2.1 ภาระงานจะหนักขึ้นก่อนที่เครื่องมือจะช่วย</h3>
+    <p>สังคมไทยก้าวเข้าสู่สังคมสูงอายุอย่างสมบูรณ์ ในขณะที่ขนาดครอบครัวเล็กลง ลูกหลานอยู่ห่างกัน ภาระการดูแลผู้สูงอายุและผู้ป่วยโรคเรื้อรังตกมาที่ระบบสาธารณสุขมากขึ้น ในขณะเดียวกัน อัตรากำลังคนพยาบาลต่อประชากรยังคงตึงตัว (<a href="nursing-future-th-final.html">nursing-future-th-final.md §3 S-D1, S-D4</a> · <a href="steep-technology-2026-2036.html">steep-technology-2026-2036.md</a>) ตัวเลขจาก WHO ระบุว่า ทั่วโลกจะขาดแคลนพยาบาลอีกประมาณ 4.5 ล้านคนในปี ค.ศ. 2030 โดยเฉพาะในเอเชียตะวันออกเฉียงใต้ (<a href="nursing-future-th-final.html">nursing-future-th-final.md §2.1</a>) แม้เอไอจะช่วยลดเวลาทำเอกสารได้ 30–50% ในอีกไม่กี่ปีข้างหน้า แต่ "ส่วนผสมของงาน" จะเปลี่ยน ไม่ใช่ "ปริมาณงานจะหายไป" (<a href="nursing-future-th-final.html">nursing-future-th-final.md §4.2</a>) พยาบาลจะใช้เวลากับงานที่ต้องใช้คนมากขึ้น เช่น การประเมินผู้ป่วยซ้ำ การสื่อสารกับญาติ และการสอนสุขภาพ แต่ปริมาณงานโดยรวมจะไม่ลดลงอย่างมีนัยสำคัญในช่วง 3–5 ปีแรกของการเปลี่ยนผ่าน</p>
+  </div>
+  <div>
+    <h3>2.2 เอไอและดิจิทัลจะเปลี่ยน "ส่วนผสมของงาน" ไม่ใช่ "ทดแทนคน"</h3>
+    <p>เครื่องมือดิจิทัลที่เข้ามาในงานพยาบาล ได้แก่ AI Clinical Decision Support, ambient scribe ที่ช่วยจดบันทึกอัตโนมัติ, telehealth และ Remote Patient Monitoring, เวชระเบียนดิจิทัลที่เชื่อมต่อด้วยมาตรฐาน FHIR และหุ่นยนต์ช่วยงานบางส่วน เครื่องมือเหล่านี้ถูกยืนยันระดับโลกแล้วว่าเป็น use case ที่ validated ไม่ใช่ hype (<a href="wef-ai-health-2025-th.html">wef-ai-health-2025-th.md §3.2</a>) สิ่งที่เครื่องมือเหล่านี้ทำได้ดีคือ งานเอกสาร การคัดกรองเบื้องต้น และการเฝ้าระวังสัญญาณชีพ สิ่งที่เครื่องมือเหล่านี้ทำไม่ได้คือ การตัดสินใจทางคลินิกที่ต้องอาศัยบริบทของผู้ป่วย สัมพันธภาพกับครอบครัว และการสื่อสารเชิงลึก (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a>)</p>
+  </div>
+  <div>
+    <h3>2.3 บทบาทวิชาชีพจะขยายจาก "ผู้ให้การรักษา" ไปสู่ "ผู้ประสานการดูแล"</h3>
+    <p>ในอีก 10 ปีข้างหน้า พยาบาลจะมีบทบาทหลายมิติมากขึ้น ผู้ประสานการดูแลระหว่างแพทย์ ผู้ป่วย ครอบครัว และเอไอ ผู้สอนสุขภาพที่สร้างอิทธิพลต่อพฤติกรรมสุขภาพของประชาชนผ่านช่องทางออนไลน์ ผู้ดูแลผู้สูงอายุระยะยาวที่บ้านผ่าน tele-nursing และ Remote Patient Monitoring และพยาบาลเวชปฏิบัติ (APN) ที่ดูแลโรคเรื้อรังและ primary care ได้กว้างขึ้น (<a href="nursing-future-th-final.html">nursing-future-th-final.md §9</a> · <a href="action-roadmap-th.html">action-roadmap-th.md §3.1 Pillar 3</a> · <a href="nursing-future-tech-2027-2035-th.html">nursing-future-tech-2027-2035-th.md</a>) ในงานวิจัยชุดนี้ พยาบาลชุมชนจะกลายเป็น "navigator" ที่เชื่อมบ้าน-คลินิก-โรงพยาบาล ผ่าน tele-nursing ที่ สปสช. เบิกได้ทุก service plan (<a href="action-roadmap-th.html">action-roadmap-th.md §3 Vision 2036</a>) และเมื่อบทบาทขยาย ความคาดหวังของสังคมต่อพยาบาลก็จะสูงขึ้น ไม่ใช่แค่ "คนทำงานดี" แต่เป็น "ผู้นำทางความรู้" ที่ประชาชนไว้วางใจในการตัดสินใจด้านสุขภาพ</p>
+  </div>
+  <div>
+    <h3>2.4 ปัจจัยตัดสินว่าจะเป็น "สมาร์ต สมดุล" หรือ "เร่งรีบเสี่ยง" อยู่ที่การลงทุนในกำลังคน</h3>
+    <p>เทคโนโลยีจะเข้ามาเร็วอยู่แล้ว ไม่ว่าจะพร้อมหรือไม่ คำถามจึงไม่ใช่ "จะใช้เอไอเมื่อไหร่" แต่คือ "จะลงทุนในกำลังคนควบคู่ไปด้วยหรือไม่" ฉาก "สมาร์ต สมดุล" ต้องอาศัยการลงทุนในค่าตอบแทนที่สะท้อนทักษะใหม่ การขยายขอบเขต APRN การฝึก AI literacy ในทุกหลักสูตร และการเปิด regulatory sandbox ที่ปลอดภัย หากขาดการลงทุนเหล่านี้ ระบบจะถูกดูดเข้าสู่ฉาก "เร่งรีบเสี่ยง" ที่เทคโนโลยีมาก่อนคน จนเกิด alert fatigue, burnout และข้อผิดพลาดทางคลินิก (<a href="ride-2-curve-th.html">ride-2-curve-th.md §5</a> · <a href="action-roadmap-th.html">action-roadmap-th.md §4</a>)</p>
+  </div>
+  <div>
+    <h3>2.5 ความไว้วางใจของสังคมเป็นทุนสำคัญที่สุดของวิชาชีพ และเป็นสิ่งที่ต้องรักษาด้วยการกำกับดูแลที่เข้มแข็ง</h3>
+    <p>ICN ระบุว่าพยาบาลติดอันดับต้นของอาชีพที่สังคมไว้วางใจมากที่สุดหลายปีติด (<a href="nursing-future-th-final.html">nursing-future-th-final.md §4.5.1 S-D5</a>) ทุนทางสังคมนี้ไม่ใช่สิ่งที่มีอยู่ตลอดไป หากเอไอในคลินิกเกิดข้อผิดพลาดโดยไม่มีระบบเฝ้าระวัง ไม่มี post-market surveillance และไม่มี "human in the loop" ที่ชัดเจน ความไว้วางใจนี้จะถูกกัดกร่อนอย่างรวดเร็ว (<a href="wef-ai-health-2025-th.html">wef-ai-health-2025-th.md §3.5</a>)</p>
+  </div>
+</div>
+
+<hr>
+
+<h2>3. สิ่งที่พยาบาลต้องเตรียมตัว</h2>
+<p>พวกเราไม่ได้เตรียมตัวเพื่อ "ตามให้ทันเทคโนโลยี" แต่เตรียมตัวเพื่อ <b>เป็นผู้นำการใช้เทคโนโลยีอย่างปลอดภัยและมีจริยธรรม</b> งานวิจัยชุดนี้เสนอ 5 ทักษะที่ต้องเสริมในระดับบุคคล</p>
+
+<h3>3.1 ทักษะดิจิทัลและ AI literacy</h3>
+<p>เริ่มจากการเลือกหลักสูตร CNEU ที่เกี่ยวกับเอไอ telehealth และการจัดการข้อมูล อย่างน้อย 10–20 หน่วยคะแนนต่อปี (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a> · <a href="action-roadmap-th.html">action-roadmap-th.md §6 Phase 1 Action 3</a>) ไม่จำเป็นต้องเขียนโปรแกรม แต่ต้องอ่านผลจากเอไออย่างมีวิจารณญาณ ตั้งคำถามกับข้อมูลนำเข้า และเข้าใจข้อจำกัดของโมเดล</p>
+
+<h3>3.2 การคิดร่วมกับเอไอ (AI co-pilot mindset)</h3>
+<p>ฝึก "คิดร่วมกับเอไอ" ไม่ใช่ "เชื่อเอไอ" เมื่อเอไอแนะนำผลลัพธ์ ต้องตั้งคำถามว่า ข้อมูลนำเข้ามาจากไหน มีอคติแอบแฝงหรือไม่ และสอดคล้องกับบริบทของผู้ป่วยหรือเปล่า ใช้วิจารณญาณทางคลินิกเป็นที่สุด (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a> · <a href="nursing-future-infographic-th.html">infographic กลยุทธ์ข้อ 2</a>)</p>
+
+<h3>3.3 ทักษะการสื่อสารและการสอน</h3>
+<p>เมื่อเอไอและดิจิทัลทำงานประจำแทน พยาบาลจะมีเวลามากขึ้นสำหรับสิ่งที่เอไอทำไม่ได้ การอธิบายให้ผู้ป่วยเข้าใจ การให้กำลังใจ การสอนญาติในการดูแลต่อที่บ้าน การประคับประคองจิตใจในช่วงวิกฤต ทักษะเหล่านี้เป็นส่วนที่ "AI ทำแทนไม่ได้" และเป็นหัวใจของวิชาชีพ (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a> · <a href="nursing-future-infographic-th.html">infographic กลยุทธ์ข้อ 3</a>)</p>
+
+<h3>3.4 การมีส่วนร่วมในการออกแบบเครื่องมือ ไม่ใช่แค่ใช้</h3>
+<p>เสนอความเห็นต่อทีมไอทีของโรงพยาบาล เข้าร่วมคณะกรรมการจริยธรรมหรือคณะกรรมการเทคโนโลยี เพื่อให้เสียงของคนหน้างานถูกรับฟัง เครื่องมือที่ออกแบบโดยไม่มีพยาบาลร่วมออกแบบ มักใช้งานไม่ได้จริงหน้างาน (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a> · <a href="nursing-future-infographic-th.html">infographic กลยุทธ์ข้อ 4</a>)</p>
+
+<h3>3.5 การดูแลตนเองและเพื่อนร่วมงาน</h3>
+<p>เทคโนโลยีอาจลดงานบางอย่าง แต่ความเสี่ยงจากการทำงานหนักต่อเนื่องยังมีอยู่ การพักผ่อน การออกกำลังกาย การพูดคุยกับเพื่อนร่วมงาน ยังคงเป็นหัวใจของการดูแลตนเอง พยาบาลที่ดูแลตนเองได้ดี จะดูแลผู้ป่วยได้ดี (<a href="nursing-future-th-final.html">nursing-future-th-final.md §11</a> · <a href="nursing-future-infographic-th.html">infographic กลยุทธ์ข้อ 5</a>)</p>
+
+<hr>
+
+<h2>4. ความเสี่ยงที่ต้องจับตา</h2>
+<p>เส้นทางสู่อนาคตไม่ได้โรยด้วยกลีบกุหลาบ มีความเสี่ยง 4 ประการที่พยาบาลและผู้นำวิชาชีพต้องจับตาอย่างใกล้ชิด</p>
+
+<div class="risks">
+  <div>
+    <h3>4.1 ความเสี่ยงจากไซเบอร์และการรั่วไหลของข้อมูลผู้ป่วย</h3>
+    <p>ภาคสุขภาพเป็นเป้าโจมตีทางไซเบอร์อันดับต้นของโลก ENISA ระบุว่า healthcare เป็น sector ที่ถูกโจมตีสูงสุดเป็นอันดับสามในยุโรป (<a href="cyber-attack-hospital-nursing-th.html">cyber-attack-hospital-nursing-th.md §3.1</a>) ในสหรัฐฯ กรณี Change Healthcare/UnitedHealth (ก.พ. 2567) ส่งผลกระทบต่อการเบิกจ่ายและการเข้าถึงยาของผู้ป่วยหลายร้อยล้านราย และกลายเป็นเหตุ data breach ทางการแพทย์ที่ใหญ่ที่สุดในประวัติศาสตร์สหรัฐฯ เมื่อ ransomware เข้ารหัส EHR สิ่งที่หยุดทันทีไม่ใช่ระบบไอที แต่คือกระบวนการดูแลผู้ป่วย พยาบาลต้องกลับไปเขียน MAR ด้วยกระดาษ คำนวณยา drip rate ด้วยมือ ตรวจ vital signs ด้วยอุปกรณ์ stand-alone เมื่อ central monitor ดับ รายงาน ENISA และ AHA ระบุตรงกันว่า phishing ของบุคลากรทางคลินิกเป็น initial access vector อันดับหนึ่งของเหตุการณ์จริง คิดเป็นร้อยละ 65 ของ healthcare incidents ในยุโรป การฝึกอบรมพยาบาลให้ตระหนักเรื่อง phishing, social engineering และ PDPA จึงเป็น core competency ไม่ใช่ความรู้เสริม ในอีก 5 ปีข้างหน้า ภัยคุกคามจะขยับจาก "ransomware ทั่วไป" ไปสู่ "AI-assisted attack" และ "deepfake voice fraud ต่อบุคลากรทางคลินิก" ซึ่งต้องเตรียมรับตั้งแต่วันนี้</p>
+  </div>
+  <div>
+    <h3>4.2 ความเสี่ยงจากเอไอที่ไม่ calibrate และไม่มี post-market surveillance</h3>
+    <p>เอไอทางคลินิกมีลักษณะที่แตกต่างจากยาหรือเครื่องมือแพทย์ทั่วไป คือ "evolve post-deployment" โมเดลเปลี่ยนพฤติกรรมหลัง deploy แม้ผ่านการอนุมัติแล้ว (<a href="wef-ai-health-2025-th.html">wef-ai-health-2025-th.md §3.4</a>) หากไม่มีระบบเฝ้าระวังตลอดอายุใช้งาน จะเกิด alert fatigue ในหอผู้ป่วย ข้อแนะนำที่ไม่เข้ากับบริบทไทย และความรับผิดชอบทางกฎหมายที่ไม่ชัดเจน สภาการพยาบาลต้องออกแบบระบบ life-cycle monitoring ร่วมกับ อย. และ ETDA ไม่ใช่อนุมัติครั้งเดียวจบ</p>
+  </div>
+  <div>
+    <h3>4.3 ความเสี่ยงจากสมองไหลและแรงงานไม่เพียงพอ</h3>
+    <p>อัตราการลาออกของพยาบาลรุ่นใหม่ในช่วง 3–5 ปีแรกของการทำงานยังคงเป็นความท้าทาย ภาครัฐและเอกชนแย่งตัว ส่งผลต่อการคงอยู่ในอาชีพและโครงสร้างค่าตอบแทน หากค่าตอบแทนไม่ขยับตามทักษะใหม่ แรงจูงใจในการอยู่ในอาชีพจะลดลง และ feedback loop "สมองไหล × ค่าตอบแทนต่ำ" จะดูดคนออกจากระบบจนฉาก "เร่งรีบเสี่ยง" กลายเป็นจริงแม้เทคโนโลยีจะก้าวไป (<a href="action-roadmap-th.html">action-roadmap-th.md §4</a>)</p>
+  </div>
+  <div>
+    <h3>4.4 ความเสี่ยงจากการเปลี่ยนแปลงสภาพภูมิอากาศ</h3>
+    <p>คลื่นความร้อน โรคที่นำโดยยุง และภัยพิบัติทางธรรมชาติที่ถี่ขึ้น ทำให้พยาบาลต้องเตรียมพร้อมรับมือกับสถานการณ์ฉุกเฉินมากขึ้น โดยเฉพาะผู้สูงอายุที่อ่อนไหวต่อความร้อนและมลพิษทางอากาศ และในระยะยาว climate-displaced population จะเพิ่มภาระบริการข้ามพรมแดน (<a href="nursing-future-th-final.html">nursing-future-th-final.md §3 E · En-D1</a> · <a href="nursing-future-th-final.html">§4.5.4 En-D3</a>)</p>
+  </div>
+</div>
+
+<hr>
+
+<h2>5. คำเชิญชวน</h2>
+<p>พวกเราไม่ได้เป็นเพียงผู้รับการเปลี่ยนแปลง เราเป็น <b>ผู้เลือกอนาคต</b> งานวิจัยชุด Future of Nursing ชี้ชัดว่า ฉาก "สมาร์ต สมดุล" ไม่ได้เกิดเอง แต่เป็นผลของการลงทุน 5 ด้านที่ต้องเริ่มพร้อมกัน หากด้านใดด้านหนึ่งล่าช้า ระบบจะถูกดูดเข้าสู่ฉากที่ไม่พึงประสงค์ แม้ด้านอื่น ๆ จะเดินหน้าดี</p>
+
+<ol class="actions">
+  <li>
+    <b>เปิด regulatory sandbox สำหรับเอไอในงานพยาบาล</b><br>
+    สภาการพยาบาลร่วมกับ อย. และ ETDA เปิดพื้นที่ทดลอง 18 เดือน ให้โรงพยาบาล 5–10 แห่งทดลองใช้ AI Clinical Decision Support และ ambient scribe พร้อมเก็บข้อมูล alert fatigue และ efficacy ตั้งแต่วันแรก เพื่อสร้าง post-market evidence ที่เป็นฐานของการ scale
+    <span class="src">แหล่ง: <a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 1</a> · <a href="wef-ai-health-2025-th.html">wef-ai-health-2025-th.md §3.6</a></span>
+  </li>
+  <li>
+    <b>ขยายขอบเขต APRN และ tele-nursing</b><br>
+    สภาการพยาบาลออกกฎรองรับ APRN scope of practice ในโรคเรื้อรังและ primary care พร้อม tele-prescription สปสช. เบิกจ่าย tele-nursing ให้ครอบคลุมทุก service plan เพื่อเปลี่ยน "ตัวเลือกเสริม" ให้เป็น "โครงสร้างหลัก" ของระบบสุขภาพ
+    <span class="src">แหล่ง: <a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 2</a></span>
+  </li>
+  <li>
+    <b>บังคับ AI literacy + climate-health + data ethics เป็นวิชาหลัก</b><br>
+    สถาบันการศึกษาพยาบาลทุกแห่งเพิ่ม 3 วิชาในหลักสูตร AI critical reading, climate-health และ data ethics &amp; PDPA ภายในปีการศึกษา 2570 เพื่อให้นักศึกษารุ่นถัดไปจบมาพร้อมรับมือกับงานที่เอไอและดิจิทัลเปลี่ยนไป
+    <span class="src">แหล่ง: <a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 3</a></span>
+  </li>
+  <li>
+    <b>ปรับโครงสร้างค่าตอบแทนให้สะท้อนทักษะใหม่</b><br>
+    เปลี่ยน pay grade จาก "ปีทำงาน + วุฒิ" เป็น "สายอาชีพ + skill credential" พร้อม wage floor สำหรับพยาบาลที่ reskill สำเร็จ เพื่อตัดวงจร "สมองไหล × ค่าตอบแทนต่ำ" ที่เป็น feedback loop อันตรายที่สุดของระบบ
+    <span class="src">แหล่ง: <a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 4</a></span>
+  </li>
+  <li>
+    <b>เสริมสร้าง heat-action plan และ climate-resilient workforce</b><br>
+    ทุกโรงพยาบาลระบุห้องเย็นสำหรับผู้สูงอายุที่อ่อนไหวต่อความร้อน เพิ่มการฝึกอบรมการดูแลข้ามพรมแดนสำหรับพยาบาลชายแดน และตั้งเป้า net-zero hospital ภายในปี 2583
+    <span class="src">แหล่ง: <a href="action-roadmap-th.html">action-roadmap-th.md §4 Action 5</a></span>
+  </li>
+</ol>
+
+<p>คำเชิญชวนนี้ไม่ใช่คำขอ แต่เป็นคำถามว่า "พวกเราจะเลือกอนาคตแบบไหน" หากเลือก "สมาร์ต สมดุล" ทั้ง 5 ข้อต้องเริ่มพร้อมกัน หากปล่อยให้เวลาผ่านไปโดยไม่ลงทุน ระบบจะถูกดูดเข้าสู่ฉาก "เร่งรีบเสี่ยง" หรือ "ภาวะชะงักงัน" โดยธรรมชาติ ไม่ใช่เพราะเราเลือก แต่เพราะเราไม่เลือก</p>
+
+<p>หลังจบงานประชุมนี้ ท่านผู้ฟังสามารถนำ 5 ข้อเชิญชวนนี้ไปพูดคุยกับทีมของท่าน เลือก 1 ข้อที่ท่านมีอำนาจตัดสินใจ และเริ่มลงมือภายใน 90 วัน พยาบาลที่ลงมือเล็ก ๆ จำนวนมาก จะสร้างแรงเหวี่ยงที่มากกว่าแผนที่สวยหรูแต่ไม่เคยเริ่ม (<a href="action-roadmap-th.html">action-roadmap-th.md §2</a>)</p>
+
+<hr>
+
+<h2>6. ปิด</h2>
+<p>ท่านผู้ฟังครับ/ค่ะ งานประชุมวิชาการนี้ได้พาพวกเราเดินทางผ่านภาพอนาคตของวิชาชีพพยาบาลในหลายมิติ ตั้งแต่บริบทของสังคมสูงอายุ เทคโนโลยีเอไอและ IoMT ภัยไซเบอร์ ฉากทัศน์ 2×2 ไปจนถึงแผนปฏิบัติการ 4 phases ที่ผูกกับ leverage cell ใน Cross-Impact Matrix ภาพเหล่านี้ไม่ได้เป็นแค่ข้อมูล แต่เป็นกระจกที่สะท้อนทางเลือกของเรา</p>
+
+<p>ขอทิ้งข้อความสุดท้ายไว้กับท่าน อนาคตของวิชาชีพพยาบาลไม่ได้ขึ้นอยู่กับว่าเอไอจะฉลาดแค่ไหน แต่ขึ้นอยู่กับว่าพวกเราจะเลือกใช้เครื่องมือเหล่านั้นอย่างไร เพื่อให้พยาบาลได้กลับไปทำในสิ่งที่ตนเก่งที่สุด คือ การดูแลคนอย่างมีหัวใจ พร้อมกับรักษาความปลอดภัยของผู้ป่วยเป็นอันดับแรก ในช่วง 5–10 ปีข้างหน้า พยาบาลที่ลงทุนเรียนรู้อย่างต่อเนื่อง รู้จักตั้งคำถาม ไม่ลืมที่จะดูแลตนเอง และไม่ลืมที่จะดูแลกันและกัน จะเป็นกำลังสำคัญที่ทำให้ระบบสุขภาพไทยยืนหยัดได้อย่างมั่นคง (<a href="nursing-future-th-final.html">nursing-future-th-final.md §12</a> · <a href="action-roadmap-th.html">action-roadmap-th.md §3</a>)</p>
+
+<blockquote>"อนาคตไม่ได้เกิดจากการรอ เราเร่งมันด้วยการเลือกทิศ แล้วลงทุนในสิ่งที่ทำให้ทิศนั้นเป็นจริง" (<a href="action-roadmap-th.html">action-roadmap-th.md §3</a>)</blockquote>
+
+<p>ขอบพระคุณทุกท่านที่ร่วมเดินทางในงานประชุมวิชาการนี้</p>
+
+<hr>
+
+<h2>วิธีใช้เอกสารฉบับนี้</h2>
+<p>เอกสารฉบับนี้ออกแบบให้อ่านได้ 3 ระดับ ตามเวลาที่ท่านผู้ฟังมี</p>
+<ul>
+  <li><b>อ่าน 60 วินาที</b> · บทสรุปผู้บริหาร + ข้อความที่จะจำได้ใน 30 วินาที ให้ภาพรวมที่จำได้ทันที</li>
+  <li><b>อ่าน 5 นาที</b> · 6 ส่วนหลัก (เปิด · ใจความหลัก · สิ่งที่ต้องเตรียม · ความเสี่ยง · คำเชิญชวน · ปิด) ให้โครงสร้างครบที่จะนำไปอ้างอิงในที่ประชุม</li>
+  <li><b>อ่าน 15 นาที</b> · พร้อมเอกสารต้นทาง (โดยเฉพาะ <a href="action-roadmap-th.html">action-roadmap-th.md</a> และ <a href="nursing-future-th-final.html">nursing-future-th-final.md</a>) จะได้ภาพเชื่อมโยงระหว่าง closing summary กับ 7 actions และ 22 STEEP drivers อย่างครบถ้วน</li>
+</ul>
+<p class="footnote">เอกสารนี้เขียนในฐานะ "ตอนจบการบรรยาย" ไม่ใช่รายงานวิจัยใหม่ ทุกข้อความสามารถย้อนกลับไปดูแหล่งต้นทางได้จาก inline citation รูปแบบ <code>(ชื่อไฟล์ §หัวข้อ)</code> ที่กำกับไว้ทุกข้อความหลัก หากท่านผู้ฟังต้องการตรวจสอบหรือขยายความ ให้คลิกที่ citation เพื่อเปิดไฟล์ต้นทางในโฟลเดอร์เดียวกัน</p>
+
+<hr>
+
+<section class="refs">
+<h2>แหล่งอ้างอิงหลัก</h2>
+<p class="footnote">เอกสารฉบับนี้สังเคราะห์จากงานวิจัยเชิงวิสัยทัศน์ในโครงการ Future of Nursing เป็นหลัก โดยใช้แหล่งอ้างอิงภายนอกจากชุดต้นทาง ดังนี้</p>
+<ol>
+  <li>ENISA. (2024). <i>ENISA threat landscape: Health sector</i>. European Union Agency for Cybersecurity. (Tier 1)</li>
+  <li>HL7 International. (2023). <i>FHIR R5: Release 5</i>. (Tier 1)</li>
+  <li>World Economic Forum. (2025, January). <i>The future of AI-enabled health: Leading the way</i>. WEF &amp; BCG.</li>
+  <li>World Economic Forum. (2025, June). <i>Earning trust for AI in health: A collaborative path forward</i>. WEF &amp; BCG.</li>
+  <li>World Health Organization. (2025). <i>State of the world's nursing 2025</i>. WHO.</li>
+  <li>สภาการพยาบาล. (2569). <i>เว็บไซต์สภาการพยาบาล: ข้อมูลองค์กร บริการสมาชิก และการรับรองหลักสูตร</i>. <a href="https://www.tnmc.or.th/">https://www.tnmc.or.th/</a></li>
+  <li>สำนักงานหลักประกันสุขภาพแห่งชาติ (สปสช.). (2567). <i>แนวทางการเบิกจ่ายค่าบริการสาธารณสุขกรณีการแพทย์ทางไกล (Telehealth)</i>.</li>
+</ol>
+</section>
+
+<section>
+<h2>เอกสารต้นทางในโครงการ</h2>
+<ul class="refs">
+  <li><a href="nursing-future-th-final.html"><code>nursing-future-th-final.md</code></a> (RES-10) — ฉบับรวม STEEP เชิงลึก กรอบหลักของการบรรยาย</li>
+  <li><a href="nursing-future-th.html"><code>nursing-future-th.md</code></a> (RES-9) — ฉบับตั้งต้น</li>
+  <li><a href="steep-technology-2026-2036.html"><code>steep-technology-2026-2036.md</code></a> (RES-11) — STEEP ฉบับลึกด้านเทคโนโลยี</li>
+  <li><a href="ride-2-curve-th.html"><code>ride-2-curve-th.md</code></a> (RES-15) — กรอบ Ride 2 Curve และฉาก "สมาร์ต สมดุล" vs "เร่งรีบเสี่ยง"</li>
+  <li><a href="wef-ai-health-2025-th.html"><code>wef-ai-health-2025-th.md</code></a> (RES-17) — Addendum WEF 2025 เรื่อง AI ในสุขภาพ</li>
+  <li><a href="nursing-future-cross-impact-th.html"><code>nursing-future-cross-impact-th.md</code></a> (RES-33) — Cross-Impact Matrix 22×22</li>
+  <li><a href="action-roadmap-th.html"><code>action-roadmap-th.md</code></a> (RES-34) — Action Roadmap &amp; Catalyze-The-Future 2026–2036</li>
+  <li><a href="action-roadmap-hospital-cno-th.html"><code>action-roadmap-hospital-cno-th.md</code></a> (RES-63) — Action Roadmap ระดับโรงพยาบาล (CNO 12 เดือน)</li>
+  <li><a href="nursing-future-tech-2027-2035-th.html"><code>nursing-future-tech-2027-2035-th.md</code></a> (RES-65) — เทคโนโลยีที่ช่วยการรักษาและการพยาบาล</li>
+  <li><a href="iot-devices-nursing-patient-care-2027-2035-th.html"><code>iot-devices-nursing-patient-care-2027-2035-th.md</code></a> (RES-65) — IoT/Device สำหรับการดูแลผู้ป่วย</li>
+  <li><a href="cyber-attack-hospital-nursing-th.html"><code>cyber-attack-hospital-nursing-th.md</code></a> (RES-78) — Cyber Attack foresight สำหรับโรงพยาบาลและวิชาชีพพยาบาล</li>
+  <li><a href="nursing-future-infographic-th.html"><code>nursing-future-infographic-th.md</code></a> (RES-66) — กลยุทธ์ 5 ข้อสำหรับพยาบาลหน้างาน</li>
+</ul>
+<p class="footnote"><b>หมายเหตุด้านหลักฐาน:</b> ข้อมูลเชิงปริมาณระดับประเทศไทย (จำนวนพยาบาล อัตราการลาออก สัดส่วนผู้สูงอายุที่ใช้ RPM) ควรตรวจสอบจากรายงานประจำปีของสภาการพยาบาล กระทรวงสาธารณสุข และ สวรส. ก่อนนำไปใช้อ้างอิงเชิงนโยบาย เอกสารนี้เป็นการสังเคราะห์เชิงทิศทางจากเอกสารต้นทาง ไม่ใช่ข้อมูลเชิงสถิติแม่นยำ</p>
+</section>
+
+<footer class="foot">
+จัดทำโดย <b>DocumentWriter</b> · เป็นส่วนหนึ่งของโครงการ <b>Conference Presentation Future of Nursing</b> · ส่งมอบครั้งที่ 1 มิถุนายน 2569 · Co-Authored-By: Paperclip &lt;noreply@paperclip.ing&gt;
+</footer>
+
+</div>
+</body>
+</html>
